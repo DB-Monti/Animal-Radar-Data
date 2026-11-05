@@ -2,33 +2,30 @@ name: Update Zwolle Natuurdata
 
 on:
   schedule:
-    # Draait automatisch elke nacht om 03:00 uur UTC (04:00/05:00 NL tijd)
     - cron: '0 3 * * *'
-  # Zorgt dat je het script ook op elk moment handmatig kunt starten met een knop
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     steps:
       - name: Code ophalen
         uses: actions/checkout@v4
 
-      - name: Python klaarzetten
+      - name: Python instellen
         uses: setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Script uitvoeren
+      - name: Script draaien
         run: python fetch_zwolle.py
 
-      - name: Nieuwe data opslaan naar repository
+      - name: Wijzigingen opslaan
         run: |
-          git config --global user.name "AnimalRadar Bot"
-          git config --global user.email "bot@animalradar.nl"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add animals.json
-          git commit -m "Automatische update dieren Zwolle" || exit 0
-          git push
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Automatische update dieren Zwolle" && git push)
