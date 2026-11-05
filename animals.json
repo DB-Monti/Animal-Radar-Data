@@ -1,0 +1,58 @@
+[
+  {
+    "id": 5938176922,
+    "name": "Buizerd",
+    "emoji": "🦅",
+    "size": "birds",
+    "isLarge": false,
+    "lat": 52.282536,
+    "lng": 6.130056,
+    "place": "Regio Zwolle (50km)",
+    "seenAt": "2026-01-02",
+    "rarity": "Algemeen",
+    "badge": "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
+    "desc": "Buizerd geregistreerd binnen 50 km van Zwolle."
+  },
+  {
+    "id": 5938464001,
+    "name": "Buizerd",
+    "emoji": "🦅",
+    "size": "birds",
+    "isLarge": false,
+    "lat": 52.291611,
+    "lng": 6.123392,
+    "place": "Regio Zwolle (50km)",
+    "seenAt": "2026-01-02",
+    "rarity": "Algemeen",
+    "badge": "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
+    "desc": "Buizerd geregistreerd binnen 50 km van Zwolle."
+  },
+  {
+    "id": 5938543765,
+    "name": "Buizerd",
+    "emoji": "🦅",
+    "size": "birds",
+    "isLarge": false,
+    "lat": 52.278282,
+    "lng": 6.110117,
+    "place": "Regio Zwolle (50km)",
+    "seenAt": "2026-01-02",
+    "rarity": "Algemeen",
+    "badge": "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
+    "desc": "Buizerd geregistreerd binnen 50 km van Zwolle."
+  },
+  {
+    "id": 6129937328,
+    "name": "Buizerd",
+    "emoji": "🦅",
+    "size": "birds",
+    "isLarge": false,
+    "lat": 52.330912,
+    "lng": 6.012159,
+    "place": "Regio Zwolle (50km)",
+    "seenAt": "2026-01-21",
+    "rarity": "Algemeen",
+    "badge": "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
+    "desc": "Buizerd geregistreerd binnen 50 km van Zwolle."
+  }
+]
