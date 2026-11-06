@@ -27,6 +27,7 @@ De website laadt alleen de tegels rond de gekozen locatie / het kaartbeeld.
 import json
 import os
 import time
+from concurrent.futures import ThreadPoolExecutor
 import urllib.request
 import urllib.parse
 from datetime import datetime, timedelta, timezone
@@ -55,6 +56,15 @@ ZELDZAAM_MAX = 25
 
 # Maximaal aantal waarnemingen per soort per tegel
 MAX_PER_SOORT = 25
+
+# Tijdsbewaking: na zoveel minuten worden geen nieuwe tegels/foto's meer opgehaald
+# en wordt opgeslagen wat er is (tegels die niet aan de beurt kwamen houden hun
+# vorige bestand). Houd dit ruim onder de timeout-minutes van de workflow.
+MAX_LOOPTIJD_MIN = 100
+FOTO_LOOPTIJD_MIN = 120
+
+# Aantal gelijktijdige verzoeken aan GBIF (soortinformatie en namen)
+GBIF_THREADS = 8
 
 # Diergroepen die meedoen (wetenschappelijke naam -> GBIF-key als terugval)
 DIERGROEPEN = {"Aves": 212, "Mammalia": 359, "Reptilia": 358, "Amphibia": 131}
@@ -220,6 +230,29 @@ def fetch_occurrences(tile, taxon_key, limit):
     params = tile_filters(tile)
     params.update({"taxonKey": taxon_key, "limit": limit})
     return gbif_get("occurrence/search", params).get("results", [])
+
+
+def fetch_occurrences_batch(tile, keys):
+    """Alle waarnemingen van veel (zeldzame) soorten tegelijk, gegroepeerd per soort.
+    Zeldzame soorten hebben per definitie weinig waarnemingen, dus een paar
+    verzoeken met 300 resultaten volstaan in plaats van één verzoek per soort."""
+    per_key = {k: [] for k in keys}
+    keys = list(keys)
+    for i in range(0, len(keys), 100):
+        chunk = keys[i:i + 100]
+        offset = 0
+        while True:
+            params = tile_filters(tile)
+            params.update({"taxonKey": chunk, "limit": 300, "offset": offset})
+            d = gbif_get("occurrence/search", params)
+            for occ in d.get("results", []):
+                k = occ.get("speciesKey")
+                if k in per_key and len(per_key[k]) < MAX_PER_SOORT:
+                    per_key[k].append(occ)
+            offset += 300
+            if d.get("endOfRecords", True) or offset >= 20000:
+                break
+    return per_key
 
 # ---------------------------------------------------------------------------
 # Indeling: emoji, categorie en label
@@ -442,9 +475,22 @@ def process_tile(tile, class_keys, vaste_soorten, stats):
             print(f"  Fout bij {meta['name']}: {e}")
 
     # Automatisch: soorten die in deze tegel weinig gezien worden
-    for key, count in sorted(counts.items(), key=lambda kv: kv[1]):
-        if count > ZELDZAAM_MAX or key in vaste_soorten:
-            continue
+    rare = {k: c for k, c in counts.items() if c <= ZELDZAAM_MAX and k not in vaste_soorten}
+
+    def prefetch(key):  # soortinformatie + Nederlandse naam (gecachet, ook over tegels heen)
+        try:
+            info = species_info(key)
+            sci = info.get("canonicalName") or info.get("scientificName") or ""
+            if not is_excluded(sci) and info.get("rank") in (None, "SPECIES"):
+                dutch_name(key, sci)
+        except Exception as e:
+            print(f"  Fout bij soortinfo {key}: {e}")
+
+    with ThreadPoolExecutor(GBIF_THREADS) as pool:
+        list(pool.map(prefetch, rare))
+
+    rare_meta = {}
+    for key, count in rare.items():
         try:
             info = species_info(key)
             sci = info.get("canonicalName") or info.get("scientificName") or ""
@@ -454,12 +500,20 @@ def process_tile(tile, class_keys, vaste_soorten, stats):
             meta = classify(info)
             meta.update({"name": dutch_name(key, sci), "scientificName": sci, "rarity": rarity})
             remember(key, meta)
-            recs = build_records(fetch_occurrences(tile, key, min(count, MAX_PER_SOORT)), meta, inat_ids_in_gbif)
-            if recs:
-                add(recs)
-                stats[rarity] += 1
+            rare_meta[key] = meta
         except Exception as e:
             print(f"  Fout bij soort {key}: {e}")
+
+    try:
+        occ_per_key = fetch_occurrences_batch(tile, rare_meta.keys())
+    except Exception as e:
+        print(f"  Fout bij ophalen zeldzame soorten: {e}")
+        occ_per_key = {}
+    for key, meta in rare_meta.items():
+        recs = build_records(occ_per_key.get(key, []), meta, inat_ids_in_gbif)
+        if recs:
+            add(recs)
+            stats[meta["rarity"]] += 1
 
     # iNaturalist
     try:
@@ -548,7 +602,7 @@ def find_species_photo(sci):
     return None
 
 
-def update_photos(sci_names):
+def update_photos(sci_names, deadline):
     try:
         with open(PHOTOS_FILE, encoding="utf-8") as f:
             photos = json.load(f)
@@ -557,6 +611,9 @@ def update_photos(sci_names):
     missing = sorted(n for n in sci_names if n and n not in photos)
     print(f"Foto's: {len(photos)} bekend, {len(missing)} nieuwe soorten opzoeken...")
     for sci in missing:
+        if time.time() > deadline:
+            print("  Tijdslimiet voor foto's bereikt; de rest volgt bij de volgende run.")
+            break
         try:
             photos[sci] = find_species_photo(sci)  # None = geen vrije foto gevonden
         except Exception as e:
@@ -599,38 +656,50 @@ def main():
         except Exception as e:
             print(f"Fout bij {sp['name']}: {e}")
 
-    # Tegels verwerken
+    # Tegels verwerken (met tijdsbewaking)
     per_tile = {}
+    deadline = start + MAX_LOOPTIJD_MIN * 60
     for i, tile in enumerate(tiles, 1):
+        if time.time() > deadline:
+            print(f"Tijdslimiet bereikt: tegel {tile['id']} en verder houden hun vorige gegevens.")
+            break
+        t0 = time.time()
         recs = process_tile(tile, class_keys, vaste_soorten, stats)
         per_tile[tile["id"]] = recs
-        print(f"[{i}/{len(tiles)}] tegel {tile['id']}: {len(recs)} waarnemingen")
+        print(f"[{i}/{len(tiles)}] tegel {tile['id']}: {len(recs)} waarnemingen ({time.time() - t0:.0f} s)")
 
     # Handmatige meldingen in de juiste tegel
     for rec in handmatige_meldingen():
         t = tile_for_point(tiles, rec["lat"], rec["lng"])
-        if t:
+        if t and t["id"] in per_tile:
             per_tile[t["id"]].append(rec)
 
     # Wegschrijven
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    update_photos({r["sci"] for recs in per_tile.values() for r in recs})
-
-    for name in os.listdir(OUTPUT_DIR):  # oude tegelbestanden opruimen
-        if name.startswith("tile_") and name.endswith(".json"):
-            os.remove(os.path.join(OUTPUT_DIR, name))
-
     index_tiles, total = [], 0
+    all_sci = set()
     for tile in tiles:
-        recs = per_tile.get(tile["id"], [])
-        if not recs:
-            continue
-        recs.sort(key=lambda x: x["seenAt"], reverse=True)
         fname = f"tile_{tile['id']}.json"
-        with open(os.path.join(OUTPUT_DIR, fname), "w", encoding="utf-8") as f:
-            json.dump(recs, f, ensure_ascii=False, separators=(",", ":"))
+        path = os.path.join(OUTPUT_DIR, fname)
+        if tile["id"] in per_tile:          # deze run verwerkt: (over)schrijven of opruimen
+            recs = per_tile[tile["id"]]
+            if not recs:
+                if os.path.exists(path):
+                    os.remove(path)
+                continue
+            recs.sort(key=lambda x: x["seenAt"], reverse=True)
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(recs, f, ensure_ascii=False, separators=(",", ":"))
+        elif os.path.exists(path):          # niet aan de beurt gekomen: vorige versie houden
+            with open(path, encoding="utf-8") as f:
+                recs = json.load(f)
+        else:
+            continue
+        all_sci.update(r.get("sci") for r in recs)
         index_tiles.append({**tile, "file": fname, "count": len(recs)})
         total += len(recs)
+
+    update_photos({n for n in all_sci if n}, start + FOTO_LOOPTIJD_MIN * 60)
 
     with open(os.path.join(OUTPUT_DIR, "index.json"), "w", encoding="utf-8") as f:
         json.dump({
