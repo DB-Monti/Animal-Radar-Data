@@ -1,69 +1,96 @@
 import json
 import urllib.request
+import urllib.parse
 from datetime import datetime
 
-# Centrum Zwolle met een zoekstraal van circa 50 km
-LAT = 52.5168
-LON = 6.0830
-# 0.45 graad latitude ≈ 50 km, 0.70 graad longitude ≈ 48 km op deze breedtegraad
-LAT_SPAN = 0.45
-LON_SPAN = 0.70
+# Coördinaten box rondom Zwolle (ca. 50 km straal)
+LAT_MIN, LAT_MAX = 52.10, 52.95
+LNG_MIN, LNG_MAX = 5.45, 6.75
 
-ANIMAL_MAP = {
-    "Canis lupus": {"name": "Wolf", "emoji": "🐺", "size": "wolf", "rarity": "Zeer Zeldzaam", "badge": "bg-red-500/20 text-red-300 border-red-500/40"},
-    "Alcedo atthis": {"name": "IJsvogel", "emoji": "🐦", "size": "birds", "rarity": "Vrij Zeldzaam", "badge": "bg-sky-500/20 text-sky-300 border-sky-500/40"},
-    "Buteo buteo": {"name": "Buizerd", "emoji": "🦅", "size": "birds", "rarity": "Algemeen", "badge": "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"},
-    "Haliaeetus albicilla": {"name": "Zeearend", "emoji": "🦅", "size": "birds", "rarity": "Zeldzaam", "badge": "bg-purple-500/20 text-purple-300 border-purple-500/40"},
-    "Falco peregrinus": {"name": "Slechtvalk", "emoji": "🦅", "size": "birds", "rarity": "Vrij Zeldzaam", "badge": "bg-sky-500/20 text-sky-300 border-sky-500/40"},
-    "Tyto alba": {"name": "Kerkuil", "emoji": "🦉", "size": "birds", "rarity": "Vrij Zeldzaam", "badge": "bg-sky-500/20 text-sky-300 border-sky-500/40"},
-    "Bubo bubo": {"name": "Oehoe", "emoji": "🦉", "size": "birds", "rarity": "Zeer Zeldzaam", "badge": "bg-red-500/20 text-red-300 border-red-500/40"},
-    "Capreolus capreolus": {"name": "Ree", "emoji": "🦌", "size": "large", "rarity": "Algemeen", "badge": "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"},
-    "Castor fiber": {"name": "Bever", "emoji": "🦫", "size": "medium", "rarity": "Vrij Zeldzaam", "badge": "bg-sky-500/20 text-sky-300 border-sky-500/40"},
-    "Vulpes vulpes": {"name": "Vos", "emoji": "🦊", "size": "medium", "rarity": "Regelmatig", "badge": "bg-orange-500/20 text-orange-300 border-orange-500/40"},
-    "Meles meles": {"name": "Das", "emoji": "🦡", "size": "medium", "rarity": "Vrij Zeldzaam", "badge": "bg-sky-500/20 text-sky-300 border-sky-500/40"},
-    "Sus scrofa": {"name": "Wild Zwijn", "emoji": "🐗", "size": "large", "rarity": "Regelmatig", "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"},
-    "Cervus elaphus": {"name": "Edelhert", "emoji": "🦌", "size": "large", "rarity": "Regelmatig", "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40"},
-}
+# Configuratie van de Zeldzame Topvogels & Topfauna
+# Hierin zijn Kraanvogels toegevoegd als 'birds' met rarity 'Vrij Zeldzaam', 
+# en de rest van de Top 25 zeldzame waarnemingen.
+SPECIES_CONFIG = [
+    {"key": 2475532, "name": "Kraanvogel", "emoji": "🦩", "size": "birds", "isLarge": True, "rarity": "Vrij Zeldzaam", "badge": "bg-sky-500/20 text-sky-300 border-sky-500/40", "limit": 25},
+    {"key": 2480446, "name": "Zeearend", "emoji": "🦅", "size": "birds", "isLarge": True, "rarity": "Zeer Zeldzaam", "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40", "limit": 25},
+    {"key": 2480506, "name": "Visarend", "emoji": "🦅", "size": "birds", "isLarge": True, "rarity": "Zeer Zeldzaam", "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40", "limit": 25},
+    {"key": 2498237, "name": "Oehoe", "emoji": "🦉", "size": "birds", "isLarge": True, "rarity": "Zeer Zeldzaam", "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40", "limit": 25},
+    {"key": 2481069, "name": "Slechtvalk", "emoji": "🦅", "size": "birds", "isLarge": False, "rarity": "Vrij Zeldzaam", "badge": "bg-sky-500/20 text-sky-300 border-sky-500/40", "limit": 25},
+    {"key": 2481912, "name": "Zwarte Ooievaar", "emoji": "🦩", "size": "birds", "isLarge": True, "rarity": "Zeer Zeldzaam", "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40", "limit": 25},
+    {"key": 2482468, "name": "Raaf", "emoji": "🐦‍⬛", "size": "birds", "isLarge": False, "rarity": "Zeldzaam", "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40", "limit": 25},
+    {"key": 5219173, "name": "Wolf", "emoji": "🐺", "size": "wolf", "isLarge": True, "rarity": "Zeer Zeldzaam", "badge": "bg-red-500/20 text-red-300 border-red-500/40", "limit": 25},
+    {"key": 2440958, "name": "Edelhert", "emoji": "🦌", "size": "large", "isLarge": True, "rarity": "Vrij Zeldzaam", "badge": "bg-amber-500/20 text-amber-300 border-amber-500/40", "limit": 15},
+    {"key": 2441176, "name": "Wild zwijn", "emoji": "🐗", "size": "large", "isLarge": True, "rarity": "Regelmatig", "badge": "bg-emerald-500/20 text-emerald-300 border-emerald-500/40", "limit": 15}
+]
 
-def fetch_data():
-    results = []
-    min_lat = round(LAT - LAT_SPAN, 4)
-    max_lat = round(LAT + LAT_SPAN, 4)
-    min_lon = round(LON - LON_SPAN, 4)
-    max_lon = round(LON + LON_SPAN, 4)
-
-    # 100 meest recente waarnemingen in de 50km box rond Zwolle
-    url = f"https://api.gbif.org/v1/occurrence/search?decimalLatitude={min_lat},{max_lat}&decimalLongitude={min_lon},{max_lon}&limit=100"
+def fetch_species(sp):
+    params = {
+        "taxonKey": sp["key"],
+        "decimalLatitude": f"{LAT_MIN},{LAT_MAX}",
+        "decimalLongitude": f"{LNG_MIN},{LNG_MAX}",
+        "hasCoordinate": "true",
+        "year": "2025,2026",
+        "limit": sp["limit"]
+    }
+    url = "https://api.gbif.org/v1/occurrence/search?" + urllib.parse.urlencode(params)
+    req = urllib.request.Request(url, headers={"User-Agent": "AnimalRadarZwolle/1.1"})
     
-    req = urllib.request.Request(url, headers={'User-Agent': 'AnimalRadarZwolle/1.0'})
+    results = []
     try:
-        with urllib.request.urlopen(req) as resp:
-            data = json.loads(resp.read().decode())
-            for item in data.get("results", []):
-                species = item.get("species")
-                if species in ANIMAL_MAP and "decimalLatitude" in item and "decimalLongitude" in item:
-                    meta = ANIMAL_MAP[species]
-                    event_date = item.get("eventDate", datetime.now().strftime("%Y-%m-%d"))
-                    results.append({
-                        "id": item.get("key"),
-                        "name": meta["name"],
-                        "emoji": meta["emoji"],
-                        "size": meta["size"],
-                        "isLarge": meta["size"] in ["large", "wolf"],
-                        "lat": item["decimalLatitude"],
-                        "lng": item["decimalLongitude"],
-                        "place": item.get("locality") or "Regio Zwolle (50km)",
-                        "seenAt": event_date[:10] if event_date else "Recent",
-                        "rarity": meta["rarity"],
-                        "badge": meta["badge"],
-                        "desc": f"{meta['name']} geregistreerd binnen 50 km van Zwolle."
-                    })
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+            for occ in data.get("results", []):
+                lat = occ.get("decimalLatitude")
+                lng = occ.get("decimalLongitude")
+                if lat is None or lng is None:
+                    continue
+                
+                event_date = occ.get("eventDate", "")[:10]
+                if not event_date:
+                    continue
+
+                locality = occ.get("locality") or occ.get("municipality") or occ.get("stateProvince") or "Regio Zwolle (50km)"
+                remarks = occ.get("occurrenceRemarks") or occ.get("eventRemarks") or occ.get("dynamicProperties") or ""
+                if remarks and remarks.startswith("{"):
+                    remarks = "" 
+
+                results.append({
+                    "id": occ.get("key"),
+                    "name": sp["name"],
+                    "emoji": sp["emoji"],
+                    "size": sp["size"],
+                    "isLarge": sp["isLarge"],
+                    "lat": round(float(lat), 4),
+                    "lng": round(float(lng), 4),
+                    "place": locality,
+                    "seenAt": event_date,
+                    "rarity": sp["rarity"],
+                    "badge": sp["badge"],
+                    "desc": remarks
+                })
     except Exception as e:
-        print(f"Fout bij ophalen: {e}")
+        print(f"Fout bij ophalen {sp['name']}: {e}")
+    return results
+
+def main():
+    all_animals = []
+    seen_coords = set()
+
+    for sp in SPECIES_CONFIG:
+        items = fetch_species(sp)
+        for item in items:
+            sig = f"{item['name']}_{item['lat']}_{item['lng']}_{item['seenAt']}"
+            if sig not in seen_coords:
+                seen_coords.add(sig)
+                all_animals.append(item)
+
+    # Sorteer op datum (nieuwste waarnemingen eerst)
+    all_animals.sort(key=lambda x: x["seenAt"], reverse=True)
 
     with open("animals.json", "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=2)
-    print(f"Succesvol {len(results)} waarnemingen opgeslagen binnen 50 km straal.")
+        json.dump(all_animals, f, ensure_ascii=False, indent=2)
+    
+    print(f"Klaar! {len(all_animals)} topfauna waarnemingen opgeslagen in animals.json.")
 
 if __name__ == "__main__":
-    fetch_data()
+    main()
