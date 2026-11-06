@@ -1,0 +1,240 @@
+{
+ "generated": "2026-11-06T21:10:40+00:00",
+ "total": 21106,
+ "tiles": [
+  {
+   "id": "r0c2",
+   "latMin": 50.7,
+   "latMax": 51.2,
+   "lngMin": 4.9,
+   "lngMax": 5.7,
+   "file": "tile_r0c2.json",
+   "count": 895
+  },
+  {
+   "id": "r0c3",
+   "latMin": 50.7,
+   "latMax": 51.2,
+   "lngMin": 5.7,
+   "lngMax": 6.5,
+   "file": "tile_r0c3.json",
+   "count": 845
+  },
+  {
+   "id": "r1c0",
+   "latMin": 51.2,
+   "latMax": 51.7,
+   "lngMin": 3.3,
+   "lngMax": 4.1,
+   "file": "tile_r1c0.json",
+   "count": 946
+  },
+  {
+   "id": "r1c1",
+   "latMin": 51.2,
+   "latMax": 51.7,
+   "lngMin": 4.1,
+   "lngMax": 4.9,
+   "file": "tile_r1c1.json",
+   "count": 866
+  },
+  {
+   "id": "r1c2",
+   "latMin": 51.2,
+   "latMax": 51.7,
+   "lngMin": 4.9,
+   "lngMax": 5.7,
+   "file": "tile_r1c2.json",
+   "count": 813
+  },
+  {
+   "id": "r1c3",
+   "latMin": 51.2,
+   "latMax": 51.7,
+   "lngMin": 5.7,
+   "lngMax": 6.5,
+   "file": "tile_r1c3.json",
+   "count": 868
+  },
+  {
+   "id": "r2c0",
+   "latMin": 51.7,
+   "latMax": 52.2,
+   "lngMin": 3.3,
+   "lngMax": 4.1,
+   "file": "tile_r2c0.json",
+   "count": 981
+  },
+  {
+   "id": "r2c1",
+   "latMin": 51.7,
+   "latMax": 52.2,
+   "lngMin": 4.1,
+   "lngMax": 4.9,
+   "file": "tile_r2c1.json",
+   "count": 1120
+  },
+  {
+   "id": "r2c2",
+   "latMin": 51.7,
+   "latMax": 52.2,
+   "lngMin": 4.9,
+   "lngMax": 5.7,
+   "file": "tile_r2c2.json",
+   "count": 983
+  },
+  {
+   "id": "r2c3",
+   "latMin": 51.7,
+   "latMax": 52.2,
+   "lngMin": 5.7,
+   "lngMax": 6.5,
+   "file": "tile_r2c3.json",
+   "count": 784
+  },
+  {
+   "id": "r2c4",
+   "latMin": 51.7,
+   "latMax": 52.2,
+   "lngMin": 6.5,
+   "lngMax": 7.3,
+   "file": "tile_r2c4.json",
+   "count": 872
+  },
+  {
+   "id": "r3c0",
+   "latMin": 52.2,
+   "latMax": 52.7,
+   "lngMin": 3.3,
+   "lngMax": 4.1,
+   "file": "tile_r3c0.json",
+   "count": 78
+  },
+  {
+   "id": "r3c1",
+   "latMin": 52.2,
+   "latMax": 52.7,
+   "lngMin": 4.1,
+   "lngMax": 4.9,
+   "file": "tile_r3c1.json",
+   "count": 896
+  },
+  {
+   "id": "r3c2",
+   "latMin": 52.2,
+   "latMax": 52.7,
+   "lngMin": 4.9,
+   "lngMax": 5.7,
+   "file": "tile_r3c2.json",
+   "count": 874
+  },
+  {
+   "id": "r3c3",
+   "latMin": 52.2,
+   "latMax": 52.7,
+   "lngMin": 5.7,
+   "lngMax": 6.5,
+   "file": "tile_r3c3.json",
+   "count": 953
+  },
+  {
+   "id": "r3c4",
+   "latMin": 52.2,
+   "latMax": 52.7,
+   "lngMin": 6.5,
+   "lngMax": 7.3,
+   "file": "tile_r3c4.json",
+   "count": 831
+  },
+  {
+   "id": "r4c0",
+   "latMin": 52.7,
+   "latMax": 53.2,
+   "lngMin": 3.3,
+   "lngMax": 4.1,
+   "file": "tile_r4c0.json",
+   "count": 16
+  },
+  {
+   "id": "r4c1",
+   "latMin": 52.7,
+   "latMax": 53.2,
+   "lngMin": 4.1,
+   "lngMax": 4.9,
+   "file": "tile_r4c1.json",
+   "count": 931
+  },
+  {
+   "id": "r4c2",
+   "latMin": 52.7,
+   "latMax": 53.2,
+   "lngMin": 4.9,
+   "lngMax": 5.7,
+   "file": "tile_r4c2.json",
+   "count": 887
+  },
+  {
+   "id": "r4c3",
+   "latMin": 52.7,
+   "latMax": 53.2,
+   "lngMin": 5.7,
+   "lngMax": 6.5,
+   "file": "tile_r4c3.json",
+   "count": 886
+  },
+  {
+   "id": "r4c4",
+   "latMin": 52.7,
+   "latMax": 53.2,
+   "lngMin": 6.5,
+   "lngMax": 7.3,
+   "file": "tile_r4c4.json",
+   "count": 917
+  },
+  {
+   "id": "r5c0",
+   "latMin": 53.2,
+   "latMax": 53.7,
+   "lngMin": 3.3,
+   "lngMax": 4.1,
+   "file": "tile_r5c0.json",
+   "count": 17
+  },
+  {
+   "id": "r5c1",
+   "latMin": 53.2,
+   "latMax": 53.7,
+   "lngMin": 4.1,
+   "lngMax": 4.9,
+   "file": "tile_r5c1.json",
+   "count": 784
+  },
+  {
+   "id": "r5c2",
+   "latMin": 53.2,
+   "latMax": 53.7,
+   "lngMin": 4.9,
+   "lngMax": 5.7,
+   "file": "tile_r5c2.json",
+   "count": 1047
+  },
+  {
+   "id": "r5c3",
+   "latMin": 53.2,
+   "latMax": 53.7,
+   "lngMin": 5.7,
+   "lngMax": 6.5,
+   "file": "tile_r5c3.json",
+   "count": 947
+  },
+  {
+   "id": "r5c4",
+   "latMin": 53.2,
+   "latMax": 53.7,
+   "lngMin": 6.5,
+   "lngMax": 7.3,
+   "file": "tile_r5c4.json",
+   "count": 1069
+  }
+ ]
+}

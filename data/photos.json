@@ -1,0 +1,4633 @@
+{
+"Abramis brama": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/66844683/medium.jpg",
+"credit": "(c) Hubert Szczygieł, some rights reserved (CC BY-NC), uploaded by Hubert Szczygieł",
+"license": "CC-BY-NC",
+"taxon": 92984
+},
+"Acanthis flammea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/226173/medium.jpg",
+"credit": "(c) Bill Bouton, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 145300
+},
+"Accipiter gentilis": null,
+"Accipiter nisus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60499639/medium.jpg",
+"credit": "(c) john.purvis, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 5106
+},
+"Acipenser gueldenstaedtii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/444543189/medium.jpeg",
+"credit": "(c) danielrejthar, some rights reserved (CC BY-NC), uploaded by danielrejthar",
+"license": "CC-BY-NC",
+"taxon": 93182
+},
+"Acridotheres cristatellus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/454090450/medium.jpeg",
+"credit": "(c) Frank Lin, some rights reserved (CC BY-NC), uploaded by Frank Lin",
+"license": "CC-BY-NC",
+"taxon": 14872
+},
+"Acrocephalus agricola": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/152057555/medium.jpeg",
+"credit": "(c) Andrew Bazdyrev, some rights reserved (CC BY), uploaded by Andrew Bazdyrev",
+"license": "CC-BY",
+"taxon": 116791
+},
+"Acrocephalus arundinaceus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/96239875/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 204456
+},
+"Acrocephalus dumetorum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/79630739/medium.jpeg",
+"credit": "(c) Olavi60, some rights reserved (CC BY-NC), uploaded by Olavi60",
+"license": "CC-BY-NC",
+"taxon": 116797
+},
+"Acrocephalus paludicola": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/310653073/medium.jpg",
+"credit": "(c) ulysse_lafond, some rights reserved (CC BY-NC), uploaded by ulysse_lafond",
+"license": "CC-BY-NC",
+"taxon": 117181
+},
+"Acrocephalus palustris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/42253420/medium.jpeg",
+"credit": "(c) Jakob Fahr, some rights reserved (CC BY-NC), uploaded by Jakob Fahr",
+"license": "CC-BY-NC",
+"taxon": 116802
+},
+"Acrocephalus palustris x scirpaceus": null,
+"Acrocephalus schoenobaenus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/522886635/medium.jpg",
+"credit": "(c) David Kaliss, some rights reserved (CC BY-NC), uploaded by David Kaliss",
+"license": "CC-BY-NC",
+"taxon": 116804
+},
+"Acrocephalus scirpaceus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/355963131/medium.jpg",
+"credit": "(c) Tony Morris, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 204455
+},
+"Actitis hypoleucos": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/405355875/medium.jpg",
+"credit": "(c) Sergey Pisarevskiy, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 3978
+},
+"Agapornis fischeri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/312928188/medium.jpeg",
+"credit": "(c) Floyd E. Hayes, some rights reserved (CC BY-NC), uploaded by Floyd E. Hayes",
+"license": "CC-BY-NC",
+"taxon": 19075
+},
+"Agapornis roseicollis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/380949978/medium.jpg",
+"credit": "(c) pat_jones, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 19079
+},
+"Agonus cataphractus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/351318007/medium.jpeg",
+"credit": "(c) philwilkinson, some rights reserved (CC BY-NC), uploaded by philwilkinson",
+"license": "CC-BY-NC",
+"taxon": 445609
+},
+"Aix galericulata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/171955255/medium.jpg",
+"credit": "(c) Alexis Lours, some rights reserved (CC BY), uploaded by Alexis Lours",
+"license": "CC-BY",
+"taxon": 7106
+},
+"Aix sponsa": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/171626985/medium.jpg",
+"credit": "(c) Kent Ross, some rights reserved (CC BY-NC), uploaded by Kent Ross",
+"license": "CC-BY-NC",
+"taxon": 7107
+},
+"Alauda arvensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7408707/medium.jpeg",
+"credit": "(c) Ani Sarkisyan, some rights reserved (CC BY), uploaded by Ani Sarkisyan",
+"license": "CC-BY",
+"taxon": 7347
+},
+"Alburnoides bipunctatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/269511876/medium.jpg",
+"credit": "(c) Thomas Menut, some rights reserved (CC BY-NC), uploaded by Thomas Menut",
+"license": "CC-BY-NC",
+"taxon": 93603
+},
+"Alburnus alburnus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/425095556/medium.jpg",
+"credit": "(c) United Nations Development Programme in Europe and CIS, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 93611
+},
+"Alca torda": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/135801313/medium.jpeg",
+"credit": "(c) António Terra, some rights reserved (CC BY-NC), uploaded by António Terra",
+"license": "CC-BY-NC",
+"taxon": 4501
+},
+"Alcedo atthis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61266631/medium.jpg",
+"credit": "(c) Mark Kilner, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 2599
+},
+"Alectoris chukar": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/225378787/medium.jpg",
+"credit": "(c) rickhowie, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 846
+},
+"Alectoris rufa": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/200447159/medium.jpeg",
+"credit": "(c) Jerry Lanfear, some rights reserved (CC BY), uploaded by Jerry Lanfear",
+"license": "CC-BY",
+"taxon": 867
+},
+"Alle alle": null,
+"Alopochen aegyptiaca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130517490/medium.jpeg",
+"credit": "(c) Luís Lourenço, some rights reserved (CC BY-NC-ND), uploaded by Luís Lourenço",
+"license": "CC-BY-NC-ND",
+"taxon": 72486
+},
+"Alosa alosa": null,
+"Alosa fallax": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/41348749/medium.jpeg",
+"credit": "(c) Arian, some rights reserved (CC BY-NC), uploaded by Arian",
+"license": "CC-BY-NC",
+"taxon": 93704
+},
+"Alytes obstetricans": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/330959493/medium.jpg",
+"credit": "(c) Nicolas HELITAS, some rights reserved (CC BY-NC), uploaded by Nicolas HELITAS",
+"license": "CC-BY-NC",
+"taxon": 24473
+},
+"Amazona amazonica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/450563214/medium.jpeg",
+"credit": "(c) Carlos Alexandre Mattos Raposo, some rights reserved (CC BY), uploaded by Carlos Alexandre Mattos Raposo",
+"license": "CC-BY",
+"taxon": 18982
+},
+"Amblyraja radiata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/25578841/medium.jpg",
+"credit": "(c) Tatiana Antokhina, some rights reserved (CC BY-NC), uploaded by Tatiana Antokhina",
+"license": "CC-BY-NC",
+"taxon": 48402
+},
+"Ameiurus melas": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/366643276/medium.jpg",
+"credit": "(c) Thomas Shahan, some rights reserved (CC BY-NC), uploaded by Thomas Shahan",
+"license": "CC-BY-NC",
+"taxon": 82278
+},
+"Ameiurus nebulosus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/196783467/medium.jpg",
+"credit": "(c) IHUNTA, some rights reserved (CC BY-NC), uploaded by IHUNTA",
+"license": "CC-BY-NC",
+"taxon": 58654
+},
+"Ammodytes marinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/297007998/medium.jpeg",
+"credit": "(c) Thorsten Stegmann, some rights reserved (CC BY-NC-ND), uploaded by Thorsten Stegmann",
+"license": "CC-BY-NC-ND",
+"taxon": 326208
+},
+"Ammodytes tobianus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/149857224/medium.jpeg",
+"credit": "(c) Pierre Corbrion, some rights reserved (CC BY-NC-SA), uploaded by Pierre Corbrion",
+"license": "CC-BY-NC-SA",
+"taxon": 367966
+},
+"Anas acuta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/353707196/medium.jpg",
+"credit": "(c) Matt Felperin, some rights reserved (CC BY), uploaded by Matt Felperin",
+"license": "CC-BY",
+"taxon": 6933
+},
+"Anas bahamensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/173806806/medium.jpg",
+"credit": "(c) Mariano Fernández Kloster, some rights reserved (CC BY-NC), uploaded by Mariano Fernández Kloster",
+"license": "CC-BY-NC",
+"taxon": 6951
+},
+"Anas carolinensis": null,
+"Anas castanea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/206622741/medium.jpg",
+"credit": "(c) Pål A. Olsvik, some rights reserved (CC BY), uploaded by Pål A. Olsvik",
+"license": "CC-BY",
+"taxon": 6958
+},
+"Anas crecca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/77632197/medium.jpg",
+"credit": "(c) Smudge 9000, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 6937
+},
+"Anas erythrorhyncha": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/669087/medium.jpg",
+"credit": "(c) Tarique Sani, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 6984
+},
+"Anas luzonica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/398424853/medium.jpeg",
+"credit": "(c) kevinpearce, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 6967
+},
+"Anas platyrhynchos": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/95268822/medium.jpg",
+"credit": "(c) anonymous, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 6930
+},
+"Anas poecilorhyncha": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4569448/medium.jpeg",
+"credit": "(c) sanjaydate, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 6925
+},
+"Anguilla anguilla": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/21512695/medium.jpg",
+"credit": "(c) Mattia, some rights reserved (CC BY-NC), uploaded by Mattia",
+"license": "CC-BY-NC",
+"taxon": 94105
+},
+"Anguis fragilis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/85497911/medium.jpeg",
+"credit": "(c) royc614, some rights reserved (CC BY-NC), uploaded by royc614",
+"license": "CC-BY-NC",
+"taxon": 343021
+},
+"Anser albifrons": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/393841552/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 7019
+},
+"Anser albifrons x Branta canadensis": null,
+"Anser albifrons x Branta leucopsis": null,
+"Anser albifrons x erythropus": null,
+"Anser anser": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61334030/medium.jpg",
+"credit": "(c) Frans Vandewalle, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 7018
+},
+"Anser anser x Branta canadensis": null,
+"Anser anser x Branta leucopsis": null,
+"Anser brachyrhynchus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7788733/medium.jpg",
+"credit": "(c) Martin Grimm, some rights reserved (CC BY-NC), uploaded by Martin Grimm",
+"license": "CC-BY-NC",
+"taxon": 7007
+},
+"Anser caerulescens": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/467051457/medium.jpg",
+"credit": "(c) Miguel A Mejias, PhD., some rights reserved (CC BY-NC), uploaded by Miguel A Mejias, PhD.",
+"license": "CC-BY-NC",
+"taxon": 558426
+},
+"Anser canagicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/64260583/medium.jpg",
+"credit": "(c) Donna Pomeroy, some rights reserved (CC BY-NC), uploaded by Donna Pomeroy",
+"license": "CC-BY-NC",
+"taxon": 558425
+},
+"Anser cygnoides": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/293197452/medium.jpg",
+"credit": "(c) fangchen, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 7014
+},
+"Anser erythropus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1954607/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 7013
+},
+"Anser erythropus x Branta leucopsis": null,
+"Anser fabalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/167244604/medium.jpeg",
+"credit": "(c) denis_v, some rights reserved (CC BY-NC), uploaded by denis_v",
+"license": "CC-BY-NC",
+"taxon": 7009
+},
+"Anser indicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/151124905/medium.jpg",
+"credit": "(c) Imran Shah, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 7008
+},
+"Anser indicus x Branta leucopsis": null,
+"Anser rossii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2716452/medium.jpg",
+"credit": "(c) Andrew Cannizzaro, some rights reserved (CC BY), uploaded by Andrew Cannizzaro",
+"license": "CC-BY",
+"taxon": 558427
+},
+"Anser serrirostris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/110151375/medium.jpeg",
+"credit": "(c) Troy B, some rights reserved (CC BY), uploaded by Troy B",
+"license": "CC-BY",
+"taxon": 144423
+},
+"Anthropoides virgo": null,
+"Anthus campestris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650037342/medium.jpg",
+"credit": "(c) Johannes S., some rights reserved (CC BY), uploaded by Johannes S.",
+"license": "CC-BY",
+"taxon": 13712
+},
+"Anthus cervinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/96825051/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 13721
+},
+"Anthus godlewskii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/207468/medium.jpg",
+"credit": "(c) Andreas Trepte, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 13737
+},
+"Anthus hodgsoni": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/131708891/medium.jpg",
+"credit": "(c) Griha Hasanov, some rights reserved (CC BY), uploaded by Griha Hasanov",
+"license": "CC-BY",
+"taxon": 13724
+},
+"Anthus petrosus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9036/medium.jpg",
+"credit": "(c) Paul Roberts, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 13734
+},
+"Anthus pratensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/187679983/medium.jpg",
+"credit": "(c) Valia Pavlou, some rights reserved (CC BY-NC), uploaded by Valia Pavlou",
+"license": "CC-BY-NC",
+"taxon": 13729
+},
+"Anthus richardi": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/211789264/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 13726
+},
+"Anthus spinoletta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3225661/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 13713
+},
+"Anthus trivialis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/329702724/medium.jpg",
+"credit": "(c) Alejandro Ocampo, some rights reserved (CC BY-NC), uploaded by Alejandro Ocampo",
+"license": "CC-BY-NC",
+"taxon": 13711
+},
+"Aphia minuta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/351720915/medium.jpeg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 344754
+},
+"Aplidium glabrum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/315873891/medium.jpeg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 332871
+},
+"Apodemus flavicollis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5014026/medium.jpg",
+"credit": "(c) Martin Grimm, some rights reserved (CC BY-NC), uploaded by Martin Grimm",
+"license": "CC-BY-NC",
+"taxon": 45550
+},
+"Apodemus sylvaticus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12424244/medium.jpeg",
+"credit": "(c) naturpel, some rights reserved (CC BY-NC), uploaded by naturpel",
+"license": "CC-BY-NC",
+"taxon": 45562
+},
+"Apus apus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/40612214/medium.jpg",
+"credit": "(c) Алексей Эбель, some rights reserved (CC BY-NC), uploaded by Алексей Эбель",
+"license": "CC-BY-NC",
+"taxon": 6638
+},
+"Apus pallidus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/189184432/medium.jpg",
+"credit": "(c) cog2022, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 6643
+},
+"Aquila clanga": null,
+"Aquila heliaca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/129874502/medium.jpeg",
+"credit": "(c) Andrew Bazdyrev, some rights reserved (CC BY), uploaded by Andrew Bazdyrev",
+"license": "CC-BY",
+"taxon": 5071
+},
+"Aquila nipalensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/91218862/medium.jpeg",
+"credit": "(c) Christoph Moning, some rights reserved (CC BY), uploaded by Christoph Moning",
+"license": "CC-BY",
+"taxon": 5083
+},
+"Aquila pomarina": null,
+"Ara ambiguus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251572277/medium.jpeg",
+"credit": "(c) Walter Welss, some rights reserved (CC BY-NC), uploaded by Walter Welss",
+"license": "CC-BY-NC",
+"taxon": 47675
+},
+"Ara ararauna": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/414331079/medium.jpeg",
+"credit": "(c) KENNEDY BORGES, some rights reserved (CC BY-NC), uploaded by KENNEDY BORGES",
+"license": "CC-BY-NC",
+"taxon": 19018
+},
+"Ara chloropterus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/411585383/medium.jpeg",
+"credit": "(c) Thiago Gonçalves Coronado Antunes, some rights reserved (CC BY-NC), uploaded by Thiago Gonçalves Coronado Antunes",
+"license": "CC-BY-NC",
+"taxon": 19016
+},
+"Ara macao": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/233350330/medium.jpg",
+"credit": "(c) Matthew Patchett, some rights reserved (CC BY-NC), uploaded by Matthew Patchett",
+"license": "CC-BY-NC",
+"taxon": 19022
+},
+"Ardea alba": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/56653891/medium.jpg",
+"credit": "(c) daverowe, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 144455
+},
+"Ardea cinerea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/73516715/medium.jpg",
+"credit": "(c) Frank Sengpiel, some rights reserved (CC BY), uploaded by Frank Sengpiel",
+"license": "CC-BY",
+"taxon": 4954
+},
+"Ardea purpurea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/278940859/medium.jpg",
+"credit": "(c) Uday Agashe, some rights reserved (CC BY-NC), uploaded by Uday Agashe",
+"license": "CC-BY-NC",
+"taxon": 4951
+},
+"Ardeola grayii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/606144032/medium.jpg",
+"credit": "(c) Karthik, some rights reserved (CC BY-NC), uploaded by Karthik",
+"license": "CC-BY-NC",
+"taxon": 4993
+},
+"Ardeola ralloides": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/31944/medium.jpg",
+"credit": "(c) Ian White, some rights reserved (CC BY-ND)",
+"license": "CC-BY-ND",
+"taxon": 4994
+},
+"Arenaria interpres": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179638917/medium.jpg",
+"credit": "(c) Etienne Gaillard, some rights reserved (CC BY-NC), uploaded by Etienne Gaillard",
+"license": "CC-BY-NC",
+"taxon": 3938
+},
+"Arnoglossus laterna": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/216493370/medium.jpg",
+"credit": "(c) Sylvain Le Bris, alcuni diritti riservati (CC BY-NC), caricata da Sylvain Le Bris",
+"license": "CC-BY-NC",
+"taxon": 120617
+},
+"Arvicola amphibius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/73321594/medium.jpg",
+"credit": "(c) heikkih, some rights reserved (CC BY-NC), uploaded by heikkih",
+"license": "CC-BY-NC",
+"taxon": 67819
+},
+"Asarcornis scutulata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/98380423/medium.png",
+"credit": "(c) Ashley Coates, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 513577
+},
+"Ascidia conchilega": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61426183/medium.jpg",
+"credit": "(c) Bernard Picton, some rights reserved (CC BY), uploaded by Bernard Picton",
+"license": "CC-BY",
+"taxon": 799662
+},
+"Ascidiella aspersa": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130793008/medium.jpg",
+"credit": "(c) Daniel Rodrigues, some rights reserved (CC BY-NC), uploaded by Daniel Rodrigues",
+"license": "CC-BY-NC",
+"taxon": 199327
+},
+"Ascidiella scabra": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/13285196/medium.jpeg",
+"credit": "(c) Stefan, some rights reserved (CC BY-NC), uploaded by Stefan",
+"license": "CC-BY-NC",
+"taxon": 632653
+},
+"Asio flammeus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/464246803/medium.jpg",
+"credit": "(c) Deborah Freeman, some rights reserved (CC BY-NC), uploaded by Deborah Freeman",
+"license": "CC-BY-NC",
+"taxon": 20315
+},
+"Athene noctua": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/238739562/medium.jpg",
+"credit": "(c) Javisa Hun, some rights reserved (CC BY-NC), uploaded by Javisa Hun",
+"license": "CC-BY-NC",
+"taxon": 19998
+},
+"Atherina boyeri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/258078424/medium.jpeg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 94786
+},
+"Atherina presbyter": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/220490679/medium.jpeg",
+"credit": "(c) Frederico Almada, some rights reserved (CC BY-NC), uploaded by Frederico Almada",
+"license": "CC-BY-NC",
+"taxon": 118594
+},
+"Aythya affinis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251848544/medium.jpg",
+"credit": "(c) Matt Felperin, some rights reserved (CC BY), uploaded by Matt Felperin",
+"license": "CC-BY",
+"taxon": 7054
+},
+"Aythya baeri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/462612163/medium.jpeg",
+"credit": "(c) Terry Townshend, some rights reserved (CC BY-NC), uploaded by Terry Townshend",
+"license": "CC-BY-NC",
+"taxon": 7053
+},
+"Aythya collaris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1333/medium.jpg",
+"credit": "(c) Rick Leche, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 7044
+},
+"Aythya ferina x fuligula": null,
+"Aythya ferina x nyroca": null,
+"Aythya fuligula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/110387197/medium.jpg",
+"credit": "(c) Irina Krug, some rights reserved (CC BY-NC), uploaded by Irina Krug",
+"license": "CC-BY-NC",
+"taxon": 7046
+},
+"Aythya fuligula x marila": null,
+"Aythya marila": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/96033692/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 7047
+},
+"Aythya nyroca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6567260/medium.jpg",
+"credit": "(c) Martin Mecnarowski, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 7055
+},
+"Babka gymnotrachelus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/167756020/medium.jpeg",
+"credit": "(c) Sokolov Yuriy Ivanovich, some rights reserved (CC BY-NC), uploaded by Sokolov Yuriy Ivanovich",
+"license": "CC-BY-NC",
+"taxon": 95020
+},
+"Balaenoptera acutorostrata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/717851043/medium.jpg",
+"credit": "(c) J. Martin Crossley, some rights reserved (CC BY-NC-ND), uploaded by J. Martin Crossley",
+"license": "CC-BY-NC-ND",
+"taxon": 41550
+},
+"Balaenoptera physalus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/13381641/medium.jpg",
+"credit": "(c) Artie Kopelman, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 41562
+},
+"Balearica regulorum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/261339008/medium.jpg",
+"credit": "(c) Wayne and Pam Osborn, some rights reserved (CC BY-NC), uploaded by Wayne and Pam Osborn",
+"license": "CC-BY-NC",
+"taxon": 53
+},
+"Balistes capriscus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/274989805/medium.jpg",
+"credit": "(c) Luis P. B., some rights reserved (CC BY-NC), uploaded by Luis P. B.",
+"license": "CC-BY-NC",
+"taxon": 49606
+},
+"Ballerus sapa": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/278638540/medium.jpg",
+"credit": "(c) Vladimir Bryukhov, some rights reserved (CC BY-NC), uploaded by Vladimir Bryukhov",
+"license": "CC-BY-NC",
+"taxon": 95072
+},
+"Barbastella barbastellus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4733300/medium.jpg",
+"credit": "(c) Martin Grimm, some rights reserved (CC BY-NC), uploaded by Martin Grimm",
+"license": "CC-BY-NC",
+"taxon": 40581
+},
+"Barbatula barbatula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/238072903/medium.jpg",
+"credit": "(c) Ilya Burylov, some rights reserved (CC BY-NC), uploaded by Ilya Burylov",
+"license": "CC-BY-NC",
+"taxon": 95099
+},
+"Barbus barbus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/51360/medium.jpg",
+"credit": "(c) Bas Kers, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 95147
+},
+"Belone belone": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/320418919/medium.jpeg",
+"credit": "(c) Dennis Rabeling, some rights reserved (CC BY-NC-ND), uploaded by Dennis Rabeling",
+"license": "CC-BY-NC-ND",
+"taxon": 118597
+},
+"Bison bonasus": null,
+"Blicca bjoerkna": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/398150962/medium.jpg",
+"credit": "(c) Jörg Freyhof, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 95811
+},
+"Boa constrictor": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/588689904/medium.jpg",
+"credit": "(c) nicolas burnel, some rights reserved (CC BY-NC), uploaded by nicolas burnel",
+"license": "CC-BY-NC",
+"taxon": 32093
+},
+"Bombina variegata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/401577730/medium.jpg",
+"credit": "(c) Manuel Raab, some rights reserved (CC BY-NC), uploaded by Manuel Raab",
+"license": "CC-BY-NC",
+"taxon": 556621
+},
+"Bombycilla garrulus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/59611753/medium.jpeg",
+"credit": "(c) Илья Сухов, some rights reserved (CC BY-NC), uploaded by Илья Сухов",
+"license": "CC-BY-NC",
+"taxon": 7429
+},
+"Botrylloides diegensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/313472699/medium.jpeg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 344286
+},
+"Botrylloides leachii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11778645/medium.jpg",
+"credit": "(c) Marine Explorer (Dr John Turnbull), some rights reserved (CC BY-NC-SA), uploaded by Marine Explorer (Dr John Turnbull)",
+"license": "CC-BY-NC-SA",
+"taxon": 510321
+},
+"Botrylloides violaceus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/416375301/medium.jpg",
+"credit": "(c) Pauline Walsh Jacobson, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 81776
+},
+"Botryllus schlosseri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/250988631/medium.jpg",
+"credit": "(c) Paul Norwood, some rights reserved (CC BY-NC), uploaded by Paul Norwood",
+"license": "CC-BY-NC",
+"taxon": 62408
+},
+"Branta bernicla": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/264933012/medium.jpeg",
+"credit": "(c) Wendy Feltham, some rights reserved (CC BY-NC), uploaded by Wendy Feltham",
+"license": "CC-BY-NC",
+"taxon": 7087
+},
+"Branta hutchinsii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2713284/medium.jpg",
+"credit": "(c) Bridget Spencer, some rights reserved (CC BY-NC), uploaded by Bridget Spencer",
+"license": "CC-BY-NC",
+"taxon": 59220
+},
+"Branta hutchinsii x leucopsis": null,
+"Branta leucopsis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1954722/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 7101
+},
+"Branta ruficollis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/94321119/medium.jpg",
+"credit": "(c) Christoph Moning, some rights reserved (CC BY), uploaded by Christoph Moning",
+"license": "CC-BY",
+"taxon": 7102
+},
+"Branta sandvicensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/241898339/medium.jpg",
+"credit": "(c) Vaibhav Dwivedi, some rights reserved (CC BY-NC), uploaded by Vaibhav Dwivedi",
+"license": "CC-BY-NC",
+"taxon": 7104
+},
+"Brotula barbata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/219634707/medium.jpg",
+"credit": "(c) Luis P. B., some rights reserved (CC BY-NC), uploaded by Luis P. B.",
+"license": "CC-BY-NC",
+"taxon": 131431
+},
+"Bubalus bubalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4666378/medium.jpg",
+"credit": "(c) Giverny, some rights reserved (CC BY-NC), uploaded by Giverny",
+"license": "CC-BY-NC",
+"taxon": 81925
+},
+"Bubo africanus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/252378479/medium.jpg",
+"credit": "(c) John Gale, some rights reserved (CC BY-NC), uploaded by John Gale",
+"license": "CC-BY-NC",
+"taxon": 204470
+},
+"Bubo bengalensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/598695475/medium.jpg",
+"credit": "(c) Dhruva Punde, some rights reserved (CC BY-NC), uploaded by Dhruva Punde",
+"license": "CC-BY-NC",
+"taxon": 72571
+},
+"Bubo bubo": null,
+"Bubulcus ibis": null,
+"Bucephala albeola": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/249283060/medium.jpg",
+"credit": "(c) ianhearn, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 6993
+},
+"Buglossidium luteum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/161907037/medium.jpeg",
+"credit": "(c) Sylvain Le Bris, some rights reserved (CC BY-NC), uploaded by Sylvain Le Bris",
+"license": "CC-BY-NC",
+"taxon": 96130
+},
+"Burhinus oedicnemus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/208423163/medium.jpg",
+"credit": "(c) Kudaibergen Amirekul, some rights reserved (CC BY-SA), uploaded by Kudaibergen Amirekul",
+"license": "CC-BY-SA",
+"taxon": 4923
+},
+"Buteo jamaicensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101327658/medium.jpg",
+"credit": "(c) Craig K. Hunt, some rights reserved (CC BY-NC), uploaded by Craig K. Hunt",
+"license": "CC-BY-NC",
+"taxon": 5212
+},
+"Buteo lagopus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347229914/medium.jpg",
+"credit": "(c) Lisa Saffell, some rights reserved (CC BY-NC-ND), uploaded by Lisa Saffell",
+"license": "CC-BY-NC-ND",
+"taxon": 5200
+},
+"Buteo rufinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/359224284/medium.jpg",
+"credit": "(c) Константин Шатилов, some rights reserved (CC BY), uploaded by Константин Шатилов",
+"license": "CC-BY",
+"taxon": 5192
+},
+"Cacatua alba": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/91620138/medium.jpg",
+"credit": "(c) www.viajar24h.com, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 117191
+},
+"Calandrella brachydactyla": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/144738236/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 578093
+},
+"Calcarius lapponicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/96675637/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 116840
+},
+"Calidris acuminata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447383422/medium.jpg",
+"credit": "(c) Samuel Amaris, some rights reserved (CC BY-NC), uploaded by Samuel Amaris",
+"license": "CC-BY-NC",
+"taxon": 3844
+},
+"Calidris alba": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/232281217/medium.jpeg",
+"credit": "(c) Marco Chan, some rights reserved (CC BY), uploaded by Marco Chan",
+"license": "CC-BY",
+"taxon": 3849
+},
+"Calidris alpina": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/65881975/medium.jpg",
+"credit": "(c) Paul Reeves, some rights reserved (CC BY-NC-SA), uploaded by Paul Reeves",
+"license": "CC-BY-NC-SA",
+"taxon": 3857
+},
+"Calidris bairdii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/24441468/medium.jpg",
+"credit": "(c) Josh van der Meulen, some rights reserved (CC BY-NC-ND), uploaded by Josh van der Meulen",
+"license": "CC-BY-NC-ND",
+"taxon": 3851
+},
+"Calidris canutus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/198196733/medium.jpeg",
+"credit": "(c) Miguel A Mejias, PhD., some rights reserved (CC BY-NC), uploaded by Miguel A Mejias, PhD.",
+"license": "CC-BY-NC",
+"taxon": 3845
+},
+"Calidris falcinellus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/265474287/medium.jpg",
+"credit": "(c) Анатолий Кузьмин, some rights reserved (CC BY-NC), uploaded by Анатолий Кузьмин",
+"license": "CC-BY-NC",
+"taxon": 339594
+},
+"Calidris ferruginea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2324759/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 3863
+},
+"Calidris fuscicollis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/137964615/medium.jpeg",
+"credit": "(c) Hannah Floyd, some rights reserved (CC BY-NC), uploaded by Hannah Floyd",
+"license": "CC-BY-NC",
+"taxon": 3866
+},
+"Calidris maritima": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/344392940/medium.jpg",
+"credit": "(c) Kent Ross, some rights reserved (CC BY-NC), uploaded by Kent Ross",
+"license": "CC-BY-NC",
+"taxon": 3856
+},
+"Calidris melanotos": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/166627642/medium.jpg",
+"credit": "(c) Andrew Cannizzaro, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 3865
+},
+"Calidris minuta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/29188802/medium.jpg",
+"credit": "(c) Данилова Валерия, some rights reserved (CC BY-NC), uploaded by Данилова Валерия",
+"license": "CC-BY-NC",
+"taxon": 3838
+},
+"Calidris ruficollis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/209826148/medium.jpg",
+"credit": "(c) Cameron Eckert, some rights reserved (CC BY-NC), uploaded by Cameron Eckert",
+"license": "CC-BY-NC",
+"taxon": 3854
+},
+"Calidris subruficollis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/725776328/medium.jpg",
+"credit": "(c) zachsw, some rights reserved (CC BY-NC), uploaded by zachsw",
+"license": "CC-BY-NC",
+"taxon": 339596
+},
+"Calidris temminckii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/199039788/medium.jpg",
+"credit": "(c) Filipp Suvorov, some rights reserved (CC BY-NC), uploaded by Filipp Suvorov",
+"license": "CC-BY-NC",
+"taxon": 3837
+},
+"Calidris tenuirostris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/300335189/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 3852
+},
+"Callionymus lyra": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/76118294/medium.jpg",
+"credit": "(c) Emil B, some rights reserved (CC BY-NC), uploaded by Emil B",
+"license": "CC-BY-NC",
+"taxon": 118717
+},
+"Callionymus reticulatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12998998/medium.jpg",
+"credit": "(c) Viktor V. Grøtan, some rights reserved (CC BY), uploaded by Viktor V. Grøtan",
+"license": "CC-BY",
+"taxon": 118719
+},
+"Callipepla californica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/443842323/medium.jpg",
+"credit": "(c) Caiden, some rights reserved (CC BY-NC), uploaded by Caiden",
+"license": "CC-BY-NC",
+"taxon": 1409
+},
+"Callipepla squamata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179165998/medium.jpg",
+"credit": "(c) Ad Konings, some rights reserved (CC BY-NC), uploaded by Ad Konings",
+"license": "CC-BY-NC",
+"taxon": 1419
+},
+"Callonetta leucophrys": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/65381519/medium.jpg",
+"credit": "(c) Sergey Yeliseev, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 7188
+},
+"Callosciurus prevostii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/228183040/medium.jpg",
+"credit": "(c) ayuwat, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 45955
+},
+"Calonectris diomedea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/121566757/medium.jpeg",
+"credit": "(c) Jan Ebr &amp; Ivana Ebrová, some rights reserved (CC BY), uploaded by Jan Ebr &amp; Ivana Ebrová",
+"license": "CC-BY",
+"taxon": 509656
+},
+"Canis aureus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12400254/medium.jpg",
+"credit": "(c) Balaji Venkatesh Sivaramakrishnan, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 851014
+},
+"Canis lupus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/43410580/medium.jpg",
+"credit": "(c) Brian Starzomski, some rights reserved (CC BY-NC), uploaded by Brian Starzomski",
+"license": "CC-BY-NC",
+"taxon": 42048
+},
+"Capreolus capreolus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/148547129/medium.jpeg",
+"credit": "(c) romanvrbicek, some rights reserved (CC BY-NC), uploaded by romanvrbicek",
+"license": "CC-BY-NC",
+"taxon": 42184
+},
+"Caprimulgus europaeus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1594673/medium.jpg",
+"credit": "(c) Andrej Chudý, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 19410
+},
+"Carassius auratus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/29228266/medium.jpg",
+"credit": "(c) Ernesto Cavallini, some rights reserved (CC BY-NC), uploaded by Ernesto Cavallini",
+"license": "CC-BY-NC",
+"taxon": 58612
+},
+"Carassius carassius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/575158298/medium.jpg",
+"credit": "(c) Christian Louie, some rights reserved (CC BY-NC), uploaded by Christian Louie",
+"license": "CC-BY-NC",
+"taxon": 96744
+},
+"Carassius gibelio": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60270516/medium.jpg",
+"credit": "(c) Gilles San Martin, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 424997
+},
+"Carcharodon carcharias": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/755951225/medium.jpg",
+"credit": "(c) J. Martin Crossley, some rights reserved (CC BY-NC-ND), uploaded by J. Martin Crossley",
+"license": "CC-BY-NC-ND",
+"taxon": 50873
+},
+"Cardinalis cardinalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/189434971/medium.jpg",
+"credit": "(c) Laura Keene, some rights reserved (CC BY-NC), uploaded by Laura Keene",
+"license": "CC-BY-NC",
+"taxon": 9083
+},
+"Carduelis carduelis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/369311714/medium.jpg",
+"credit": "(c) Antti Henttonen, some rights reserved (CC BY-NC), uploaded by Antti Henttonen",
+"license": "CC-BY-NC",
+"taxon": 9398
+},
+"Caretta caretta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/176772831/medium.jpeg",
+"credit": "(c) Roberto Pillon, some rights reserved (CC BY-NC), uploaded by Roberto Pillon",
+"license": "CC-BY-NC",
+"taxon": 39665
+},
+"Carpodacus erythrinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28920664/medium.jpg",
+"credit": "(c) Геннадий, some rights reserved (CC BY-NC), uploaded by Геннадий",
+"license": "CC-BY-NC",
+"taxon": 9639
+},
+"Castor fiber": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/262862372/medium.jpg",
+"credit": "(c) jamesbot, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 43793
+},
+"Cecropis daurica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/194352839/medium.jpg",
+"credit": "(c) matthewkwan, some rights reserved (CC BY-NC-ND), uploaded by matthewkwan",
+"license": "CC-BY-NC-ND",
+"taxon": 144792
+},
+"Cepphus grylle": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/195013918/medium.jpeg",
+"credit": "(c) Christoph Moning, some rights reserved (CC BY), uploaded by Christoph Moning",
+"license": "CC-BY",
+"taxon": 4418
+},
+"Cereopsis novaehollandiae": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/666177778/medium.jpg",
+"credit": "(c) Indra Bone, some rights reserved (CC BY-NC), uploaded by Indra Bone",
+"license": "CC-BY-NC",
+"taxon": 7150
+},
+"Cervus elaphus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/25186445/medium.jpg",
+"credit": "(c) Jon J. Laysell, some rights reserved (CC BY-NC), uploaded by Jon J. Laysell",
+"license": "CC-BY-NC",
+"taxon": 204113
+},
+"Cervus nippon": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/186070135/medium.jpg",
+"credit": "(c) stproc, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 42210
+},
+"Chalcophaps indica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/90707654/medium.jpg",
+"credit": "(c) Murugesh Nateshan, some rights reserved (CC BY-NC), uploaded by Murugesh Nateshan",
+"license": "CC-BY-NC",
+"taxon": 508097
+},
+"Charadrius alexandrinus": null,
+"Charadrius dubius": null,
+"Charadrius hiaticula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/8956/medium.jpg",
+"credit": "(c) Paul Roberts, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 4801
+},
+"Charadrius leschenaultii": null,
+"Charadrius morinellus": null,
+"Chelidonichthys lucerna": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/279330602/medium.jpeg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 118628
+},
+"Chelon auratus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/574735855/medium.jpg",
+"credit": "(c) Susanne Spindler, some rights reserved (CC BY-NC-ND), uploaded by Susanne Spindler",
+"license": "CC-BY-NC-ND",
+"taxon": 786323
+},
+"Chelon labrosus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/154956455/medium.jpeg",
+"credit": "(c) Sylvain Le Bris, some rights reserved (CC BY-NC), uploaded by Sylvain Le Bris",
+"license": "CC-BY-NC",
+"taxon": 97345
+},
+"Chelon ramada": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/693356486/medium.jpg",
+"credit": "(c) Marinko Babić, some rights reserved (CC BY-NC), uploaded by Marinko Babić",
+"license": "CC-BY-NC",
+"taxon": 623936
+},
+"Chelydra serpentina": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/165512432/medium.jpeg",
+"credit": "(c) Alyssa Harvey, some rights reserved (CC BY-NC), uploaded by Alyssa Harvey",
+"license": "CC-BY-NC",
+"taxon": 39682
+},
+"Chenonetta jubata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/50130632/medium.jpg",
+"credit": "(c) Kazredracer, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 7176
+},
+"Chlidonias hybrida": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1927693/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 62148
+},
+"Chlidonias leucopterus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/112901711/medium.jpg",
+"credit": "(c) Ренат Рахматуллин, some rights reserved (CC BY-NC), uploaded by Ренат Рахматуллин",
+"license": "CC-BY-NC",
+"taxon": 4514
+},
+"Chlidonias niger": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3789202/medium.jpeg",
+"credit": "(c) David Yeany, some rights reserved (CC BY-NC), uploaded by David Yeany",
+"license": "CC-BY-NC",
+"taxon": 4512
+},
+"Chloephaga melanoptera": null,
+"Chloephaga picta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9870540/medium.jpeg",
+"credit": "(c) markus lilje, some rights reserved (CC BY-NC-ND), uploaded by markus lilje",
+"license": "CC-BY-NC-ND",
+"taxon": 7117
+},
+"Chloris chloris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61258110/medium.jpg",
+"credit": "(c) Martin Kunz, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 145360
+},
+"Chondrostoma nasus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/105333791/medium.jpg",
+"credit": "(c) Christa Rohrbach, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 97708
+},
+"Chroicocephalus ridibundus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/198109587/medium.jpg",
+"credit": "(c) Dmitry Dubikovskiy, some rights reserved (CC BY-NC), uploaded by Dmitry Dubikovskiy",
+"license": "CC-BY-NC",
+"taxon": 144510
+},
+"Chrysemys picta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9927445/medium.jpg",
+"credit": "(c) Susan Elliott, some rights reserved (CC BY-NC), uploaded by Susan Elliott",
+"license": "CC-BY-NC",
+"taxon": 39771
+},
+"Chrysolophus amherstiae": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/67441066/medium.jpg",
+"credit": "(c) Henry Koh, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 1231
+},
+"Chrysolophus pictus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/233914195/medium.jpeg",
+"credit": "(c) Xiaogang Zhou, some rights reserved (CC BY-NC), uploaded by Xiaogang Zhou",
+"license": "CC-BY-NC",
+"taxon": 1230
+},
+"Ciconia nigra": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/464130708/medium.jpg",
+"credit": "(c) Zinogre, some rights reserved (CC BY-SA), uploaded by Zinogre",
+"license": "CC-BY-SA",
+"taxon": 4736
+},
+"Ciliata mustela": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/46843651/medium.jpeg",
+"credit": "(c) Julien Renoult, some rights reserved (CC BY), uploaded by Julien Renoult",
+"license": "CC-BY",
+"taxon": 320326
+},
+"Cinclus cinclus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/82887570/medium.jpg",
+"credit": "(c) \nDirk-Jan van Roest, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 7647
+},
+"Ciona intestinalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/175647677/medium.jpeg",
+"credit": "(c) Tara McEvoy-Wilding, some rights reserved (CC BY-NC), uploaded by Tara McEvoy-Wilding",
+"license": "CC-BY-NC",
+"taxon": 48272
+},
+"Circaetus gallicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/40950147/medium.jpg",
+"credit": "(c) Vijay Vanaparthy, some rights reserved (CC BY), uploaded by Vijay Vanaparthy",
+"license": "CC-BY",
+"taxon": 5242
+},
+"Circus cyaneus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/38130778/medium.jpg",
+"credit": "(c) Константин Самодуров, some rights reserved (CC BY-NC), uploaded by Константин Самодуров",
+"license": "CC-BY-NC",
+"taxon": 559064
+},
+"Circus macrourus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/210924816/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 5178
+},
+"Circus macrourus x pygargus": null,
+"Circus pygargus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/83451925/medium.jpg",
+"credit": "(c) Вячеслав Юсупов, some rights reserved (CC BY), uploaded by Вячеслав Юсупов",
+"license": "CC-BY",
+"taxon": 5167
+},
+"Cisticola juncidis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/180576291/medium.jpg",
+"credit": "(c) Ximo Galarza, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 7697
+},
+"Clamator glandarius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/182820083/medium.jpg",
+"credit": "(c) Frank Vassen, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 1787
+},
+"Clangula hyemalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179651221/medium.jpeg",
+"credit": "(c) Rails and roadtrips, some rights reserved (CC BY-NC), uploaded by Rails and roadtrips",
+"license": "CC-BY-NC",
+"taxon": 7170
+},
+"Clarias gariepinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/243667852/medium.jpg",
+"credit": "(c) Wie146, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 82779
+},
+"Clavelina lepadiformis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/136297932/medium.jpg",
+"credit": "(c) luismartinezartola, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 338044
+},
+"Clupea harengus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/85509891/medium.jpg",
+"credit": "(c) Joachim S. Müller, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 97990
+},
+"Cobitis taenia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/313027/medium.jpg",
+"credit": "(c) Wiki-Harfus, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 98114
+},
+"Coccothraustes coccothraustes": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113175106/medium.jpg",
+"credit": "(c) Александр, some rights reserved (CC BY-NC-SA), uploaded by Александр",
+"license": "CC-BY-NC-SA",
+"taxon": 9801
+},
+"Coelodonta antiquitatis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12874043/medium.jpg",
+"credit": "(c) Joel Abroad, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 627089
+},
+"Colinus virginianus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/188718574/medium.jpg",
+"credit": "(c) Andrej Chudý, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 1280
+},
+"Coloeus monedula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/189714380/medium.jpg",
+"credit": "(c) Ad Konings, some rights reserved (CC BY-NC), uploaded by Ad Konings",
+"license": "CC-BY-NC",
+"taxon": 336399
+},
+"Columba guinea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1954837/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 3036
+},
+"Columba palumbus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/108521205/medium.jpg",
+"credit": "(c) hedera.baltica, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 3048
+},
+"Columbina talpacoti": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/402007805/medium.jpg",
+"credit": "(c) eduardovieira17, some rights reserved (CC BY-NC), uploaded by eduardovieira17",
+"license": "CC-BY-NC",
+"taxon": 3580
+},
+"Conger conger": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/349125583/medium.jpg",
+"credit": "(c) Luis P. B., some rights reserved (CC BY-NC), uploaded by Luis P. B.",
+"license": "CC-BY-NC",
+"taxon": 118589
+},
+"Coracias garrulus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/100389614/medium.jpg",
+"credit": "(c) Nik Borrow, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 2266
+},
+"Coregonus oxyrinchus": null,
+"Coronella austriaca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/47609662/medium.jpg",
+"credit": "(c) Daniel Branch, some rights reserved (CC BY-NC), uploaded by Daniel Branch",
+"license": "CC-BY-NC",
+"taxon": 26904
+},
+"Corvus albus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/177161231/medium.jpg",
+"credit": "(c) Alex R, some rights reserved (CC BY-NC), uploaded by Alex R",
+"license": "CC-BY-NC",
+"taxon": 8038
+},
+"Corvus corax": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54389687/medium.jpg",
+"credit": "(c) arbyreed, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 8010
+},
+"Corvus cornix": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/114176979/medium.jpg",
+"credit": "(c) hedera.baltica, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 144757
+},
+"Corvus frugilegus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/62108568/medium.jpg",
+"credit": "(c) Hasan Karagülmez, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 8029
+},
+"Corvus splendens": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/538861750/medium.jpg",
+"credit": "(c) Dhruva Punde, some rights reserved (CC BY-NC), uploaded by Dhruva Punde",
+"license": "CC-BY-NC",
+"taxon": 8031
+},
+"Coscoroba coscoroba": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/160405251/medium.jpg",
+"credit": "(c) Ninosca Angel, some rights reserved (CC BY-NC), uploaded by Ninosca Angel",
+"license": "CC-BY-NC",
+"taxon": 7166
+},
+"Cottus perifretum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/68039674/medium.jpeg",
+"credit": "(c) Calum McLennan, some rights reserved (CC BY-NC), uploaded by Calum McLennan",
+"license": "CC-BY-NC",
+"taxon": 98580
+},
+"Cottus rhenanus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/141510169/medium.jpeg",
+"credit": "(c) Julien Renoult，保留部分权利（CC BY）, 由 Julien Renoult 上传",
+"license": "CC-BY",
+"taxon": 98586
+},
+"Coturnix coturnix": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5788480/medium.jpg",
+"credit": "(c) Ján Svetlík, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 804
+},
+"Coturnix japonica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/455759568/medium.jpg",
+"credit": "(c) terence zahner, some rights reserved (CC BY-NC), uploaded by terence zahner",
+"license": "CC-BY-NC",
+"taxon": 791
+},
+"Crex crex": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/586134822/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 443
+},
+"Cricetus cricetus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/527994804/medium.jpg",
+"credit": "(c) joris_stl, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 45836
+},
+"Crinifer piscator": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/696607058/medium.jpg",
+"credit": "(c) Olivier Coste, some rights reserved (CC BY-NC), uploaded by Olivier Coste",
+"license": "CC-BY-NC",
+"taxon": 7248
+},
+"Crithagra leucopygia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/533318/medium.jpg",
+"credit": "(c) Scott Bowers, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 558600
+},
+"Crithagra mozambica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/161711749/medium.jpg",
+"credit": "(c) Ad Konings, some rights reserved (CC BY-NC), uploaded by Ad Konings",
+"license": "CC-BY-NC",
+"taxon": 558601
+},
+"Crocidura leucodon": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/453747/medium.jpg",
+"credit": "(c) Tamás Cserkész, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 46663
+},
+"Crocidura russula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5660957/medium.jpg",
+"credit": "(c) Carles Pastor, some rights reserved (CC BY-SA), uploaded by Carles Pastor",
+"license": "CC-BY-SA",
+"taxon": 46640
+},
+"Crossoptilon auritum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/78189597/medium.jpg",
+"credit": "(c) marcore!, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 1168
+},
+"Ctenopharyngodon idella": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/49052039/medium.jpg",
+"credit": "(c) Phil's 1stPix, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 128500
+},
+"Curruca iberiae": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3382078/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 1289471
+},
+"Curruca melanocephala": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/556159344/medium.jpg",
+"credit": "(c) Agustín Povedano, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 1289472
+},
+"Cyanistes caeruleus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/41677354/medium.jpeg",
+"credit": "(c) rorygardner79, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 144849
+},
+"Cyclopterus lumpus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/555607372/medium.jpg",
+"credit": "(c) Christopher Power, some rights reserved (CC BY-NC), uploaded by Christopher Power",
+"license": "CC-BY-NC",
+"taxon": 60603
+},
+"Cygnus atratus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/464046604/medium.jpg",
+"credit": "(c) Kevin Yonando, some rights reserved (CC BY-NC), uploaded by Kevin Yonando",
+"license": "CC-BY-NC",
+"taxon": 6914
+},
+"Cygnus buccinator": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5930863/medium.jpeg",
+"credit": "(c) belyykit, some rights reserved (CC BY-NC), uploaded by belyykit",
+"license": "CC-BY-NC",
+"taxon": 6915
+},
+"Cygnus columbianus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/183205026/medium.jpeg",
+"credit": "no rights reserved, uploaded by Andy Wilson",
+"license": "CC0",
+"taxon": 6917
+},
+"Cygnus cygnus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61003700/medium.jpeg",
+"credit": "(c) Bird Explorers, some rights reserved (CC BY-NC), uploaded by Bird Explorers",
+"license": "CC-BY-NC",
+"taxon": 6916
+},
+"Cygnus melancoryphus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/170866347/medium.jpeg",
+"credit": "(c) Bryan Caro San Martin, some rights reserved (CC BY-NC), uploaded by Bryan Caro San Martin",
+"license": "CC-BY-NC",
+"taxon": 72789
+},
+"Cygnus olor": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/622245220/medium.jpg",
+"credit": "(c) missoulabirdnerd, some rights reserved (CC BY-NC), uploaded by missoulabirdnerd",
+"license": "CC-BY-NC",
+"taxon": 6921
+},
+"Cynomys ludovicianus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7688931/medium.jpg",
+"credit": "(c) Meghan Cassidy, some rights reserved (CC BY-SA), uploaded by Meghan Cassidy",
+"license": "CC-BY-SA",
+"taxon": 46179
+},
+"Cyprinus carpio": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2754663/medium.JPG",
+"credit": "(c) lonnyholmes, some rights reserved (CC BY-NC), uploaded by lonnyholmes",
+"license": "CC-BY-NC",
+"taxon": 53911
+},
+"Cyprinus rubrofuscus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/332542785/medium.jpg",
+"credit": "(c) Tse Chung Yi, some rights reserved (CC BY-NC), uploaded by Tse Chung Yi",
+"license": "CC-BY-NC",
+"taxon": 187316
+},
+"Cystophora cristata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/376676925/medium.jpg",
+"credit": "(c) Ingmar van der Brugge, some rights reserved (CC BY-NC-ND), uploaded by Ingmar van der Brugge",
+"license": "CC-BY-NC-ND",
+"taxon": 41706
+},
+"Dacelo novaeguineae": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/533737970/medium.jpg",
+"credit": "(c) Elliot Blythman, some rights reserved (CC BY-NC), uploaded by Elliot Blythman",
+"license": "CC-BY-NC",
+"taxon": 2413
+},
+"Dama dama": null,
+"Dasyatis pastinaca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/265483902/medium.jpg",
+"credit": "(c) Luis P. B., some rights reserved (CC BY-NC), uploaded by Luis P. B.",
+"license": "CC-BY-NC",
+"taxon": 47276
+},
+"Delichon urbicum x Hirundo rustica": null,
+"Delphinus delphis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/316909109/medium.jpg",
+"credit": "(c) Steven Mlodinow, some rights reserved (CC BY-NC), uploaded by Steven Mlodinow",
+"license": "CC-BY-NC",
+"taxon": 41526
+},
+"Dendrocoptes medius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/76206/medium.jpg",
+"credit": "(c) Joan Roca, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 792985
+},
+"Dendrocygna autumnalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/411123026/medium.jpg",
+"credit": "(c) cello caruso-turiello, some rights reserved (CC BY), uploaded by cello caruso-turiello",
+"license": "CC-BY",
+"taxon": 6893
+},
+"Dendrocygna bicolor": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/91528685/medium.jpg",
+"credit": "(c) Tom Benson, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 6899
+},
+"Dendrocygna viduata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/30515510/medium.jpeg",
+"credit": "(c) Bird Explorers, some rights reserved (CC BY-NC), uploaded by Bird Explorers",
+"license": "CC-BY-NC",
+"taxon": 6898
+},
+"Dermochelys coriacea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/244918310/medium.jpg",
+"credit": "(c) azure27014, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 39677
+},
+"Dicentrarchus labrax": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/108974860/medium.jpeg",
+"credit": "(c) Sylvain Le Bris, some rights reserved (CC BY-NC), uploaded by Sylvain Le Bris",
+"license": "CC-BY-NC",
+"taxon": 99269
+},
+"Didemnum vexillum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/20576970/medium.jpg",
+"credit": "(c) Kaitlyn Shaw, some rights reserved (CC BY-NC), uploaded by Kaitlyn Shaw",
+"license": "CC-BY-NC",
+"taxon": 126506
+},
+"Diplecogaster bimaculata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/131300180/medium.jpg",
+"credit": "(c) Xavier Rufray, some rights reserved (CC BY-NC), uploaded by Xavier Rufray",
+"license": "CC-BY-NC",
+"taxon": 118607
+},
+"Diplosoma listerianum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/163385291/medium.jpeg",
+"credit": "(c) Zach Berghorst, some rights reserved (CC BY-NC), uploaded by Zach Berghorst",
+"license": "CC-BY-NC",
+"taxon": 81778
+},
+"Diplosoma spongiforme": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/464338673/medium.jpeg",
+"credit": "(c) Sylvain Le Bris, some rights reserved (CC BY-NC), uploaded by Sylvain Le Bris",
+"license": "CC-BY-NC",
+"taxon": 542729
+},
+"Dromaius novaehollandiae": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/187562017/medium.jpg",
+"credit": "(c) David Cook, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 20504
+},
+"Dryobates minor": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9109/medium.jpg",
+"credit": "(c) Sergey Yeliseev, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 792977
+},
+"Dryocopus martius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/31574109/medium.jpg",
+"credit": "(c) Александр, some rights reserved (CC BY-NC-SA), uploaded by Александр",
+"license": "CC-BY-NC-SA",
+"taxon": 17835
+},
+"Echiichthys vipera": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/170133104/medium.jpeg",
+"credit": "(c) Sylvain Le Bris, some rights reserved (CC BY-NC), uploaded by Sylvain Le Bris",
+"license": "CC-BY-NC",
+"taxon": 118649
+},
+"Egretta garzetta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/205293169/medium.jpg",
+"credit": "(c) Bengt Nyman, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 4943
+},
+"Elanus caeruleus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/183749378/medium.jpeg",
+"credit": "(c) Daniel Liepack, some rights reserved (CC BY-NC), uploaded by Daniel Liepack",
+"license": "CC-BY-NC",
+"taxon": 5275
+},
+"Elaphe schrenckii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/532882788/medium.jpg",
+"credit": "(c) Yucheol Shin, some rights reserved (CC BY-NC), uploaded by Yucheol Shin",
+"license": "CC-BY-NC",
+"taxon": 30231
+},
+"Eleutherodactylus planirostris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/232469445/medium.jpg",
+"credit": "(c) Lawrence Haselmaier, some rights reserved (CC BY-NC), uploaded by Lawrence Haselmaier",
+"license": "CC-BY-NC",
+"taxon": 22631
+},
+"Eliomys quercinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63663307/medium.jpg",
+"credit": "(c) Roberto Ghiglia, some rights reserved (CC BY-NC), uploaded by Roberto Ghiglia",
+"license": "CC-BY-NC",
+"taxon": 45863
+},
+"Emberiza calandra": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/487246494/medium.jpg",
+"credit": "(c) Charles J. Sharp, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 145291
+},
+"Emberiza cia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/118077956/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 9193
+},
+"Emberiza citrinella": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/500177041/medium.jpg",
+"credit": "(c) Diego González Dopico, some rights reserved (CC BY), uploaded by Diego González Dopico",
+"license": "CC-BY",
+"taxon": 9195
+},
+"Emberiza hortulana": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/14066719/medium.jpg",
+"credit": "(c) Tânia Araújo, some rights reserved (CC BY-NC), uploaded by Tânia Araújo",
+"license": "CC-BY-NC",
+"taxon": 9196
+},
+"Emberiza leucocephalos": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/55747329/medium.jpg",
+"credit": "(c) alexdersu, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 9210
+},
+"Emberiza pusilla": null,
+"Emberiza rustica": null,
+"Emberiza schoeniclus": null,
+"Emberiza spodocephala": null,
+"Emys orbicularis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/230597692/medium.jpeg",
+"credit": "(c) Laurent Barthe, some rights reserved (CC BY-NC), uploaded by Laurent Barthe",
+"license": "CC-BY-NC",
+"taxon": 39867
+},
+"Enchelyopus cimbrius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/22916818/medium.jpg",
+"credit": "(c) Jean-François Rousseau, some rights reserved (CC BY-NC), uploaded by Jean-François Rousseau",
+"license": "CC-BY-NC",
+"taxon": 219127
+},
+"Engraulis encrasicolus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/206850071/medium.jpeg",
+"credit": "(c) Dennis Rabeling, some rights reserved (CC BY-NC-ND), uploaded by Dennis Rabeling",
+"license": "CC-BY-NC-ND",
+"taxon": 51910
+},
+"Entelurus aequoreus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/13273857/medium.jpg",
+"credit": "(c) Bernard Picton, some rights reserved (CC BY), uploaded by Bernard Picton",
+"license": "CC-BY",
+"taxon": 363798
+},
+"Eolophus roseicapilla": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/147415773/medium.jpg",
+"credit": "(c) Andrew Allen, some rights reserved (CC BY), uploaded by Andrew Allen",
+"license": "CC-BY",
+"taxon": 144560
+},
+"Epidalea calamita": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/55163594/medium.jpg",
+"credit": "(c) Tânia Araújo, some rights reserved (CC BY-NC), uploaded by Tânia Araújo",
+"license": "CC-BY-NC",
+"taxon": 65450
+},
+"Eptesicus serotinus": null,
+"Equus asinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/140505310/medium.jpg",
+"credit": "(c) Justyn Stahl, some rights reserved (CC BY-NC), uploaded by Justyn Stahl",
+"license": "CC-BY-NC",
+"taxon": 148030
+},
+"Eremophila alpestris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/183478476/medium.jpg",
+"credit": "(c) Pat Farris, some rights reserved (CC BY), uploaded by Pat Farris",
+"license": "CC-BY",
+"taxon": 7294
+},
+"Erithacus rubecula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/104940884/medium.jpeg",
+"credit": "(c) naturpel, some rights reserved (CC BY-NC), uploaded by naturpel",
+"license": "CC-BY-NC",
+"taxon": 13094
+},
+"Erythrura gouldiae": null,
+"Erythrura psittacea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/208400827/medium.jpg",
+"credit": "(c) Frédéric Desmoulins, some rights reserved (CC BY-NC), uploaded by Frédéric Desmoulins",
+"license": "CC-BY-NC",
+"taxon": 13953
+},
+"Esox lucius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/720194889/medium.jpg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 55387
+},
+"Estrilda astrild": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/397446858/medium.jpg",
+"credit": "(c) David Barros Cardona, some rights reserved (CC BY-NC), uploaded by David Barros Cardona",
+"license": "CC-BY-NC",
+"taxon": 13770
+},
+"Eudocimus ruber": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/236792213/medium.jpg",
+"credit": "(c) Dick Daniels, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 3750
+},
+"Euplectes afer": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/218030/medium.jpg",
+"credit": "(c) Ian White, some rights reserved (CC BY-ND)",
+"license": "CC-BY-ND",
+"taxon": 13974
+},
+"Eutrigla gurnardus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/344347060/medium.jpg",
+"credit": "(c) Libby Keatley, some rights reserved (CC BY), uploaded by Libby Keatley",
+"license": "CC-BY",
+"taxon": 118720
+},
+"Falco columbarius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/349349598/medium.jpeg",
+"credit": "(c) Aleksandr Berdnikov, some rights reserved (CC BY-NC), uploaded by Aleksandr Berdnikov",
+"license": "CC-BY-NC",
+"taxon": 4672
+},
+"Falco peregrinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/212499566/medium.jpg",
+"credit": "(c) nautiboy, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 4647
+},
+"Falco rusticolus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/43913042/medium.jpg",
+"credit": "(c) kulyabin67, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 4657
+},
+"Falco subbuteo": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/206987601/medium.jpeg",
+"credit": "(c) Наталия, some rights reserved (CC BY-NC), uploaded by Наталия",
+"license": "CC-BY-NC",
+"taxon": 4643
+},
+"Falco vespertinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/341181801/medium.jpeg",
+"credit": "(c) Valia Pavlou, some rights reserved (CC BY-NC), uploaded by Valia Pavlou",
+"license": "CC-BY-NC",
+"taxon": 4641
+},
+"Ficedula albicollis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28506485/medium.jpg",
+"credit": "(c) ruzovdmitry, some rights reserved (CC BY-NC), uploaded by ruzovdmitry",
+"license": "CC-BY-NC",
+"taxon": 13133
+},
+"Ficedula hypoleuca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/556162067/medium.jpg",
+"credit": "(c) ViiruPesonen, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 204512
+},
+"Ficedula parva": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1853510/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 13113
+},
+"Fratercula arctica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/63139388/medium.jpg",
+"credit": "(c) Paul Steeves, some rights reserved (CC BY-NC), uploaded by Paul Steeves",
+"license": "CC-BY-NC",
+"taxon": 4504
+},
+"Fringilla coelebs": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/151143058/medium.jpg",
+"credit": "(c) Jonny Andrews, some rights reserved (CC BY-NC), uploaded by Jonny Andrews",
+"license": "CC-BY-NC",
+"taxon": 10070
+},
+"Fringilla montifringilla": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/43710488/medium.jpg",
+"credit": "(c) Геннадий, some rights reserved (CC BY-NC), uploaded by Геннадий",
+"license": "CC-BY-NC",
+"taxon": 10069
+},
+"Fulica atra": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/123574818/medium.jpg",
+"credit": "(c) Wei Li Jiang, some rights reserved (CC BY-NC), uploaded by Wei Li Jiang",
+"license": "CC-BY-NC",
+"taxon": 482
+},
+"Fulmarus glacialis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/197412/medium.jpg",
+"credit": "(c) Mark Rosenstein, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 4180
+},
+"Gadus morhua": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/85579321/medium.jpg",
+"credit": "(c) Joachim S. Müller, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 63740
+},
+"Galerida cristata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61326230/medium.jpg",
+"credit": "(c) Koshy Koshy, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 578607
+},
+"Gallinago gallinago": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/323397/medium.jpg",
+"credit": "(c) Agustín Povedano, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 318836
+},
+"Gallinago media": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/308401816/medium.jpeg",
+"credit": "(c) Christoph Moning, some rights reserved (CC BY), uploaded by Christoph Moning",
+"license": "CC-BY",
+"taxon": 3919
+},
+"Gallinula chloropus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/638198544/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 201282
+},
+"Gasterosteus aculeatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/244775846/medium.jpg",
+"credit": "(c) Riccardo Novaga, some rights reserved (CC BY-NC), uploaded by Riccardo Novaga",
+"license": "CC-BY-NC",
+"taxon": 48403
+},
+"Gavia arctica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/437543805/medium.jpg",
+"credit": "(c) Aleksandr Tolchkov, some rights reserved (CC BY-NC), uploaded by Aleksandr Tolchkov",
+"license": "CC-BY-NC",
+"taxon": 4623
+},
+"Gavia immer": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/181003377/medium.jpeg",
+"credit": "(c) Rebecca Scott, some rights reserved (CC BY-NC), uploaded by Rebecca Scott",
+"license": "CC-BY-NC",
+"taxon": 4626
+},
+"Gavia pacifica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172494537/medium.jpg",
+"credit": "(c) Frank Sengpiel, some rights reserved (CC BY), uploaded by Frank Sengpiel",
+"license": "CC-BY",
+"taxon": 4621
+},
+"Gavia stellata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/403741335/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 4627
+},
+"Gelochelidon nilotica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1927698/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 144536
+},
+"Geokichla citrina": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/84320863/medium.jpeg",
+"credit": "(c) Pravin Kawale, some rights reserved (CC BY-NC), uploaded by Pravin Kawale",
+"license": "CC-BY-NC",
+"taxon": 201215
+},
+"Geopelia cuneata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/257262014/medium.jpg",
+"credit": "(c) Steve Murray, some rights reserved (CC BY-NC), uploaded by Steve Murray",
+"license": "CC-BY-NC",
+"taxon": 3609
+},
+"Glareola nordmanni": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/456389611/medium.jpg",
+"credit": "(c) Vyacheslav Luzanov, some rights reserved (CC BY-NC), uploaded by Vyacheslav Luzanov",
+"license": "CC-BY-NC",
+"taxon": 4605
+},
+"Glaucidium brasilianum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/561953598/medium.jpg",
+"credit": "(c) Oscar Alejandro Morales Juárez, some rights reserved (CC BY-SA), uploaded by Oscar Alejandro Morales Juárez",
+"license": "CC-BY-SA",
+"taxon": 19822
+},
+"Glis glis": null,
+"Globicephala melas": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/215548393/medium.jpg",
+"credit": "(c) Vsevolod Rudyi, some rights reserved (CC BY), uploaded by Vsevolod Rudyi",
+"license": "CC-BY",
+"taxon": 41529
+},
+"Gobio gobio": null,
+"Gobiosoma bosc": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/21705544/medium.jpg",
+"credit": "(c) Alex R, some rights reserved (CC BY-NC), uploaded by Alex R",
+"license": "CC-BY-NC",
+"taxon": 179583
+},
+"Gobius niger": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6157858/medium.jpg",
+"credit": "(c) Stefan, some rights reserved (CC BY-NC), uploaded by Stefan",
+"license": "CC-BY-NC",
+"taxon": 118704
+},
+"Gobius paganellus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/87357692/medium.jpg",
+"credit": "(c) Julien Renoult, some rights reserved (CC BY), uploaded by Julien Renoult",
+"license": "CC-BY",
+"taxon": 118706
+},
+"Gobiusculus flavescens": null,
+"Grampus griseus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/142809664/medium.jpg",
+"credit": "(c) Robin Gwen Agarwal, some rights reserved (CC BY-NC), uploaded by Robin Gwen Agarwal",
+"license": "CC-BY-NC",
+"taxon": 41541
+},
+"Graptemys ouachitensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/98229839/medium.jpg",
+"credit": "(c) Diego Kondratzky, some rights reserved (CC BY-NC), uploaded by Diego Kondratzky",
+"license": "CC-BY-NC",
+"taxon": 371940
+},
+"Graptemys pseudogeographica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/330780522/medium.jpeg",
+"credit": "(c) Charlotte Kirchner, some rights reserved (CC BY), uploaded by Charlotte Kirchner",
+"license": "CC-BY",
+"taxon": 39847
+},
+"Grus canadensis": null,
+"Grus grus": null,
+"Grus japonensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/122932380/medium.jpg",
+"credit": "(c) naturepower2021, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 39
+},
+"Grus vipio": null,
+"Gymnocephalus cernua": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/48683050/medium.jpg",
+"credit": "(c) Christa Rohrbach, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 101887
+},
+"Gypaetus barbatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/277408147/medium.jpg",
+"credit": "(c) petermcintyre, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 5379
+},
+"Gyps fulvus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/202775885/medium.jpeg",
+"credit": "(c) Gökçe Coşkun, some rights reserved (CC BY-NC), uploaded by Gökçe Coşkun",
+"license": "CC-BY-NC",
+"taxon": 5366
+},
+"Haematopus ostralegus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1940433/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 4843
+},
+"Haemorhous mexicanus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/254255014/medium.jpeg",
+"credit": "(c) Leonardo Guzmán, some rights reserved (CC BY-NC-ND), uploaded by Leonardo Guzmán",
+"license": "CC-BY-NC-ND",
+"taxon": 199840
+},
+"Haliaeetus albicilla": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/611849733/medium.jpg",
+"credit": "(c) Mikhail Ezdakov, some rights reserved (CC BY-NC), uploaded by Mikhail Ezdakov",
+"license": "CC-BY-NC",
+"taxon": 5309
+},
+"Haliaeetus leucocephalus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28935620/medium.jpg",
+"credit": "(c) Joe Zigmont, some rights reserved (CC BY-NC), uploaded by Joe Zigmont",
+"license": "CC-BY-NC",
+"taxon": 5305
+},
+"Haliaeetus pelagicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/632112581/medium.jpg",
+"credit": "(c) silviodavison, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 5304
+},
+"Halichoerus grypus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/200723202/medium.jpg",
+"credit": "(c) Martha de Jong-Lantink, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 41733
+},
+"Herpestes ichneumon": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/499908562/medium.jpeg",
+"credit": "(c) ebenavidesr, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 41900
+},
+"Hieraaetus pennatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/304208892/medium.jpeg",
+"credit": "(c) Михаил Анурьев, some rights reserved (CC BY-NC), uploaded by Михаил Анурьев",
+"license": "CC-BY-NC",
+"taxon": 5154
+},
+"Himantopus himantopus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/20455456/medium.jpg",
+"credit": "(c) Paolo Zucca, some rights reserved (CC BY), uploaded by Paolo Zucca",
+"license": "CC-BY",
+"taxon": 4835
+},
+"Hippocampus hippocampus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6144946/medium.jpg",
+"credit": "(c) Stefan, some rights reserved (CC BY-NC), uploaded by Stefan",
+"license": "CC-BY-NC",
+"taxon": 84969
+},
+"Hippolais icterina": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/100390771/medium.jpg",
+"credit": "(c) Radovan Václav, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 116918
+},
+"Hippolais polyglotta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/31707568/medium.jpg",
+"credit": "(c) naturpel, some rights reserved (CC BY-NC), uploaded by naturpel",
+"license": "CC-BY-NC",
+"taxon": 116923
+},
+"Hirundo rustica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/122469139/medium.jpg",
+"credit": "(c) Ad Konings, some rights reserved (CC BY-NC), uploaded by Ad Konings",
+"license": "CC-BY-NC",
+"taxon": 11901
+},
+"Histrionicus histrionicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172955323/medium.jpg",
+"credit": "(c) Антон Виноградов, some rights reserved (CC BY-NC), uploaded by Антон Виноградов",
+"license": "CC-BY-NC",
+"taxon": 7111
+},
+"Hydrobates pelagicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/65297/medium.jpg",
+"credit": "(c) Muchaxo, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 4170
+},
+"Hydrocoloeus minutus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/126657733/medium.jpg",
+"credit": "(c) vyatka, some rights reserved (CC BY-NC), uploaded by vyatka",
+"license": "CC-BY-NC",
+"taxon": 144512
+},
+"Hydroprogne caspia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/486575200/medium.jpg",
+"credit": "(c) Jef-B, some rights reserved (CC BY-NC), uploaded by Jef-B",
+"license": "CC-BY-NC",
+"taxon": 144537
+},
+"Hyla arborea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/393831666/medium.jpg",
+"credit": "(c) Manuel Raab, some rights reserved (CC BY-NC), uploaded by Manuel Raab",
+"license": "CC-BY-NC",
+"taxon": 424147
+},
+"Hyla intermedia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/326595076/medium.jpeg",
+"credit": "(c) Giuseppe Molinari, some rights reserved (CC BY-NC), uploaded by Giuseppe Molinari",
+"license": "CC-BY-NC",
+"taxon": 23922
+},
+"Hyla meridionalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/263056417/medium.jpg",
+"credit": "(c) simben, some rights reserved (CC BY-NC-ND), uploaded by simben",
+"license": "CC-BY-NC-ND",
+"taxon": 24045
+},
+"Hyperoplus lanceolatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5471652/medium.jpeg",
+"credit": "(c) Julien Renoult, some rights reserved (CC BY), uploaded by Julien Renoult",
+"license": "CC-BY",
+"taxon": 367967
+},
+"Ichthyaetus audouinii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/107270089/medium.jpg",
+"credit": "(c) Xavier Rufray, some rights reserved (CC BY-NC), uploaded by Xavier Rufray",
+"license": "CC-BY-NC",
+"taxon": 144522
+},
+"Ichthyaetus melanocephalus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/58917758/medium.jpg",
+"credit": "(c) Ján Svetlík, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 144517
+},
+"Ichthyosaura alpestris": null,
+"Ixobrychus minutus": null,
+"Jynx torquilla": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/105374707/medium.jpg",
+"credit": "(c) Happy The Monk Singh, some rights reserved (CC BY-NC), uploaded by Happy The Monk Singh",
+"license": "CC-BY-NC",
+"taxon": 18448
+},
+"Knipowitschia caucasica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/381722702/medium.jpg",
+"credit": "(c) davide bellucci, some rights reserved (CC BY-NC), uploaded by davide bellucci",
+"license": "CC-BY-NC",
+"taxon": 103701
+},
+"Labrus bergylta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3426645/medium.jpg",
+"credit": "(c) João Pedro Silva, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 103911
+},
+"Lacerta agilis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/343743366/medium.jpeg",
+"credit": "(c) klausalix, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 35912
+},
+"Lacerta bilineata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/393936915/medium.jpeg",
+"credit": "(c) frankielee91, some rights reserved (CC BY-NC), uploaded by frankielee91",
+"license": "CC-BY-NC",
+"taxon": 35900
+},
+"Lacerta viridis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/74355963/medium.jpg",
+"credit": "(c) Peter Stoeckl, some rights reserved (CC BY-NC), uploaded by Peter Stoeckl",
+"license": "CC-BY-NC",
+"taxon": 35854
+},
+"Lagenorhynchus albirostris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/344449680/medium.jpeg",
+"credit": "(c) guillaumecalcagni, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 41505
+},
+"Lampetra fluviatilis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/322844834/medium.jpg",
+"credit": "(c) Tiit Hunt, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 103972
+},
+"Lampetra planeri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/76210056/medium.jpg",
+"credit": "(c) Julien Renoult, some rights reserved (CC BY), uploaded by Julien Renoult",
+"license": "CC-BY",
+"taxon": 103978
+},
+"Lampropeltis splendida": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7416109/medium.jpg",
+"credit": "(c) Michael Price, some rights reserved (CC BY-NC-ND), uploaded by Michael Price",
+"license": "CC-BY-NC-ND",
+"taxon": 104004
+},
+"Lamprotornis chalybaeus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/141445090/medium.jpg",
+"credit": "(c) matthewkwan, some rights reserved (CC BY-NC-ND), uploaded by matthewkwan",
+"license": "CC-BY-NC-ND",
+"taxon": 14923
+},
+"Lamprotornis superbus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/329009302/medium.jpg",
+"credit": "(c) Marc Henrion, some rights reserved (CC BY-NC), uploaded by Marc Henrion",
+"license": "CC-BY-NC",
+"taxon": 14939
+},
+"Lanius collurio": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/127743790/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 12038
+},
+"Lanius excubitor": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/137178343/medium.jpg",
+"credit": "(c) Дмитрий Осипов, some rights reserved (CC BY-NC), uploaded by Дмитрий Осипов",
+"license": "CC-BY-NC",
+"taxon": 559070
+},
+"Lanius isabellinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339525787/medium.jpeg",
+"credit": "(c) Pavel Shukov, some rights reserved (CC BY-NC), uploaded by Pavel Shukov",
+"license": "CC-BY-NC",
+"taxon": 12042
+},
+"Lanius phoenicuroides": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/13860198/medium.jpg",
+"credit": "(c) Nik Borrow, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 339680
+},
+"Lanius senator": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/376219537/medium.jpeg",
+"credit": "(c) naturpel, some rights reserved (CC BY-NC), uploaded by naturpel",
+"license": "CC-BY-NC",
+"taxon": 12039
+},
+"Larosterna inca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/143658416/medium.jpeg",
+"credit": "(c) Ernesto Octavio Guzman Tapia, some rights reserved (CC BY-NC), uploaded by Ernesto Octavio Guzman Tapia",
+"license": "CC-BY-NC",
+"taxon": 4551
+},
+"Larus argentatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/198439202/medium.jpeg",
+"credit": "(c) Andrew Thompson, some rights reserved (CC BY-NC), uploaded by Andrew Thompson",
+"license": "CC-BY-NC",
+"taxon": 204533
+},
+"Larus cachinnans": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/62750826/medium.jpeg",
+"credit": "(c) tonipons, some rights reserved (CC BY-NC), uploaded by tonipons",
+"license": "CC-BY-NC",
+"taxon": 4389
+},
+"Larus canus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/167424428/medium.jpeg",
+"credit": "(c) anna_parkhaeva, some rights reserved (CC BY-NC), uploaded by anna_parkhaeva",
+"license": "CC-BY-NC",
+"taxon": 4356
+},
+"Larus fuscus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/681433628/medium.jpg",
+"credit": "(c) Niall Perrins, some rights reserved (CC BY-NC), uploaded by Niall Perrins",
+"license": "CC-BY-NC",
+"taxon": 4381
+},
+"Larus glaucoides": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111301421/medium.jpg",
+"credit": "(c) David McCorquodale, some rights reserved (CC BY-NC), uploaded by David McCorquodale",
+"license": "CC-BY-NC",
+"taxon": 4361
+},
+"Larus hyperboreus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/8050013/medium.jpg",
+"credit": "(c) Matt Goff, some rights reserved (CC BY-NC-SA), uploaded by Matt Goff",
+"license": "CC-BY-NC-SA",
+"taxon": 4349
+},
+"Larus marinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/179379095/medium.jpeg",
+"credit": "(c) Alex Shure, some rights reserved (CC BY-NC), uploaded by Alex Shure",
+"license": "CC-BY-NC",
+"taxon": 4368
+},
+"Larus michahellis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12831/medium.jpg",
+"credit": "(c) JÃ¶rg Hempel, some rights reserved (CC BY-SA), uploaded by JÃ¶rg Hempel",
+"license": "CC-BY-SA",
+"taxon": 59202
+},
+"Leiothlypis peregrina": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7756/medium.jpg",
+"credit": "(c) Jerry Oldenettel, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 979756
+},
+"Leiothrix lutea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/242875080/medium.jpg",
+"credit": "(c) Stephen John Davies, some rights reserved (CC BY-NC), uploaded by Stephen John Davies",
+"license": "CC-BY-NC",
+"taxon": 15560
+},
+"Lepomis gibbosus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/679373106/medium.jpg",
+"credit": "(c) Roger Dennison, some rights reserved (CC BY-NC-ND), uploaded by Roger Dennison",
+"license": "CC-BY-NC-ND",
+"taxon": 49614
+},
+"Leptailurus serval": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/127018903/medium.jpg",
+"credit": "(c) Morten Ross, some rights reserved (CC BY), uploaded by Morten Ross",
+"license": "CC-BY",
+"taxon": 42025
+},
+"Leucaspius delineatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/548343001/medium.jpg",
+"credit": "(c) Stepan Markin, some rights reserved (CC BY-NC), uploaded by Stepan Markin",
+"license": "CC-BY-NC",
+"taxon": 104519
+},
+"Leuciscus aspius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/141511904/medium.jpg",
+"credit": "(c) Julien Renoult, some rights reserved (CC BY), uploaded by Julien Renoult",
+"license": "CC-BY",
+"taxon": 613166
+},
+"Leuciscus idus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/249436748/medium.jpg",
+"credit": "(c) John D Reynolds, some rights reserved (CC BY-NC), uploaded by John D Reynolds",
+"license": "CC-BY-NC",
+"taxon": 104525
+},
+"Leuciscus leuciscus": null,
+"Leucoraja naevus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1587798/medium.jpg",
+"credit": "(c) National Museums Northern Ireland and its licensors, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 104539
+},
+"Limanda limanda": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/64021509/medium.jpg",
+"credit": "(c) Michael Verdirame, some rights reserved (CC BY-NC), uploaded by Michael Verdirame",
+"license": "CC-BY-NC",
+"taxon": 61387
+},
+"Limnodromus scolopaceus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/412478087/medium.jpeg",
+"credit": "(c) Wendy Feltham, some rights reserved (CC BY-NC), uploaded by Wendy Feltham",
+"license": "CC-BY-NC",
+"taxon": 3873
+},
+"Limosa lapponica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/463499194/medium.jpg",
+"credit": "(c) Caiden, some rights reserved (CC BY-NC), uploaded by Caiden",
+"license": "CC-BY-NC",
+"taxon": 3951
+},
+"Linaria flavirostris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/109526950/medium.jpg",
+"credit": "(c) Dmitry Dubikovskiy, some rights reserved (CC BY-NC), uploaded by Dmitry Dubikovskiy",
+"license": "CC-BY-NC",
+"taxon": 558633
+},
+"Liparis liparis": null,
+"Lipophrys pholis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/667342143/medium.jpg",
+"credit": "(c) lucane, some rights reserved (CC BY-NC), uploaded by lucane",
+"license": "CC-BY-NC",
+"taxon": 210294
+},
+"Lissotriton helveticus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1822017/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 64377
+},
+"Lissotriton vulgaris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/125432817/medium.jpg",
+"credit": "(c) Vit Lukas, some rights reserved (CC BY-NC), uploaded by Vit Lukas",
+"license": "CC-BY-NC",
+"taxon": 556656
+},
+"Locustella fluviatilis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/133610841/medium.jpeg",
+"credit": "(c) Pavel Shukov, some rights reserved (CC BY-NC), uploaded by Pavel Shukov",
+"license": "CC-BY-NC",
+"taxon": 116938
+},
+"Locustella luscinioides": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/123410763/medium.jpeg",
+"credit": "(c) Михаил Анурьев, some rights reserved (CC BY-NC), uploaded by Михаил Анурьев",
+"license": "CC-BY-NC",
+"taxon": 116940
+},
+"Locustella naevia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/658200139/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 116941
+},
+"Lonchura oryzivora": null,
+"Lonchura striata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/92430486/medium.jpeg",
+"credit": "(c) Christoph Moning, some rights reserved (CC BY), uploaded by Christoph Moning",
+"license": "CC-BY",
+"taxon": 13887
+},
+"Lophodytes cucullatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/338791340/medium.jpg",
+"credit": "(c) Jason Stovin, some rights reserved (CC BY-NC), uploaded by Jason Stovin",
+"license": "CC-BY-NC",
+"taxon": 7109
+},
+"Lophophanes cristatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/323017422/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 144830
+},
+"Lophura nycthemera": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10771024/medium.jpeg",
+"credit": "(c) robbythai, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 1096
+},
+"Lophura swinhoii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53858000/medium.jpeg",
+"credit": "(c) Gaozi Chen, some rights reserved (CC BY-NC), uploaded by Gaozi Chen",
+"license": "CC-BY-NC",
+"taxon": 1094
+},
+"Lota lota": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/189028180/medium.jpg",
+"credit": "(c) cedo12, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 104813
+},
+"Loxia curvirostra": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60551275/medium.jpg",
+"credit": "(c) Bob Lalonde, some rights reserved (CC BY-NC), uploaded by Bob Lalonde",
+"license": "CC-BY-NC",
+"taxon": 10411
+},
+"Loxia pytyopsittacus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/243484632/medium.jpeg",
+"credit": "(c) Mark Schellekens, some rights reserved (CC BY-NC), uploaded by Mark Schellekens",
+"license": "CC-BY-NC",
+"taxon": 10420
+},
+"Lullula arborea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2421482/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 7363
+},
+"Luscinia calliope": null,
+"Luscinia luscinia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/211475645/medium.jpg",
+"credit": "(c) Геннадий, some rights reserved (CC BY-NC), uploaded by Геннадий",
+"license": "CC-BY-NC",
+"taxon": 13075
+},
+"Luscinia megarhynchos": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/389920621/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 13079
+},
+"Luscinia svecica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/104155463/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 13071
+},
+"Lutra lutra": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/100389336/medium.jpg",
+"credit": "(c) Tomi Tirkkonen, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 41850
+},
+"Lymnocryptes minimus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/168123244/medium.jpg",
+"credit": "(c) Aurelie Laurent, some rights reserved (CC BY-NC-SA), uploaded by Aurelie Laurent",
+"license": "CC-BY-NC-SA",
+"taxon": 3911
+},
+"Lyrurus tetrix": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61329120/medium.jpg",
+"credit": "(c) Tatyana Zarubo, some rights reserved (CC BY-NC), uploaded by Tatyana Zarubo",
+"license": "CC-BY-NC",
+"taxon": 1289697
+},
+"Mammuthus primigenius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/293741612/medium.jpeg",
+"credit": "no rights reserved, uploaded by mionectes",
+"license": "CC0",
+"taxon": 317775
+},
+"Mareca americana": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/111381541/medium.jpg",
+"credit": "(c) Kala Murphy King, some rights reserved (CC BY-NC-ND), uploaded by Kala Murphy King",
+"license": "CC-BY-NC-ND",
+"taxon": 485176
+},
+"Mareca falcata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/620218844/medium.jpg",
+"credit": "(c) Jake reader, some rights reserved (CC BY-NC), uploaded by Jake reader",
+"license": "CC-BY-NC",
+"taxon": 558440
+},
+"Mareca penelope": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/476073225/medium.jpg",
+"credit": "(c) Manuel Raab, some rights reserved (CC BY-NC), uploaded by Manuel Raab",
+"license": "CC-BY-NC",
+"taxon": 558441
+},
+"Mareca penelope x Anas acuta": null,
+"Mareca penelope x Anas platyrhynchos": null,
+"Mareca sibilatrix": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/149748108/medium.jpg",
+"credit": "(c) Luciano Massa, some rights reserved (CC BY), uploaded by Luciano Massa",
+"license": "CC-BY",
+"taxon": 558442
+},
+"Mareca strepera x Anas platyrhynchos": null,
+"Marmaronetta angustirostris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/174739586/medium.jpg",
+"credit": "(c) jjulio2000, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 7139
+},
+"Martes foina": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/161528563/medium.jpg",
+"credit": "(c) janconl, some rights reserved (CC BY-NC-SA), uploaded by janconl",
+"license": "CC-BY-NC-SA",
+"taxon": 41800
+},
+"Martes martes": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/192797246/medium.jpg",
+"credit": "(c) tpa63, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 41796
+},
+"Mauremys sinensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/199273961/medium.jpg",
+"credit": "(c) Darren Fielder, some rights reserved (CC BY-NC), uploaded by Darren Fielder",
+"license": "CC-BY-NC",
+"taxon": 39950
+},
+"Maurolicus muelleri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/30068038/medium.jpeg",
+"credit": "(c) Gonzalo Mucientes Sandoval, some rights reserved (CC BY-NC), uploaded by Gonzalo Mucientes Sandoval",
+"license": "CC-BY-NC",
+"taxon": 459325
+},
+"Megaptera novaeangliae": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/255461843/medium.jpg",
+"credit": "(c) Wayne and Pam Osborn, some rights reserved (CC BY-NC), uploaded by Wayne and Pam Osborn",
+"license": "CC-BY-NC",
+"taxon": 41566
+},
+"Melanitta fusca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/353787029/medium.jpeg",
+"credit": "(c) Maksymilian Wojtkiewicz, some rights reserved (CC BY-NC), uploaded by Maksymilian Wojtkiewicz",
+"license": "CC-BY-NC",
+"taxon": 850858
+},
+"Melanitta nigra": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/426743822/medium.jpeg",
+"credit": "(c) Mark, some rights reserved (CC BY-NC), uploaded by Mark",
+"license": "CC-BY-NC",
+"taxon": 144221
+},
+"Melanitta perspicillata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/483977076/medium.jpg",
+"credit": "(c) Jonathan Irons, some rights reserved (CC BY-NC), uploaded by Jonathan Irons",
+"license": "CC-BY-NC",
+"taxon": 7036
+},
+"Melanogrammus aeglefinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/349660/medium.jpeg",
+"credit": "(c) Biopix, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 82351
+},
+"Meleagris gallopavo": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/31353610/medium.jpg",
+"credit": "(c) Matt K, some rights reserved (CC BY-NC), uploaded by Matt K",
+"license": "CC-BY-NC",
+"taxon": 906
+},
+"Meles meles": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172054371/medium.jpg",
+"credit": "(c) caroline legg, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 855297
+},
+"Melopsittacus undulatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/66388650/medium.jpg",
+"credit": "(c) Joseph j7uy5, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 19339
+},
+"Melospiza melodia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/104749271/medium.jpg",
+"credit": "(c) Ad Konings, some rights reserved (CC BY-NC), uploaded by Ad Konings",
+"license": "CC-BY-NC",
+"taxon": 9100
+},
+"Mergus serrator": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/30683519/medium.jpg",
+"credit": "(c) Robin Gwen Agarwal, some rights reserved (CC BY-NC), uploaded by Robin Gwen Agarwal",
+"license": "CC-BY-NC",
+"taxon": 6996
+},
+"Merlangius merlangus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1535196/medium.jpg",
+"credit": "(c) Biopix, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 430553
+},
+"Merops apiaster": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/70043412/medium.jpeg",
+"credit": "(c) brugorraiztelefonicanet, some rights reserved (CC BY-NC), uploaded by brugorraiztelefonicanet",
+"license": "CC-BY-NC",
+"taxon": 2191
+},
+"Merops persicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/131752926/medium.jpg",
+"credit": "(c) egorbirder, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 2245
+},
+"Micromys minutus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2799230/medium.jpg",
+"credit": "(c) Kim, Hyun-tae, some rights reserved (CC BY), uploaded by Kim, Hyun-tae",
+"license": "CC-BY",
+"taxon": 45316
+},
+"Microstomus kitt": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/14403003/medium.jpg",
+"credit": "(c) Poul Erik Rasmussen, some rights reserved (CC BY-NC), uploaded by Poul Erik Rasmussen",
+"license": "CC-BY-NC",
+"taxon": 481841
+},
+"Microtus agrestis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/281300362/medium.jpeg",
+"credit": "(c) sugarsnap_t, some rights reserved (CC BY), uploaded by sugarsnap_t",
+"license": "CC-BY",
+"taxon": 44282
+},
+"Microtus arvalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/27341640/medium.jpg",
+"credit": "(c) romanvrbicek, some rights reserved (CC BY-NC), uploaded by romanvrbicek",
+"license": "CC-BY-NC",
+"taxon": 44280
+},
+"Microtus oeconomus": null,
+"Microtus subterraneus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/215132035/medium.jpeg",
+"credit": "(c) clara_g, some rights reserved (CC BY-NC-SA), uploaded by clara_g",
+"license": "CC-BY-NC-SA",
+"taxon": 44266
+},
+"Milvus migrans": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/158802479/medium.jpg",
+"credit": "no rights reserved, uploaded by Joshua S. Martin",
+"license": "CC0",
+"taxon": 5268
+},
+"Misgurnus fossilis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3081184/medium.png",
+"credit": "(c) Bernt René Voss Grimm, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 105910
+},
+"Misgurnus mohoity": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/250785352/medium.jpg",
+"credit": "(c) sergeymakeev, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 611879
+},
+"Mola mola": null,
+"Molgula manhattensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/320793659/medium.jpeg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 81773
+},
+"Morus bassanus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/8811/medium.jpg",
+"credit": "(c) PÃ©tur Gauti Valgeirsson, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 3802
+},
+"Motacilla alba": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/39786089/medium.jpg",
+"credit": "(c) ZTSurvival, some rights reserved (CC BY-NC), uploaded by ZTSurvival",
+"license": "CC-BY-NC",
+"taxon": 13695
+},
+"Motacilla citreola": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/120616866/medium.jpg",
+"credit": "(c) egorbirder, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 13687
+},
+"Motacilla tschutschensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/30334980/medium.jpg",
+"credit": "(c) Игорь Двуреков, some rights reserved (CC BY-NC), uploaded by Игорь Двуреков",
+"license": "CC-BY-NC",
+"taxon": 145207
+},
+"Mullus surmuletus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/595809789/medium.jpg",
+"credit": "(c) Stamatis Zogaris, some rights reserved (CC BY-NC), uploaded by Stamatis Zogaris",
+"license": "CC-BY-NC",
+"taxon": 118619
+},
+"Muntiacus reevesi": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/130968788/medium.jpg",
+"credit": "(c) instead, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 42187
+},
+"Mus musculus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/451428449/medium.jpeg",
+"credit": "(c) Ty Smith, some rights reserved (CC BY-NC), uploaded by Ty Smith",
+"license": "CC-BY-NC",
+"taxon": 44705
+},
+"Muscicapa striata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/110517229/medium.jpg",
+"credit": "(c) Ximo Galarza, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 12971
+},
+"Mustela erminea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/629743085/medium.jpg",
+"credit": "(c) あるたるふ, some rights reserved (CC BY-NC), uploaded by あるたるふ",
+"license": "CC-BY-NC",
+"taxon": 41808
+},
+"Mustela nivalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/359966114/medium.jpg",
+"credit": "(c) alexander_semenov, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 569428
+},
+"Mustela putorius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1307109/medium.jpg",
+"credit": "(c) Peter Trimming, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 41812
+},
+"Mustelus asterias": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/625327584/medium.jpg",
+"credit": "(c) richie rocket, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 106253
+},
+"Mycteria ibis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/639987503/medium.jpg",
+"credit": "(c) Colin D. Sumrall, some rights reserved (CC BY-NC), uploaded by Colin D. Sumrall",
+"license": "CC-BY-NC",
+"taxon": 4744
+},
+"Myiopsitta monachus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101224790/medium.jpg",
+"credit": "(c) Juan Emilio, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 19349
+},
+"Myocastor coypus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/349974188/medium.jpg",
+"credit": "(c) ctumer, some rights reserved (CC BY-NC), uploaded by ctumer",
+"license": "CC-BY-NC",
+"taxon": 43997
+},
+"Myodes glareolus": null,
+"Myotis bechsteinii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/54080/medium.jpg",
+"credit": "(c) Ján Svetlík, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 74697
+},
+"Myotis brandtii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2802374/medium.jpg",
+"credit": "(c) Борисенко, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 74699
+},
+"Myotis dasycneme": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/527742507/medium.jpg",
+"credit": "(c) Yuzefovich Alexander, some rights reserved (CC BY-NC), uploaded by Yuzefovich Alexander",
+"license": "CC-BY-NC",
+"taxon": 40308
+},
+"Myotis daubentonii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4627741/medium.jpg",
+"credit": "(c) Martin Grimm, some rights reserved (CC BY-NC), uploaded by Martin Grimm",
+"license": "CC-BY-NC",
+"taxon": 424254
+},
+"Myotis emarginatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/165391253/medium.jpeg",
+"credit": "(c) Jakob Fahr, some rights reserved (CC BY-NC), uploaded by Jakob Fahr",
+"license": "CC-BY-NC",
+"taxon": 40281
+},
+"Myotis myotis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6423391/medium.jpg",
+"credit": "(c) chirosphera, some rights reserved (CC BY-NC), uploaded by chirosphera",
+"license": "CC-BY-NC",
+"taxon": 1150085
+},
+"Myotis mystacinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/78198311/medium.jpeg",
+"credit": "(c) Manuel Ruedi, some rights reserved (CC BY-NC), uploaded by Manuel Ruedi",
+"license": "CC-BY-NC",
+"taxon": 1588878
+},
+"Myotis nattereri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/429791998/medium.jpg",
+"credit": "(c) Damien Brouste, some rights reserved (CC BY-NC), uploaded by Damien Brouste",
+"license": "CC-BY-NC",
+"taxon": 1588715
+},
+"Myoxocephalus scorpius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6157801/medium.jpg",
+"credit": "(c) Stefan, some rights reserved (CC BY-NC), uploaded by Stefan",
+"license": "CC-BY-NC",
+"taxon": 47639
+},
+"Natrix helvetica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/404696767/medium.jpeg",
+"credit": "(c) Shreybae, some rights reserved (CC BY-NC), uploaded by Shreybae",
+"license": "CC-BY-NC",
+"taxon": 851211
+},
+"Natrix maura": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1562526/medium.jpg",
+"credit": "(c) Alexandre Roux, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 29351
+},
+"Natrix natrix": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/454734933/medium.jpg",
+"credit": "(c) Rodrigo Bustos Gil, some rights reserved (CC BY-NC), uploaded by Rodrigo Bustos Gil",
+"license": "CC-BY-NC",
+"taxon": 1631566
+},
+"Neochen jubata": null,
+"Neogobius fluviatilis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339960043/medium.jpeg",
+"credit": "(c) Artem, some rights reserved (CC BY), uploaded by Artem",
+"license": "CC-BY",
+"taxon": 106742
+},
+"Neogobius melanostomus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/24046034/medium.jpg",
+"credit": "(c) Alex R, some rights reserved (CC BY-NC), uploaded by Alex R",
+"license": "CC-BY-NC",
+"taxon": 106743
+},
+"Neomys fodiens": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/658478149/medium.jpg",
+"credit": "(c) Екатерина Бословяк, some rights reserved (CC BY-NC), uploaded by Екатерина Бословяк",
+"license": "CC-BY-NC",
+"taxon": 46859
+},
+"Neophema pulchella": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/30680196/medium.jpg",
+"credit": "(c) David McCorquodale, some rights reserved (CC BY-NC), uploaded by David McCorquodale",
+"license": "CC-BY-NC",
+"taxon": 18883
+},
+"Nerophis lumbriciformis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/236223685/medium.jpg",
+"credit": "(c) Xavier Rufray, some rights reserved (CC BY-NC), uploaded by Xavier Rufray",
+"license": "CC-BY-NC",
+"taxon": 446242
+},
+"Netta peposaca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/602507637/medium.jpg",
+"credit": "(c) Johannes S., some rights reserved (CC BY), uploaded by Johannes S.",
+"license": "CC-BY",
+"taxon": 7124
+},
+"Netta rufina": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/458515851/medium.jpg",
+"credit": "(c) Diego González Dopico, some rights reserved (CC BY), uploaded by Diego González Dopico",
+"license": "CC-BY",
+"taxon": 7122
+},
+"Notamacropus rufogriseus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/95958892/medium.jpg",
+"credit": "(c) Klaus Stiefel, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 1453431
+},
+"Nucifraga caryocatactes": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28580558/medium.jpg",
+"credit": "(c) Alpsdake, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 204552
+},
+"Numenius arquata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/187467671/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 3896
+},
+"Numenius phaeopus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/588065881/medium.jpg",
+"credit": "(c) Pierre Dalous, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 3901
+},
+"Numenius tahitiensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/395654818/medium.jpg",
+"credit": "no rights reserved, uploaded by James Eaton",
+"license": "CC0",
+"taxon": 3909
+},
+"Numida meleagris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/563684147/medium.jpg",
+"credit": "(c) Darren Obbard, some rights reserved (CC BY), uploaded by Darren Obbard",
+"license": "CC-BY",
+"taxon": 1428
+},
+"Nyctalus leisleri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/527740915/medium.jpg",
+"credit": "(c) Yuzefovich Alexander, some rights reserved (CC BY-NC), uploaded by Yuzefovich Alexander",
+"license": "CC-BY-NC",
+"taxon": 40573
+},
+"Nyctalus noctula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/236308/medium.jpg",
+"credit": "(c) Jan Svetlik, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 40572
+},
+"Nyctereutes procyonoides": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2802310/medium.jpg",
+"credit": "(c) misooksun, some rights reserved (CC BY-NC), uploaded by misooksun",
+"license": "CC-BY-NC",
+"taxon": 855311
+},
+"Nycticorax nycticorax": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/49357930/medium.jpg",
+"credit": "no rights reserved, uploaded by Kyle Nessen",
+"license": "CC0",
+"taxon": 4981
+},
+"Nymphicus hollandicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/260517157/medium.jpg",
+"credit": "(c) Steve Murray, some rights reserved (CC BY-NC), uploaded by Steve Murray",
+"license": "CC-BY-NC",
+"taxon": 116993
+},
+"Oceanodroma leucorhoa": null,
+"Ocyphaps lophotes": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53253035/medium.jpg",
+"credit": "(c) JJ Harrison, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 3681
+},
+"Oenanthe hispanica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/450221410/medium.jpeg",
+"credit": "(c) Javisa Hun, some rights reserved (CC BY-NC), uploaded by Javisa Hun",
+"license": "CC-BY-NC",
+"taxon": 12825
+},
+"Oenanthe isabellina": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/527169743/medium.jpg",
+"credit": "(c) Donna Pomeroy, some rights reserved (CC BY-NC), uploaded by Donna Pomeroy",
+"license": "CC-BY-NC",
+"taxon": 12837
+},
+"Oncorhynchus mykiss": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/425305836/medium.jpeg",
+"credit": "(c) Vince Golder, some rights reserved (CC BY-NC), uploaded by Vince Golder",
+"license": "CC-BY-NC",
+"taxon": 47516
+},
+"Ondatra zibethicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/256161131/medium.jpg",
+"credit": "(c) earnoodles, some rights reserved (CC BY-NC), uploaded by earnoodles",
+"license": "CC-BY-NC",
+"taxon": 45763
+},
+"Onychognathus tristramii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/224892/medium.jpg",
+"credit": "(c) Shanthanu Bhardwaj, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 14978
+},
+"Oriolus oriolus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/418521674/medium.jpg",
+"credit": "(c) Edwin Arrigui Torres, some rights reserved (CC BY-NC), uploaded by Edwin Arrigui Torres",
+"license": "CC-BY-NC",
+"taxon": 204556
+},
+"Oryctolagus cuniculus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/520690657/medium.jpg",
+"credit": "(c) jitensha2021, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 43151
+},
+"Osmerus eperlanus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347680235/medium.jpg",
+"credit": "(c) Hans Hillewaert, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 108016
+},
+"Otus scops": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/32019292/medium.jpg",
+"credit": "(c) naturpel, some rights reserved (CC BY-NC), uploaded by naturpel",
+"license": "CC-BY-NC",
+"taxon": 20244
+},
+"Ovis gmelini": null,
+"Oxyura jamaicensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/399154969/medium.jpg",
+"credit": "(c) Chris Fisher, some rights reserved (CC BY-NC), uploaded by Chris Fisher",
+"license": "CC-BY-NC",
+"taxon": 850859
+},
+"Oxyura leucocephala": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/109604096/medium.jpg",
+"credit": "(c) Otgonbayar Tsend, some rights reserved (CC BY-NC), uploaded by Otgonbayar Tsend",
+"license": "CC-BY-NC",
+"taxon": 7081
+},
+"Oxyura vittata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/21989/medium.jpg",
+"credit": "(c) GS 1311, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 7077
+},
+"Pagophilus groenlandicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/190073923/medium.jpg",
+"credit": "(c) Karen Kohn, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 41702
+},
+"Pandion haliaetus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6903515/medium.jpg",
+"credit": "(c) Greg Lasley, some rights reserved (CC BY-NC), uploaded by Greg Lasley",
+"license": "CC-BY-NC",
+"taxon": 116999
+},
+"Pantherophis guttatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/146720272/medium.jpg",
+"credit": "(c) Andrew DuBois, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 73887
+},
+"Panurus biarmicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/393848014/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 117000
+},
+"Parablennius gattorugine": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/477107/medium.jpg",
+"credit": "(c) Philippe Guillaume, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 118685
+},
+"Parablennius pilicornis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6959992/medium.jpg",
+"credit": "(c) Stefan, some rights reserved (CC BY-NC), uploaded by Stefan",
+"license": "CC-BY-NC",
+"taxon": 338049
+},
+"Parabuteo unicinctus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/191470/medium.jpg",
+"credit": "(c) Greg Lasley, some rights reserved (CC BY-NC), uploaded by Greg Lasley",
+"license": "CC-BY-NC",
+"taxon": 5355
+},
+"Paraphanius similis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/744222600/medium.jpg",
+"credit": "(c) saraalien1, einige Rechte vorbehalten (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 1315939
+},
+"Paroaria coronata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/313854459/medium.jpg",
+"credit": "(c) GUSTAVO PASCUAS, some rights reserved (CC BY-NC), uploaded by GUSTAVO PASCUAS",
+"license": "CC-BY-NC",
+"taxon": 10254
+},
+"Parus major": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/340613122/medium.jpg",
+"credit": "(c) Oscar Valencoso - Salomé Planas, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 203153
+},
+"Passer montanus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/165351252/medium.jpg",
+"credit": "(c) Дмитрий Осипов, some rights reserved (CC BY-NC), uploaded by Дмитрий Осипов",
+"license": "CC-BY-NC",
+"taxon": 13851
+},
+"Pastor roseus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/299373712/medium.jpg",
+"credit": "(c) Бобаченко Елена, some rights reserved (CC BY-NC), uploaded by Бобаченко Елена",
+"license": "CC-BY-NC",
+"taxon": 145108
+},
+"Pavo cristatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/165318600/medium.jpg",
+"credit": "(c) Cloudtail the Snow Leopard, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 1204
+},
+"Pelecanus crispus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/466241273/medium.jpeg",
+"credit": "(c) David F. Belmonte, some rights reserved (CC BY), uploaded by David F. Belmonte",
+"license": "CC-BY",
+"taxon": 4333
+},
+"Pelobates fuscus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/454911173/medium.jpg",
+"credit": "(c) Manuel Raab, some rights reserved (CC BY-NC), uploaded by Manuel Raab",
+"license": "CC-BY-NC",
+"taxon": 25312
+},
+"Pelodiscus sinensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/374737417/medium.jpeg",
+"credit": "(c) 大俠, some rights reserved (CC BY-NC-SA), uploaded by 大俠",
+"license": "CC-BY-NC-SA",
+"taxon": 68334
+},
+"Pelophylax lessonae": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/121007278/medium.jpeg",
+"credit": "(c) Thorsten Stegmann, some rights reserved (CC BY-NC-ND), uploaded by Thorsten Stegmann",
+"license": "CC-BY-NC-ND",
+"taxon": 1319811
+},
+"Pelophylax perezi": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/408629615/medium.jpg",
+"credit": "(c) Erland Refling Nielsen, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 1319812
+},
+"Pelophylax ridibundus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11067279/medium.jpg",
+"credit": "(c) Ioana Mita, some rights reserved (CC BY-NC), uploaded by Ioana Mita",
+"license": "CC-BY-NC",
+"taxon": 1319807
+},
+"Perca fluviatilis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/194421912/medium.jpg",
+"credit": "(c) Gilles San Martin, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 109062
+},
+"Perdix perdix": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/344182442/medium.jpg",
+"credit": "(c) patrickgoa, some rights reserved (CC BY-NC), uploaded by patrickgoa",
+"license": "CC-BY-NC",
+"taxon": 831
+},
+"Periparus ater": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/436734934/medium.jpg",
+"credit": "(c) Luiz Lapa, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 144823
+},
+"Pernis apivorus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/142311675/medium.jpg",
+"credit": "(c) vyatka, some rights reserved (CC BY-NC), uploaded by vyatka",
+"license": "CC-BY-NC",
+"taxon": 5325
+},
+"Perophora japonica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/267320451/medium.jpg",
+"credit": "(c) Christine Morrow, some rights reserved (CC BY-NC), uploaded by Christine Morrow",
+"license": "CC-BY-NC",
+"taxon": 209151
+},
+"Petromyzon marinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/449161/medium.jpg",
+"credit": "(c) NOAA Great Lakes Environmental Research Laboratory, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 49223
+},
+"Phalacrocorax aristotelis": null,
+"Phalaropus fulicarius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1940554/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 73203
+},
+"Phalaropus lobatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/438438392/medium.jpeg",
+"credit": "(c) Yinan Li, some rights reserved (CC BY-NC), uploaded by Yinan Li",
+"license": "CC-BY-NC",
+"taxon": 3959
+},
+"Phalaropus tricolor": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/381136722/medium.jpg",
+"credit": "(c) Leo Weiskittel, some rights reserved (CC BY-NC), uploaded by Leo Weiskittel",
+"license": "CC-BY-NC",
+"taxon": 144497
+},
+"Phasianus colchicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/176733796/medium.jpg",
+"credit": "(c) Frank Lin, some rights reserved (CC BY-NC), uploaded by Frank Lin",
+"license": "CC-BY-NC",
+"taxon": 981
+},
+"Phoca vitulina": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/190781322/medium.jpg",
+"credit": "(c) Andrew Reding, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 41708
+},
+"Phocoena phocoena": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/49220183/medium.jpg",
+"credit": "(c) John D Reynolds, some rights reserved (CC BY-NC), uploaded by John D Reynolds",
+"license": "CC-BY-NC",
+"taxon": 41440
+},
+"Phoenicopterus chilensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/134157343/medium.jpg",
+"credit": "(c) Sebastián Lescano, some rights reserved (CC BY-NC), uploaded by Sebastián Lescano",
+"license": "CC-BY-NC",
+"taxon": 4258
+},
+"Phoenicopterus roseus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/187242272/medium.jpg",
+"credit": "(c) cog2022, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 73222
+},
+"Phoenicurus ochruros": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3322603/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 13000
+},
+"Phoenicurus phoenicurus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/234744131/medium.jpg",
+"credit": "(c) Pablo Pozo, some rights reserved (CC BY-NC), uploaded by Pablo Pozo",
+"license": "CC-BY-NC",
+"taxon": 12992
+},
+"Pholis gunnellus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/311907742/medium.jpeg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 152974
+},
+"Phonipara canora": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/211702702/medium.jpg",
+"credit": "(c) Robin White, some rights reserved (CC BY), uploaded by Robin White",
+"license": "CC-BY",
+"taxon": 979799
+},
+"Phoxinus phoxinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/485615917/medium.jpeg",
+"credit": "(c) Axel Gosseries, some rights reserved (CC BY-NC), uploaded by Axel Gosseries",
+"license": "CC-BY-NC",
+"taxon": 109315
+},
+"Phylloscopus fuscatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/457442054/medium.jpg",
+"credit": "(c) johnlerond, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 117022
+},
+"Phylloscopus humei": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/170310402/medium.jpg",
+"credit": "(c) Avinash Bhagat, some rights reserved (CC BY-NC), uploaded by Avinash Bhagat",
+"license": "CC-BY-NC",
+"taxon": 117026
+},
+"Phylloscopus ibericus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/163129181/medium.jpeg",
+"credit": "(c) franciscodocampo, some rights reserved (CC BY), uploaded by franciscodocampo",
+"license": "CC-BY",
+"taxon": 117027
+},
+"Phylloscopus inornatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2781613/medium.jpg",
+"credit": "(c) Kim, Hyun-tae, some rights reserved (CC BY), uploaded by Kim, Hyun-tae",
+"license": "CC-BY",
+"taxon": 117028
+},
+"Phylloscopus nitidus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/208254975/medium.jpg",
+"credit": "(c) Геннадий, some rights reserved (CC BY-NC), uploaded by Геннадий",
+"license": "CC-BY-NC",
+"taxon": 144925
+},
+"Phylloscopus proregulus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/598094178/medium.jpg",
+"credit": "(c) Vyacheslav Luzanov, some rights reserved (CC BY-NC), uploaded by Vyacheslav Luzanov",
+"license": "CC-BY-NC",
+"taxon": 117041
+},
+"Phylloscopus schwarzi": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/34470524/medium.jpg",
+"credit": "(c) Carlos Sanchez, some rights reserved (CC BY-NC), uploaded by Carlos Sanchez",
+"license": "CC-BY-NC",
+"taxon": 117047
+},
+"Phylloscopus sibillatrix": null,
+"Phylloscopus tristis": null,
+"Phylloscopus trochiloides": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/153892605/medium.jpg",
+"credit": "(c) Александр, some rights reserved (CC BY-NC-SA), uploaded by Александр",
+"license": "CC-BY-NC-SA",
+"taxon": 117054
+},
+"Phylloscopus trochilus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/165631422/medium.jpeg",
+"credit": "(c) Valia Pavlou, some rights reserved (CC BY-NC), uploaded by Valia Pavlou",
+"license": "CC-BY-NC",
+"taxon": 117055
+},
+"Physeter macrocephalus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/255460036/medium.jpg",
+"credit": "(c) Wayne and Pam Osborn, some rights reserved (CC BY-NC), uploaded by Wayne and Pam Osborn",
+"license": "CC-BY-NC",
+"taxon": 74890
+},
+"Pica pica": null,
+"Picus viridis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/242668015/medium.jpg",
+"credit": "(c) Andrea Poggi, some rights reserved (CC BY), uploaded by Andrea Poggi",
+"license": "CC-BY",
+"taxon": 144243
+},
+"Pimephales promelas": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/668122256/medium.jpg",
+"credit": "(c) fuzzy little duckling, some rights reserved (CC BY-NC), uploaded by fuzzy little duckling",
+"license": "CC-BY-NC",
+"taxon": 109536
+},
+"Pipistrellus nathusii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/527742346/medium.jpg",
+"credit": "(c) Yuzefovich Alexander, some rights reserved (CC BY-NC), uploaded by Yuzefovich Alexander",
+"license": "CC-BY-NC",
+"taxon": 40391
+},
+"Pipistrellus pipistrellus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6156906/medium.jpeg",
+"credit": "(c) Jakob Fahr, some rights reserved (CC BY-NC), uploaded by Jakob Fahr",
+"license": "CC-BY-NC",
+"taxon": 40364
+},
+"Pipistrellus pygmaeus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/527741938/medium.jpg",
+"credit": "(c) Yuzefovich Alexander, some rights reserved (CC BY-NC), uploaded by Yuzefovich Alexander",
+"license": "CC-BY-NC",
+"taxon": 74908
+},
+"Platalea alba": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/9841826/medium.jpeg",
+"credit": "(c) tanhk, some rights reserved (CC BY-NC), uploaded by tanhk",
+"license": "CC-BY-NC",
+"taxon": 3734
+},
+"Platalea leucorodia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/8809/medium.jpg",
+"credit": "(c) Niranj Vaidyanathan, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 3731
+},
+"Platichthys flesus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/29235852/medium.jpg",
+"credit": "(c) Gonzalo Mucientes Sandoval, some rights reserved (CC BY-NC), uploaded by Gonzalo Mucientes Sandoval",
+"license": "CC-BY-NC",
+"taxon": 109631
+},
+"Platycercus elegans": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/13295378/medium.jpg",
+"credit": "(c) Kevin Schafer, some rights reserved (CC BY-NC-ND), uploaded by Kevin Schafer",
+"license": "CC-BY-NC-ND",
+"taxon": 18921
+},
+"Platycercus eximius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/232541417/medium.jpg",
+"credit": "(c) Kenton, some rights reserved (CC BY-NC), uploaded by Kenton",
+"license": "CC-BY-NC",
+"taxon": 18920
+},
+"Plecotus auritus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4050832/medium.jpg",
+"credit": "(c) Martin Grimm, some rights reserved (CC BY-NC), uploaded by Martin Grimm",
+"license": "CC-BY-NC",
+"taxon": 40416
+},
+"Plecotus austriacus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6156977/medium.jpeg",
+"credit": "(c) Jakob Fahr, some rights reserved (CC BY-NC), uploaded by Jakob Fahr",
+"license": "CC-BY-NC",
+"taxon": 40415
+},
+"Plectrophenax nivalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113763306/medium.jpeg",
+"credit": "(c) Pavel Shukov, some rights reserved (CC BY-NC), uploaded by Pavel Shukov",
+"license": "CC-BY-NC",
+"taxon": 117059
+},
+"Plegadis falcinellus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/247976267/medium.jpg",
+"credit": "(c) Marc Henrion, some rights reserved (CC BY-NC), uploaded by Marc Henrion",
+"license": "CC-BY-NC",
+"taxon": 3756
+},
+"Pleuronectes platessa": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/91821571/medium.jpg",
+"credit": "(c) Rita Jansen, some rights reserved (CC BY-NC-SA), uploaded by Rita Jansen",
+"license": "CC-BY-NC-SA",
+"taxon": 47523
+},
+"Ploceus cucullatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/64914742/medium.jpg",
+"credit": "(c) Nik Borrow, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 13796
+},
+"Pluvialis apricaria": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2301068/medium.jpg",
+"credit": "(c) Kari Pihlaviita, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 4889
+},
+"Pluvialis dominica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/232658654/medium.jpg",
+"credit": "(c) brian stahls, some rights reserved (CC BY-NC), uploaded by brian stahls",
+"license": "CC-BY-NC",
+"taxon": 4893
+},
+"Pluvialis fulva": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/262432635/medium.jpg",
+"credit": "(c) Paul Donahue, some rights reserved (CC BY-NC), uploaded by Paul Donahue",
+"license": "CC-BY-NC",
+"taxon": 4896
+},
+"Pluvialis squatarola": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172713152/medium.jpeg",
+"credit": "(c) Kirstyn Eckhardt, some rights reserved (CC BY-NC), uploaded by Kirstyn Eckhardt",
+"license": "CC-BY-NC",
+"taxon": 4892
+},
+"Podarcis muralis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/129028289/medium.jpg",
+"credit": "(c) Leon van der Noll, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 55990
+},
+"Podarcis siculus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/158501584/medium.jpg",
+"credit": "(c) Petar Milošević, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 337045
+},
+"Podiceps auritus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/69570446/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 4209
+},
+"Podiceps cristatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/556162413/medium.jpg",
+"credit": "(c) caroline legg, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 4208
+},
+"Podiceps grisegena": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/653469754/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 4224
+},
+"Podiceps nigricollis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1936398/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 4205
+},
+"Poecile montanus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/458622888/medium.jpg",
+"credit": "(c) Leonid, some rights reserved (CC BY-NC), uploaded by Leonid",
+"license": "CC-BY-NC",
+"taxon": 144812
+},
+"Poecile palustris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/436733670/medium.jpg",
+"credit": "(c) fra298, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 144809
+},
+"Poephila acuticauda": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/48339247/medium.jpeg",
+"credit": "(c) Frédéric Desmoulins, some rights reserved (CC BY-NC), uploaded by Frédéric Desmoulins",
+"license": "CC-BY-NC",
+"taxon": 13927
+},
+"Poicephalus senegalus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347834585/medium.jpg",
+"credit": "(c) Arjan Haverkamp, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 19052
+},
+"Pollachius pollachius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/351560928/medium.jpg",
+"credit": "(c) Xaime Beiro, some rights reserved (CC BY-NC-ND), uploaded by Xaime Beiro",
+"license": "CC-BY-NC-ND",
+"taxon": 332553
+},
+"Pomatoschistus microps": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/287205692/medium.jpeg",
+"credit": "(c) Pierre Corbrion, some rights reserved (CC BY-NC-SA), uploaded by Pierre Corbrion",
+"license": "CC-BY-NC-SA",
+"taxon": 110042
+},
+"Pomatoschistus minutus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/255939640/medium.jpeg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 344748
+},
+"Pomatoschistus pictus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/270828602/medium.jpg",
+"credit": "(c) peter Bardsley, some rights reserved (CC BY-NC), uploaded by peter Bardsley",
+"license": "CC-BY-NC",
+"taxon": 342287
+},
+"Ponticola kessleri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/141511662/medium.jpeg",
+"credit": "(c) Julien Renoult, some rights reserved (CC BY), uploaded by Julien Renoult",
+"license": "CC-BY",
+"taxon": 110054
+},
+"Porzana parva": null,
+"Porzana porzana": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/41827491/medium.jpg",
+"credit": "(c) Dmitry Dubikovskiy, some rights reserved (CC BY-NC), uploaded by Dmitry Dubikovskiy",
+"license": "CC-BY-NC",
+"taxon": 178
+},
+"Porzana pusilla": null,
+"Procyon lotor": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/290431922/medium.jpeg",
+"credit": "(c) Kat Halsey, some rights reserved (CC BY-NC), uploaded by Kat Halsey",
+"license": "CC-BY-NC",
+"taxon": 41663
+},
+"Proterorhinus semilunaris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/53239009/medium.jpg",
+"credit": "(c) Josh Van Wieren, some rights reserved (CC BY-NC-ND), uploaded by Josh Van Wieren",
+"license": "CC-BY-NC-ND",
+"taxon": 110671
+},
+"Prunella modularis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/409496277/medium.jpg",
+"credit": "(c) Ben Ackerley, some rights reserved (CC BY-NC), uploaded by Ben Ackerley",
+"license": "CC-BY-NC",
+"taxon": 13988
+},
+"Psephotus haematonotus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/242426579/medium.jpg",
+"credit": "(c) Tom Hunt, some rights reserved (CC BY-NC), uploaded by Tom Hunt",
+"license": "CC-BY-NC",
+"taxon": 19009
+},
+"Pseudemys peninsularis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1926206/medium.jpg",
+"credit": "(c) gherman315, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 39825
+},
+"Pseudorasbora parva": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/13788658/medium.jpg",
+"credit": "(c) Seotaro, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 118880
+},
+"Psittacula alexandri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/230390646/medium.jpg",
+"credit": "(c) Marc Choisy, some rights reserved (CC BY-NC), uploaded by Marc Choisy",
+"license": "CC-BY-NC",
+"taxon": 18901
+},
+"Psittacula derbiana": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/257726569/medium.jpg",
+"credit": "(c) Uday Agashe, some rights reserved (CC BY-NC), uploaded by Uday Agashe",
+"license": "CC-BY-NC",
+"taxon": 18903
+},
+"Psittacula eupatria": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61055458/medium.jpeg",
+"credit": "(c) jageshwerverma, some rights reserved (CC BY-NC), uploaded by jageshwerverma",
+"license": "CC-BY-NC",
+"taxon": 18904
+},
+"Psittacula krameri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2035460/medium.jpg",
+"credit": "(c) Mousam Ray, some rights reserved (CC BY-NC), uploaded by Mousam Ray",
+"license": "CC-BY-NC",
+"taxon": 18911
+},
+"Psittacus erithacus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/47367883/medium.jpg",
+"credit": "(c) Valerie, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 19269
+},
+"Ptyonoprogne rupestris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/501784601/medium.jpg",
+"credit": "(c) Manuel Raab, some rights reserved (CC BY-NC), uploaded by Manuel Raab",
+"license": "CC-BY-NC",
+"taxon": 144788
+},
+"Puffinus gravis": null,
+"Puffinus griseus": null,
+"Puffinus mauretanicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/8200600/medium.jpg",
+"credit": "(c) Markus  Lilje, some rights reserved (CC BY-NC-ND), uploaded by Markus  Lilje",
+"license": "CC-BY-NC-ND",
+"taxon": 73315
+},
+"Puffinus puffinus": null,
+"Pungitius pungitius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/21964688/medium.jpg",
+"credit": "(c) Alex R, some rights reserved (CC BY-NC), uploaded by Alex R",
+"license": "CC-BY-NC",
+"taxon": 48399
+},
+"Pusa hispida": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12265846/medium.jpeg",
+"credit": "(c) Kingfisher, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 41691
+},
+"Pycnonotus leucotis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/17448410/medium.jpg",
+"credit": "(c) Saurabh Agrawal, some rights reserved (CC BY-NC), uploaded by Saurabh Agrawal",
+"license": "CC-BY-NC",
+"taxon": 14590
+},
+"Pyrrhula pyrrhula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/342258029/medium.jpeg",
+"credit": "(c) yury-redkin, some rights reserved (CC BY-NC), uploaded by yury-redkin",
+"license": "CC-BY-NC",
+"taxon": 9462
+},
+"Pyrrhura molinae": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/175564157/medium.jpg",
+"credit": "(c) Pablo Demaio, some rights reserved (CC BY-NC), uploaded by Pablo Demaio",
+"license": "CC-BY-NC",
+"taxon": 19152
+},
+"Radjah radjah": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/349964646/medium.jpg",
+"credit": "(c) Alec Karcz, some rights reserved (CC BY-NC), uploaded by Alec Karcz",
+"license": "CC-BY-NC",
+"taxon": 792869
+},
+"Raja brachyura": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/349125760/medium.jpg",
+"credit": "(c) Luis P. B., some rights reserved (CC BY-NC), uploaded by Luis P. B.",
+"license": "CC-BY-NC",
+"taxon": 111518
+},
+"Raja clavata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/351554906/medium.jpg",
+"credit": "(c) Xaime Beiro, some rights reserved (CC BY-NC-ND), uploaded by Xaime Beiro",
+"license": "CC-BY-NC-ND",
+"taxon": 48397
+},
+"Raja montagui": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/524069/medium.jpg",
+"credit": "(c) Ross Bullimore, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 111527
+},
+"Raja undulata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/128497764/medium.jpeg",
+"credit": "(c) Dennis Rabeling, some rights reserved (CC BY-NC-ND), uploaded by Dennis Rabeling",
+"license": "CC-BY-NC-ND",
+"taxon": 111535
+},
+"Rana arvalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/487622645/medium.jpg",
+"credit": "(c) Dr. Sven Gippner, some rights reserved (CC BY), uploaded by Dr. Sven Gippner",
+"license": "CC-BY",
+"taxon": 25488
+},
+"Raniceps raninus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10138648/medium.jpg",
+"credit": "(c) Viktor V. Grøtan, some rights reserved (CC BY), uploaded by Viktor V. Grøtan",
+"license": "CC-BY",
+"taxon": 446439
+},
+"Rattus norvegicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1937462/medium.jpg",
+"credit": "(c) Mark Philpott, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 44576
+},
+"Rattus rattus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/146317509/medium.jpeg",
+"credit": "(c) E. Raven Teva, some rights reserved (CC BY-NC), uploaded by E. Raven Teva",
+"license": "CC-BY-NC",
+"taxon": 44575
+},
+"Regulus ignicapilla": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/173469227/medium.jpg",
+"credit": "(c) Ad Konings, some rights reserved (CC BY-NC), uploaded by Ad Konings",
+"license": "CC-BY-NC",
+"taxon": 117097
+},
+"Regulus regulus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/339460974/medium.jpg",
+"credit": "(c) Dave Curtis, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 793469
+},
+"Remiz pendulinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/606114054/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 13676
+},
+"Rhea americana": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/68235230/medium.jpeg",
+"credit": "(c) Martin Arregui, some rights reserved (CC BY-NC), uploaded by Martin Arregui",
+"license": "CC-BY-NC",
+"taxon": 20512
+},
+"Rhinolophus ferrumequinum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/108368812/medium.jpg",
+"credit": "(c) Arnold Wijker, some rights reserved (CC BY-NC), uploaded by Arnold Wijker",
+"license": "CC-BY-NC",
+"taxon": 40645
+},
+"Rhodeus amarus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/24645586/medium.jpeg",
+"credit": "(c) fabnobili, some rights reserved (CC BY-NC), uploaded by fabnobili",
+"license": "CC-BY-NC",
+"taxon": 111757
+},
+"Riparia riparia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/165349740/medium.jpg",
+"credit": "(c) rupperrt78, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 11941
+},
+"Rissa tridactyla": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/419912377/medium.jpg",
+"credit": "(c) Marion Goascoz, some rights reserved (CC BY-NC), uploaded by Marion Goascoz",
+"license": "CC-BY-NC",
+"taxon": 4494
+},
+"Rollulus rouloul": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/595533581/medium.jpg",
+"credit": "no rights reserved, uploaded by Лариса Артемьева",
+"license": "CC0",
+"taxon": 1277
+},
+"Romanogobio belingi": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/425624410/medium.jpeg",
+"credit": "(c) viridiflavus, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 111858
+},
+"Rutilus rutilus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/363198204/medium.jpg",
+"credit": "(c) Jörg Freyhof, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 69989
+},
+"Salamandra corsica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/106924759/medium.jpg",
+"credit": "(c) François-Xavier Taxil, some rights reserved (CC BY-NC), uploaded by François-Xavier Taxil",
+"license": "CC-BY-NC",
+"taxon": 27730
+},
+"Salamandra salamandra": null,
+"Salmo salar": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/178009492/medium.jpg",
+"credit": "(c) stproc, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 48648
+},
+"Salmo trutta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/34847723/medium.jpg",
+"credit": "(c) kirk gardner, some rights reserved (CC BY), uploaded by kirk gardner",
+"license": "CC-BY",
+"taxon": 47518
+},
+"Sander lucioperca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/152230620/medium.jpeg",
+"credit": "(c) Susanne Spindler, some rights reserved (CC BY-NC-ND), uploaded by Susanne Spindler",
+"license": "CC-BY-NC-ND",
+"taxon": 48156
+},
+"Sardina pilchardus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/115069832/medium.jpeg",
+"credit": "(c) Alexandre H. Leitão, some rights reserved (CC BY-NC), uploaded by Alexandre H. Leitão",
+"license": "CC-BY-NC",
+"taxon": 118600
+},
+"Sarkidiornis melanotos": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/13813083/medium.jpeg",
+"credit": "(c) copper, some rights reserved (CC BY-NC), uploaded by copper",
+"license": "CC-BY-NC",
+"taxon": 7160
+},
+"Saxicola maurus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/57800736/medium.jpg",
+"credit": "(c) Константин Селивёрстов, some rights reserved (CC BY), uploaded by Константин Селивёрстов",
+"license": "CC-BY",
+"taxon": 201193
+},
+"Saxicola rubetra": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/64026043/medium.jpeg",
+"credit": "(c) Mourad Harzallah, some rights reserved (CC BY), uploaded by Mourad Harzallah",
+"license": "CC-BY",
+"taxon": 12908
+},
+"Saxicola stejnegeri": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/137327314/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 1286913
+},
+"Saxicola torquatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2644120/medium.jpg",
+"credit": "(c) Nik Borrow, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 55371
+},
+"Scardinius erythrophthalmus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/351728711/medium.jpg",
+"credit": "(c) Iidkk, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 112118
+},
+"Sciurus carolinensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/22144449/medium.jpg",
+"credit": "(c) Diliff, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 46017
+},
+"Sciurus variegatoides": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/152011608/medium.jpg",
+"credit": "(c) silkevs, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 46005
+},
+"Sciurus vulgaris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/462357539/medium.jpg",
+"credit": "(c) Rhododendrites, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 46001
+},
+"Scolopax rusticola": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/64987854/medium.jpg",
+"credit": "(c) Roberto Ghiglia, some rights reserved (CC BY-NC), uploaded by Roberto Ghiglia",
+"license": "CC-BY-NC",
+"taxon": 3931
+},
+"Scomber scombrus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/462705827/medium.jpg",
+"credit": "(c) Hans Hillewaert, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 118678
+},
+"Scomberesox saurus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/732418586/medium.jpg",
+"credit": "(c) Vasco Valadares, some rights reserved (CC BY-NC), uploaded by Vasco Valadares",
+"license": "CC-BY-NC",
+"taxon": 120672
+},
+"Scophthalmus maximus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1039032/medium.jpg",
+"credit": "(c) Yvan, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 416585
+},
+"Scophthalmus rhombus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/109116021/medium.jpeg",
+"credit": "(c) Sylvain Le Bris, some rights reserved (CC BY-NC), uploaded by Sylvain Le Bris",
+"license": "CC-BY-NC",
+"taxon": 118636
+},
+"Scyliorhinus canicula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/265483574/medium.jpg",
+"credit": "(c) Luis P. B., some rights reserved (CC BY-NC), uploaded by Luis P. B.",
+"license": "CC-BY-NC",
+"taxon": 112372
+},
+"Scyliorhinus stellaris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/224300307/medium.jpg",
+"credit": "(c) Daniel Benák, some rights reserved (CC BY), uploaded by Daniel Benák",
+"license": "CC-BY",
+"taxon": 112381
+},
+"Serinus canaria": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/12383875/medium.jpg",
+"credit": "(c) Juan Emilio, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 9246
+},
+"Serinus serinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/71763707/medium.jpg",
+"credit": "(c) brian fisher, some rights reserved (CC BY-NC), uploaded by brian fisher",
+"license": "CC-BY-NC",
+"taxon": 9236
+},
+"Sibirionetta formosa": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/169169606/medium.jpg",
+"credit": "(c) jitensha2021, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 558428
+},
+"Silurus glanis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/215559806/medium.jpg",
+"credit": "(c) Manuel Raab, some rights reserved (CC BY-NC), uploaded by Manuel Raab",
+"license": "CC-BY-NC",
+"taxon": 112581
+},
+"Sinosuthora webbiana": null,
+"Sitta europaea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/98789726/medium.jpg",
+"credit": "(c) Frank Vassen, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 14824
+},
+"Solea solea": null,
+"Somateria mollissima": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/101350509/medium.jpeg",
+"credit": "(c) Christoph Moning, some rights reserved (CC BY), uploaded by Christoph Moning",
+"license": "CC-BY",
+"taxon": 7024
+},
+"Somateria spectabilis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1954587/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 7030
+},
+"Sorex araneus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/19163863/medium.jpg",
+"credit": "(c) Hanna Knutsson, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 46414
+},
+"Sorex minutus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/475555730/medium.jpeg",
+"credit": "(c) Максим Филатов, some rights reserved (CC BY-NC), uploaded by Максим Филатов",
+"license": "CC-BY-NC",
+"taxon": 46471
+},
+"Sparus aurata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/720160884/medium.jpg",
+"credit": "(c) Marinko Babić, some rights reserved (CC BY-NC), uploaded by Marinko Babić",
+"license": "CC-BY-NC",
+"taxon": 1494783
+},
+"Spatula clypeata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/336986640/medium.jpg",
+"credit": "(c) silvertop41, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 558438
+},
+"Spatula cyanoptera": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/169257315/medium.jpg",
+"credit": "(c) Mariano Fernández Kloster, some rights reserved (CC BY-NC), uploaded by Mariano Fernández Kloster",
+"license": "CC-BY-NC",
+"taxon": 558434
+},
+"Spatula discors": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/286292345/medium.jpeg",
+"credit": "(c) Ed O'Connor, some rights reserved (CC BY-NC), uploaded by Ed O'Connor",
+"license": "CC-BY-NC",
+"taxon": 558433
+},
+"Spatula hottentota": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/224661380/medium.jpeg",
+"credit": "(c) Roy Holtzkampf, some rights reserved (CC BY-NC), uploaded by Roy Holtzkampf",
+"license": "CC-BY-NC",
+"taxon": 558430
+},
+"Spatula puna": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/351251331/medium.jpg",
+"credit": "(c) Matt and Kaysea Bruce, some rights reserved (CC BY-NC), uploaded by Matt and Kaysea Bruce",
+"license": "CC-BY-NC",
+"taxon": 558432
+},
+"Spatula rhynchotis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/203103357/medium.jpg",
+"credit": "(c) Amaya M., some rights reserved (CC BY-NC), uploaded by Amaya M.",
+"license": "CC-BY-NC",
+"taxon": 558437
+},
+"Spatula versicolor": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/166959095/medium.jpeg",
+"credit": "(c) Bryan Caro San Martin, some rights reserved (CC BY-NC), uploaded by Bryan Caro San Martin",
+"license": "CC-BY-NC",
+"taxon": 558431
+},
+"Spilopelia chinensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/230618423/medium.jpg",
+"credit": "(c) Zinogre, some rights reserved (CC BY-SA), uploaded by Zinogre",
+"license": "CC-BY-SA",
+"taxon": 1455918
+},
+"Spilopelia senegalensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2951884/medium.jpg",
+"credit": "(c) Nik Borrow, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 1455922
+},
+"Spinus magellanicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/404833089/medium.jpg",
+"credit": "(c) Guilherme Cameis Freda, some rights reserved (CC BY-SA), uploaded by Guilherme Cameis Freda",
+"license": "CC-BY-SA",
+"taxon": 145316
+},
+"Spondyliosoma cantharus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2647459/medium.jpg",
+"credit": "(c) whodden, some rights reserved (CC BY-NC), uploaded by whodden",
+"license": "CC-BY-NC",
+"taxon": 118655
+},
+"Sprattus sprattus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347678083/medium.jpg",
+"credit": "(c) Hans Hillewaert, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 324532
+},
+"Squalius cephalus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4222770/medium.jpg",
+"credit": "(c) Brian Gratwicke, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 113003
+},
+"Squalus acanthias": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/394671370/medium.jpg",
+"credit": "(c) Malcolm Francis, some rights reserved (CC BY-NC), uploaded by Malcolm Francis",
+"license": "CC-BY-NC",
+"taxon": 52306
+},
+"Stagonopleura guttata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/56990824/medium.jpg",
+"credit": "(c) Michael Hains, some rights reserved (CC BY-NC), uploaded by Michael Hains",
+"license": "CC-BY-NC",
+"taxon": 14093
+},
+"Stercorarius longicaudus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/607915441/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 4481
+},
+"Stercorarius parasiticus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/247492/medium.jpg",
+"credit": "(c) Mark Rosenstein, some rights reserved (CC BY-NC), uploaded by Mark Rosenstein",
+"license": "CC-BY-NC",
+"taxon": 4489
+},
+"Stercorarius pomarinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2950828/medium.jpg",
+"credit": "(c) Nigel Voaden, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 4491
+},
+"Stercorarius skua": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/42775953/medium.jpg",
+"credit": "(c) Janne Asp, some rights reserved (CC BY-NC-ND), uploaded by Janne Asp",
+"license": "CC-BY-NC-ND",
+"taxon": 144297
+},
+"Sterna dougallii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/295162927/medium.jpg",
+"credit": "(c) Matt Felperin, some rights reserved (CC BY), uploaded by Matt Felperin",
+"license": "CC-BY",
+"taxon": 4436
+},
+"Sterna hirundo": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/144056225/medium.jpg",
+"credit": "(c) Kentish Plumber, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 4450
+},
+"Sterna paradisaea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/149865822/medium.jpg",
+"credit": "(c) pelagicgraf, some rights reserved (CC BY-NC), uploaded by pelagicgraf",
+"license": "CC-BY-NC",
+"taxon": 4449
+},
+"Sternula albifrons": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/359001673/medium.jpg",
+"credit": "(c) PotMart186, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 144529
+},
+"Streptopelia roseogrisea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/184455648/medium.jpeg",
+"credit": "(c) Christoph Moning, some rights reserved (CC BY), uploaded by Christoph Moning",
+"license": "CC-BY",
+"taxon": 2966
+},
+"Streptopelia turtur": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/463964274/medium.jpg",
+"credit": "(c) Tobias Polzer, some rights reserved (CC BY-NC), uploaded by Tobias Polzer",
+"license": "CC-BY-NC",
+"taxon": 2938
+},
+"Strix aluco": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/451350360/medium.jpg",
+"credit": "(c) caroline legg, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 19898
+},
+"Sturnia pagodarum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1816014/medium.jpg",
+"credit": "(c) Dr Caesar Sengupta, some rights reserved (CC BY-NC), uploaded by Dr Caesar Sengupta",
+"license": "CC-BY-NC",
+"taxon": 512092
+},
+"Sturnus vulgaris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/32152001/medium.jpg",
+"credit": "(c) Fran Wiesner, some rights reserved (CC BY-NC-ND), uploaded by Fran Wiesner",
+"license": "CC-BY-NC-ND",
+"taxon": 14850
+},
+"Styela clava": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/308911223/medium.jpeg",
+"credit": "(c) Lisa Biasillo, some rights reserved (CC BY-NC), uploaded by Lisa Biasillo",
+"license": "CC-BY-NC",
+"taxon": 81615
+},
+"Surnia ulula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/22530903/medium.jpg",
+"credit": "(c) Terry Gray, some rights reserved (CC BY-NC), uploaded by Terry Gray",
+"license": "CC-BY-NC",
+"taxon": 20372
+},
+"Sus scrofa": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/414500081/medium.jpg",
+"credit": "(c) Nathalie Hausser, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 42134
+},
+"Sylvia atricapilla": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/187041112/medium.jpg",
+"credit": "(c) Marina Ribeiro, some rights reserved (CC BY-NC), uploaded by Marina Ribeiro",
+"license": "CC-BY-NC",
+"taxon": 15282
+},
+"Sylvia borin": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/150949826/medium.jpg",
+"credit": "(c) STŁ, some rights reserved (CC BY-NC), uploaded by STŁ",
+"license": "CC-BY-NC",
+"taxon": 15302
+},
+"Sylvia communis": null,
+"Sylvia curruca": null,
+"Sylvia nisoria": null,
+"Sylvia undata": null,
+"Symphodus bailloni": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/204462948/medium.jpeg",
+"credit": "(c) Ana Santos, some rights reserved (CC BY-NC), uploaded by Ana Santos",
+"license": "CC-BY-NC",
+"taxon": 113528
+},
+"Symphodus melops": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/3407146/medium.jpg",
+"credit": "(c) João Pedro Silva, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 113533
+},
+"Syngnathus acus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/123195209/medium.jpg",
+"credit": "(c) Emil B, some rights reserved (CC BY-NC), uploaded by Emil B",
+"license": "CC-BY-NC",
+"taxon": 118624
+},
+"Syngnathus rostellatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/315040591/medium.jpeg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 446544
+},
+"Synoicus chinensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/83867585/medium.jpg",
+"credit": "(c) Indra Bone, some rights reserved (CC BY-NC), uploaded by Indra Bone",
+"license": "CC-BY-NC",
+"taxon": 505884
+},
+"Syrmaticus ellioti": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/416221651/medium.jpg",
+"credit": "(c) matthewkwan, some rights reserved (CC BY-NC-ND), uploaded by matthewkwan",
+"license": "CC-BY-NC-ND",
+"taxon": 1165
+},
+"Syrmaticus reevesii": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/356970587/medium.jpeg",
+"credit": "(c) Hedwig.cz, some rights reserved (CC BY-NC), uploaded by Hedwig.cz",
+"license": "CC-BY-NC",
+"taxon": 1154
+},
+"Tachymarptis melba": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/189480813/medium.jpg",
+"credit": "no rights reserved, uploaded by Paulo Caseirito",
+"license": "CC0",
+"taxon": 72516
+},
+"Tadorna cana": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/18923238/medium.jpeg",
+"credit": "(c) Gawie Malan, some rights reserved (CC BY-NC), uploaded by Gawie Malan",
+"license": "CC-BY-NC",
+"taxon": 7071
+},
+"Tadorna tadorna": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/392382609/medium.jpg",
+"credit": "(c) thegreatdodo, some rights reserved (CC BY-NC), uploaded by thegreatdodo",
+"license": "CC-BY-NC",
+"taxon": 7067
+},
+"Tadorna tadornoides": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/398462364/medium.jpg",
+"credit": "(c) Grigory Heaton, some rights reserved (CC BY-NC), uploaded by Grigory Heaton",
+"license": "CC-BY-NC",
+"taxon": 7070
+},
+"Tadorna variegata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/65257876/medium.jpeg",
+"credit": "(c) Oscar Thomas, some rights reserved (CC BY-NC), uploaded by Oscar Thomas",
+"license": "CC-BY-NC",
+"taxon": 7072
+},
+"Taeniopygia bichenovii": null,
+"Taeniopygia guttata": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/29804638/medium.jpg",
+"credit": "(c) Julius Simonelli, some rights reserved (CC BY-NC), uploaded by Julius Simonelli",
+"license": "CC-BY-NC",
+"taxon": 14110
+},
+"Tamias sibiricus": null,
+"Tamias striatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/2211106/medium.JPG",
+"credit": "(c) Mike Leveille, some rights reserved (CC BY-NC), uploaded by Mike Leveille",
+"license": "CC-BY-NC",
+"taxon": 46217
+},
+"Tamiasciurus hudsonicus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113299756/medium.jpg",
+"credit": "(c) jmarcinik, some rights reserved (CC BY-NC), uploaded by jmarcinik",
+"license": "CC-BY-NC",
+"taxon": 46260
+},
+"Tamiops swinhoei": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/26263646/medium.jpg",
+"credit": "(c) 茶棚, some rights reserved (CC BY-NC), uploaded by 茶棚",
+"license": "CC-BY-NC",
+"taxon": 46167
+},
+"Tarentola mauritanica": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/122821734/medium.jpg",
+"credit": "(c) Associação Vita Nativa, some rights reserved (CC BY-NC), uploaded by Associação Vita Nativa",
+"license": "CC-BY-NC",
+"taxon": 33602
+},
+"Tarsiger cyanurus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/244039552/medium.jpg",
+"credit": "(c) ansonw38, some rights reserved (CC BY-NC), uploaded by ansonw38",
+"license": "CC-BY-NC",
+"taxon": 210941
+},
+"Tauraco leucotis": null,
+"Taurulus bubalis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/39804694/medium.jpg",
+"credit": "(c) Corentin Morvan, some rights reserved (CC BY-NC), uploaded by Corentin Morvan",
+"license": "CC-BY-NC",
+"taxon": 130386
+},
+"Terathopius ecaudatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/261340111/medium.jpg",
+"credit": "(c) Wayne and Pam Osborn, some rights reserved (CC BY-NC), uploaded by Wayne and Pam Osborn",
+"license": "CC-BY-NC",
+"taxon": 5231
+},
+"Thalasseus sandvicensis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/29392299/medium.jpg",
+"credit": "(c) BJ Stacey, some rights reserved (CC BY-NC), uploaded by BJ Stacey",
+"license": "CC-BY-NC",
+"taxon": 144541
+},
+"Thunnus thynnus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/161933338/medium.jpeg",
+"credit": "(c) Sylvain Le Bris, some rights reserved (CC BY-NC), uploaded by Sylvain Le Bris",
+"license": "CC-BY-NC",
+"taxon": 114126
+},
+"Tinca tinca": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/225783093/medium.jpg",
+"credit": "(c) Susanne Spindler, some rights reserved (CC BY-NC-ND), uploaded by Susanne Spindler",
+"license": "CC-BY-NC-ND",
+"taxon": 114177
+},
+"Trachemys scripta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/120834277/medium.jpg",
+"credit": "no rights reserved, uploaded by Glenn Berry",
+"license": "CC0",
+"taxon": 39782
+},
+"Trachinus draco": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/108403403/medium.jpeg",
+"credit": "(c) Sylvain Le Bris, some rights reserved (CC BY-NC), uploaded by Sylvain Le Bris",
+"license": "CC-BY-NC",
+"taxon": 118652
+},
+"Trachurus trachurus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/263484980/medium.jpeg",
+"credit": "(c) Dennis Rabeling, some rights reserved (CC BY-NC-ND), uploaded by Dennis Rabeling",
+"license": "CC-BY-NC-ND",
+"taxon": 118695
+},
+"Trichoglossus haematodus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/269684159/medium.jpg",
+"credit": "(c) David J Barton, some rights reserved (CC BY-NC), uploaded by David J Barton",
+"license": "CC-BY-NC",
+"taxon": 980098
+},
+"Tridentiger bifasciatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/93043438/medium.jpg",
+"credit": "(c) Zayd Wheeler, some rights reserved (CC BY-NC), uploaded by Zayd Wheeler",
+"license": "CC-BY-NC",
+"taxon": 83175
+},
+"Tridentiger trigonocephalus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/10951981/medium.jpg",
+"credit": "(c) Robin Gwen Agarwal, some rights reserved (CC BY-NC), uploaded by Robin Gwen Agarwal",
+"license": "CC-BY-NC",
+"taxon": 208897
+},
+"Tringa erythropus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347059364/medium.jpg",
+"credit": "(c) Ján Svetlík, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 3882
+},
+"Tringa flavipes": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/260887463/medium.jpg",
+"credit": "(c) Jonathan Irons, some rights reserved (CC BY-NC), uploaded by Jonathan Irons",
+"license": "CC-BY-NC",
+"taxon": 3893
+},
+"Tringa nebularia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/52660452/medium.jpg",
+"credit": "(c) Ximo Galarza, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 3878
+},
+"Tringa ochropus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/262067607/medium.jpg",
+"credit": "(c) Gabi Rusu, some rights reserved (CC BY-NC), uploaded by Gabi Rusu",
+"license": "CC-BY-NC",
+"taxon": 3885
+},
+"Tringa stagnatilis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/337986353/medium.jpg",
+"credit": "(c) Ad Konings, some rights reserved (CC BY-NC), uploaded by Ad Konings",
+"license": "CC-BY-NC",
+"taxon": 3881
+},
+"Tringa totanus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/52766331/medium.jpg",
+"credit": "(c) Frans Vandewalle, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 3879
+},
+"Trisopterus luscus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/228155485/medium.jpeg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 118601
+},
+"Trisopterus minutus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/172596109/medium.jpeg",
+"credit": "(c) Sylvain Le Bris, some rights reserved (CC BY-NC), uploaded by Sylvain Le Bris",
+"license": "CC-BY-NC",
+"taxon": 114455
+},
+"Triturus carnifex": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/240867952/medium.jpeg",
+"credit": "(c) Andrea Battisti, some rights reserved (CC BY), uploaded by Andrea Battisti",
+"license": "CC-BY",
+"taxon": 27717
+},
+"Triturus cristatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/285159025/medium.jpg",
+"credit": "(c) RICCARDO MATTEA, some rights reserved (CC BY-NC), uploaded by RICCARDO MATTEA",
+"license": "CC-BY-NC",
+"taxon": 1629145
+},
+"Triturus marmoratus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/716537/medium.jpg",
+"credit": "(c) Roberto Sindaco, some rights reserved (CC BY-NC-SA), uploaded by Roberto Sindaco",
+"license": "CC-BY-NC-SA",
+"taxon": 1629135
+},
+"Turdus hortulorum": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/288387294/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 12770
+},
+"Turdus iliacus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/28746692/medium.jpg",
+"credit": "(c) Aleksey Levashkin, some rights reserved (CC BY-NC), uploaded by Aleksey Levashkin",
+"license": "CC-BY-NC",
+"taxon": 12749
+},
+"Turdus merula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/356885346/medium.jpg",
+"credit": "(c) Luiz Lapa, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 12716
+},
+"Turdus philomelos": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/61267397/medium.jpg",
+"credit": "(c) Ximo Galarza, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 12748
+},
+"Turdus pilaris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/171598598/medium.jpg",
+"credit": "(c) Михаил Голомысов, some rights reserved (CC BY), uploaded by Михаил Голомысов",
+"license": "CC-BY",
+"taxon": 12707
+},
+"Turdus torquatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/120423079/medium.jpg",
+"credit": "(c) William Stephens, some rights reserved (CC BY), uploaded by William Stephens",
+"license": "CC-BY",
+"taxon": 12740
+},
+"Turdus viscivorus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/203268068/medium.jpg",
+"credit": "(c) Luca Ghiraldi, some rights reserved (CC BY-NC), uploaded by Luca Ghiraldi",
+"license": "CC-BY-NC",
+"taxon": 12735
+},
+"Tursiops truncatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/611231392/medium.jpg",
+"credit": "(c) Frank Krasovec, some rights reserved (CC BY-NC), uploaded by Frank Krasovec",
+"license": "CC-BY-NC",
+"taxon": 41482
+},
+"Tyto alba": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/165796939/medium.jpg",
+"credit": "(c) caroline legg, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 20445
+},
+"Umbra pygmaea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/184586727/medium.jpeg",
+"credit": "(c) Emilio Concari, some rights reserved (CC BY-NC), uploaded by Emilio Concari",
+"license": "CC-BY-NC",
+"taxon": 114748
+},
+"Upupa epops": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60494705/medium.jpg",
+"credit": "(c) Andrej Chudý, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 20969
+},
+"Uraeginthus cyanocephalus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/640014583/medium.jpg",
+"credit": "(c) Colin D. Sumrall, some rights reserved (CC BY-NC), uploaded by Colin D. Sumrall",
+"license": "CC-BY-NC",
+"taxon": 14030
+},
+"Uria aalge": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/96826556/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 4519
+},
+"Vanellus leucurus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/338982895/medium.jpeg",
+"credit": "(c) Pavel Shukov, some rights reserved (CC BY-NC), uploaded by Pavel Shukov",
+"license": "CC-BY-NC",
+"taxon": 4860
+},
+"Vanellus miles": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/409064183/medium.jpg",
+"credit": "(c) Caiden, some rights reserved (CC BY-NC), uploaded by Caiden",
+"license": "CC-BY-NC",
+"taxon": 4872
+},
+"Vanellus vanellus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/96099602/medium.jpg",
+"credit": "(c) Анна Голубева, some rights reserved (CC BY-NC-ND), uploaded by Анна Голубева",
+"license": "CC-BY-NC-ND",
+"taxon": 4857
+},
+"Vespertilio murinus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1856287/medium.jpg",
+"credit": "(c) Ján Svetlík, some rights reserved (CC BY-NC-SA)",
+"license": "CC-BY-NC-SA",
+"taxon": 40446
+},
+"Vidua macroura": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/129793503/medium.jpg",
+"credit": "(c) James M. Maley, some rights reserved (CC BY), uploaded by James M. Maley",
+"license": "CC-BY",
+"taxon": 14011
+},
+"Vimba vimba": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/69695730/medium.jpg",
+"credit": "(c) Martin Grimm, some rights reserved (CC BY-NC), uploaded by Martin Grimm",
+"license": "CC-BY-NC",
+"taxon": 114979
+},
+"Vipera aspis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/236263445/medium.jpg",
+"credit": "(c) Aloys PICHARD, some rights reserved (CC BY-NC), uploaded by Aloys PICHARD",
+"license": "CC-BY-NC",
+"taxon": 30929
+},
+"Vulpes vulpes": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6568074/medium.jpg",
+"credit": "(c) Joanne Muis Redwood, some rights reserved (CC BY-NC), uploaded by Joanne Muis Redwood",
+"license": "CC-BY-NC",
+"taxon": 42069
+},
+"Xema sabini": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/154354360/medium.jpeg",
+"credit": "(c) Jennysweatt, some rights reserved (CC BY-NC), uploaded by Jennysweatt",
+"license": "CC-BY-NC",
+"taxon": 4571
+},
+"Xenus cinereus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/209189029/medium.jpeg",
+"credit": "(c) Phuwarin Suchartbunmak, some rights reserved (CC BY-NC), uploaded by Phuwarin Suchartbunmak",
+"license": "CC-BY-NC",
+"taxon": 3969
+},
+"Xiphias gladius": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/11989857/medium.jpg",
+"credit": "(c) FWC Fish and Wildlife Research Institute, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 115167
+},
+"Zamenis longissimus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/659772128/medium.jpg",
+"credit": "(c) Robinp24, some rights reserved (CC BY-NC), uploaded by Robinp24",
+"license": "CC-BY-NC",
+"taxon": 74009
+},
+"Zamenis scalaris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/258204721/medium.jpeg",
+"credit": "(c) Philippe Geniez, some rights reserved (CC BY-NC), uploaded by Philippe Geniez",
+"license": "CC-BY-NC",
+"taxon": 540328
+},
+"Zeugopterus punctatus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/264828098/medium.jpg",
+"credit": "(c) Ana Santos, some rights reserved (CC BY-NC), uploaded by Ana Santos",
+"license": "CC-BY-NC",
+"taxon": 338048
+},
+"Zoarces viviparus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/696742849/medium.jpg",
+"credit": "(c) Frédéric ANDRE, some rights reserved (CC BY-NC), uploaded by Frédéric ANDRE",
+"license": "CC-BY-NC",
+"taxon": 483237
+},
+"Zonotrichia albicollis": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/752881645/medium.jpg",
+"credit": "(c) JoshExistsToo, some rights reserved (CC BY-NC), uploaded by JoshExistsToo",
+"license": "CC-BY-NC",
+"taxon": 9184
+},
+"Zoothera aurea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/71898347/medium.jpg",
+"credit": "(c) 吳政翰, some rights reserved (CC BY-NC-ND), uploaded by 吳政翰",
+"license": "CC-BY-NC-ND",
+"taxon": 497042
+}
+}
