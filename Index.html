@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimalRadar.nl | Live Dieren & Wolvenradar</title>
+    <meta name="description" content="Zeldzame en bijzondere dierwaarnemingen in heel Nederland op de kaart: wolven, zeearenden, otters, bevers en meer.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Leaflet Kaart + Marker Clustering (Cloudflare CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
+
+    <style>
+        body {
+            background-color: #080d14;
+            color: #f1f5f9;
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            overflow-y: auto;
+        }
+
+        #map {
+            height: 520px;
+            width: 100%;
+            border-radius: 0.75rem;
+            background: #0f172a;
+            z-index: 1;
+        }
+
+        .leaflet-tile-pane {
+            filter: invert(100%) hue-rotate(180deg) brightness(92%) contrast(90%);
+        }
+
+        .custom-scroll::-webkit-scrollbar { width: 8px; }
+        .custom-scroll::-webkit-scrollbar-track { background: #0f172a; border-radius: 8px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 8px; border: 2px solid #0f172a; }
+        .custom-scroll::-webkit-scrollbar-thumb:hover { background: #10b981; }
+
+        .leaflet-popup-content-wrapper { background: #0f172a !important; color: #fff !important; border: 1px solid #334155; border-radius: 0.5rem; }
+        .leaflet-popup-tip { background: #0f172a !important; }
+
+        /* Clusters in de stijl van de site */
+        .ar-cluster {
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.92);
+            border: 2px solid #10b981;
+            color: #a7f3d0;
+            font: 700 12px/1 ui-monospace, monospace;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.45);
+        }
+        .ar-cluster.has-wolf { border-color: #ef4444; color: #fecaca; box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col relative">
+
+    <!-- Bovenbalk -->
+    <header class="border-b border-slate-800 bg-slate-950/95 backdrop-blur px-4 py-3 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+            <div class="flex items-center gap-3 w-full md:w-auto justify-between md:justify-start">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <h1 class="text-lg font-bold text-white tracking-tight">ANIMAL<span class="text-emerald-400">RADAR</span></h1>
+                    <span id="live-status" class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-[11px] font-mono px-2 py-0.5 rounded">LADEN…</span>
+                </div>
+                <span class="text-xs text-slate-400 truncate max-w-[200px] sm:max-w-xs">
+                    Nulpunt: <strong id="header-location" class="text-emerald-400">Zwolle</strong>
+                </span>
+            </div>
+
+            <div class="flex items-center gap-2 w-full md:w-auto">
+                <div class="relative flex-1 md:w-80">
+                    <input id="address-input" type="text" placeholder="Zoek een dier, plaats, adres of postcode…" autocomplete="off"
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500" />
+                    <div id="address-suggestions" class="hidden absolute left-0 right-0 mt-1 bg-slate-900 border border-slate-700 rounded-lg shadow-2xl max-h-60 overflow-y-auto z-50"></div>
+                </div>
+                <button onclick="requestUserLocation()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold px-3.5 py-2 rounded-lg transition shadow cursor-pointer shrink-0 flex items-center gap-1">
+                    <span>📍</span> <span>Mijn GPS</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hoofdscherm -->
+    <main class="max-w-7xl w-full mx-auto px-4 py-4 flex flex-col gap-6 flex-1">
+
+        <!-- Filterbalk -->
+        <section class="bg-slate-900 border border-slate-800 rounded-xl p-3.5 flex flex-col gap-3">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center flex-wrap gap-1.5">
+                    <span class="text-xs text-slate-400 font-medium mr-1">🐾 Soort:</span>
+                    <button onclick="setSizeFilter('all')" id="size-all" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950 cursor-pointer transition">Alles</button>
+                    <button onclick="setSizeFilter('wolf')" id="size-wolf" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-500/30 text-red-300 border border-red-500/50 hover:bg-red-500/40 cursor-pointer transition">🐺 Wolven</button>
+                    <button onclick="setSizeFilter('large')" id="size-large" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition">🦌 Groot wild</button>
+                    <button onclick="setSizeFilter('medium')" id="size-medium" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition">🦊 Zoogdieren</button>
+                    <button onclick="setSizeFilter('birds')" id="size-birds" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition">🦅 Vogels</button>
+                    <button onclick="setSizeFilter('herps')" id="size-herps" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition">🐸 Reptielen & amfibieën</button>
+
+                    <div class="w-px h-6 bg-slate-700 mx-1 hidden sm:block"></div>
+
+                    <button onclick="toggleRarity()" id="filter-rarity" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition flex items-center gap-1 border border-slate-700">
+                        <span>🌟</span> Alleen (Zeer) Zeldzaam
+                    </button>
+                </div>
+
+                <div class="text-xs text-slate-300 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800">
+                    <span id="count-label" class="font-bold text-emerald-400 font-mono text-sm">0</span> waarnemingen actief
+                </div>
+            </div>
+
+            <div class="h-px bg-slate-800/80 w-full"></div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center flex-wrap gap-1.5">
+                    <span class="text-xs text-slate-400 font-medium mr-1">⏱️ Tijd:</span>
+                    <button onclick="setTimeFilter(1)" id="time-1" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition">24 uur</button>
+                    <button onclick="setTimeFilter(3)" id="time-3" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition">3 dagen</button>
+                    <button onclick="setTimeFilter(7)" id="time-7" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition">7 dagen</button>
+                    <button onclick="setTimeFilter(30)" id="time-30" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950 cursor-pointer transition">30 dagen</button>
+                    <button onclick="setTimeFilter(9999)" id="time-9999" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition">Alle tijden</button>
+                    <span id="time-notice" class="hidden text-[11px] text-amber-300 ml-1">ℹ️ Weinig waarnemingen in de laatste 30 dagen, daarom tonen we alle tijden.</span>
+                </div>
+
+                <div class="flex items-center flex-wrap gap-1.5">
+                    <span class="text-xs text-slate-400 font-medium mr-1">📏 Afstand:</span>
+                    <button onclick="setRadiusFilter(999)" id="btn-999" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950 cursor-pointer transition">Alle</button>
+                    <button onclick="setRadiusFilter(10)" id="btn-10" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition">&lt; 10 km</button>
+                    <button onclick="setRadiusFilter(25)" id="btn-25" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition">&lt; 25 km</button>
+                    <button onclick="setRadiusFilter(50)" id="btn-50" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition">&lt; 50 km</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kaart (Links) + Lijst (Rechts) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+            <div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-3">
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-2 relative">
+                    <div id="map"></div>
+                    <div class="text-[11px] text-slate-500 px-1 pt-1.5">Zoom in of versleep de kaart om waarnemingen elders in Nederland te laden.</div>
+                </div>
+
+                <div id="detail-card" class="bg-slate-900 border border-emerald-500/40 rounded-xl p-4 text-xs text-slate-300">
+                    Klik op een dier in de lijst of op de kaart om de waarnemersnotities, locatie-context en details te bekijken.
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 xl:col-span-4 flex flex-col gap-4">
+                <div class="bg-slate-900 border border-slate-800 rounded-xl flex flex-col h-[400px] lg:h-[560px]">
+                    <div class="p-3.5 border-b border-slate-800 bg-slate-950/60 rounded-t-xl font-semibold text-xs text-slate-200 flex justify-between items-center shrink-0">
+                        <span>Live Waarnemingen</span>
+                        <span class="text-emerald-400 font-mono text-[11px]">Gesorteerd op afstand</span>
+                    </div>
+                    <div id="sightings-list" class="custom-scroll flex-1 overflow-y-scroll p-3 space-y-2.5"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer met Contact & Bronnen -->
+    <footer class="max-w-7xl w-full mx-auto px-4 py-8 border-t border-slate-800/80 flex flex-col md:flex-row justify-between items-center gap-6 mt-4">
+        <div class="text-xs text-slate-500 font-medium text-center md:text-left">
+            &copy; 2026 AnimalRadar.nl — Alle rechten voorbehouden. <span id="data-updated"></span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-5">
+            <button onclick="document.getElementById('sources-modal').classList.remove('hidden')" class="text-xs text-slate-400 hover:text-emerald-400 transition flex items-center gap-1.5 underline decoration-slate-700 hover:decoration-emerald-400 underline-offset-4 cursor-pointer">
+                <span>📊</span> Bronvermeldingen & Data
+            </button>
+
+            <a href="mailto:info@animalradar.nl" class="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2">
+                <span>✉️</span> Vragen of Contact? (info@animalradar.nl)
+            </a>
+        </div>
+    </footer>
+
+    <!-- Bronnen Modal -->
+    <div id="sources-modal" class="hidden fixed inset-0 z-[100] bg-slate-950/80 backdrop-blur-sm flex justify-center items-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-6 max-w-md w-full shadow-2xl relative">
+            <button onclick="document.getElementById('sources-modal').classList.add('hidden')" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg cursor-pointer">✖</button>
+            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">📊 Open Data Bronnen</h3>
+            <p class="text-xs text-slate-300 mb-5 leading-relaxed">
+                AnimalRadar maakt de natuur toegankelijk door actuele, openbare data slim te combineren:
+            </p>
+            <ul class="text-xs text-slate-300 space-y-4">
+                <li class="flex items-start gap-2">
+                    <span class="mt-0.5">🐾</span>
+                    <div>
+                        <strong class="text-emerald-400 block">GBIF (Global Biodiversity Information Facility)</strong>
+                        Dierwaarnemingen, tijdstippen en locaties worden dagelijks via de GBIF API opgehaald. Zeldzaamheid wordt per gebied van ca. 50 bij 50 km bepaald op basis van het aantal waarnemingen.
+                    </div>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="mt-0.5">🔎</span>
+                    <div>
+                        <strong class="text-emerald-400 block">iNaturalist</strong>
+                        Aanvullende, door de community bevestigde (research grade) waarnemingen, direct beschikbaar zonder vertraging.
+                    </div>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="mt-0.5">📍</span>
+                    <div>
+                        <strong class="text-emerald-400 block">PDOK Locatieserver (Overheid)</strong>
+                        De zoekbalk en adresherkenning maken gebruik van de officiële BZK Locatieserver.
+                    </div>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="mt-0.5">🗺️</span>
+                    <div>
+                        <strong class="text-emerald-400 block">OpenStreetMap & Leaflet</strong>
+                        Het onderliggende kaartmateriaal is gebouwd op het open-source OpenStreetMap netwerk.
+                    </div>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="mt-0.5">📷</span>
+                    <div>
+                        <strong class="text-emerald-400 block">Soortfoto's via iNaturalist</strong>
+                        Per soort tonen we één voorbeeldfoto met een Creative Commons-licentie. De fotograaf en licentie staan bij elke foto.
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // ------------------------------------------------------------------
+        // Instellingen
+        // ------------------------------------------------------------------
+        const DATA_BASE_URL = 'https://raw.githubusercontent.com/DB-Monti/Animal-Radar-Data/main/data/';
+        const LOAD_RADIUS_KM = 50;        // tegels binnen deze afstand van het nulpunt worden geladen
+        const MIN_ZOOM_FOR_VIEW_LOAD = 8; // vanaf dit zoomniveau ook tegels in het kaartbeeld laden
+        const LIST_LIMIT = 150;           // maximaal aantal kaartjes in de lijst
+        const MIN_RECENT_SIGHTINGS = 5;   // minder dan dit in 30 dagen? Dan automatisch 'Alle tijden'
+
+        let HOME = { lat: 52.5168, lng: 6.0830, name: "Zwolle" };
+        let currentRadius = 999;
+        let currentMaxDays = 30; // standaard: laatste 30 dagen
+        let userChoseTime = false;
+        let autoFallbackChecked = false;
+        let currentSize = 'all';
+        let textSearchQuery = '';
+        let showOnlyRare = false;
+
+        let map = null, markersLayer = null, circlesLayer = null, homeMarker = null;
+
+        // Data
+        let tileIndex = [];
+        const loadedTiles = new Set();
+        const loadingTiles = new Map();
+        const animalsById = new Map();
+        let animals = [];
+        let speciesPhotos = {}; // wetenschappelijke naam -> { url, credit, license, taxon }
+
+        const RARITY_BADGES = {
+            'zeer zeldzaam': 'bg-amber-500/20 text-amber-300 border-amber-500/40',
+            'zeldzaam': 'bg-violet-500/20 text-violet-300 border-violet-500/40',
+            'vrij zeldzaam': 'bg-sky-500/20 text-sky-300 border-sky-500/40',
+        };
+        const WOLF_BADGE = 'bg-red-500/20 text-red-300 border-red-500/40';
+        const DEFAULT_BADGE = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40';
+
+        // Beveiliging: tekst uit externe data nooit als HTML uitvoeren
+        function esc(value) {
+            return String(value ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
+        function getDefaultSizeLabel(size) {
+            if (size === 'wolf') return 'Groot roofdier (Topfauna)';
+            if (size === 'large') return 'Groot wild';
+            if (size === 'medium') return 'Zoogdier';
+            if (size === 'birds') return 'Vogelsoort';
+            if (size === 'herps') return 'Reptiel of amfibie';
+            return 'Natuurwaarneming';
+        }
+
+        function getMarkerColor(item) {
+            if (item.size === 'wolf') return '#ef4444';
+            if (item.size === 'birds') return '#38bdf8';
+            if (item.size === 'herps') return '#a3e635';
+            if (item.size === 'large') return '#f59e0b';
+            return '#10b981';
+        }
+
+        function calculateDaysAgo(dateString) {
+            if (!dateString || typeof dateString !== 'string') return 9999;
+            const parsed = new Date(dateString);
+            if (isNaN(parsed.getTime())) return 9999;
+            return Math.max(0.1, (Date.now() - parsed.getTime()) / (1000 * 60 * 60 * 24));
+        }
+
+        function formatTimeAgo(dateString) {
+            if (!dateString || typeof dateString !== 'string') return 'Recent gemeld';
+            const parsed = new Date(dateString);
+            if (isNaN(parsed.getTime())) return dateString;
+
+            const diffDays = Math.floor((Date.now() - parsed.getTime()) / (1000 * 60 * 60 * 24));
+            const months = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+            const nlDate = `${parsed.getDate()} ${months[parsed.getMonth()]}`;
+
+            if (diffDays <= 0) return 'Vandaag gezien';
+            if (diffDays === 1) return 'Gisteren gezien';
+            if (diffDays < 7) return `${diffDays} dagen geleden (${nlDate})`;
+            if (diffDays < 30) {
+                const w = Math.floor(diffDays / 7);
+                return `${w} ${w === 1 ? 'week' : 'weken'} geleden (${nlDate})`;
+            }
+            const m = Math.max(1, Math.floor(diffDays / 30));
+            return `${m} ${m === 1 ? 'maand' : 'maanden'} geleden (${nlDate} ${parsed.getFullYear()})`;
+        }
+
+        function getDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371;
+            const a = Math.sin((lat2 - lat1) * Math.PI / 360)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin((lon2 - lon1) * Math.PI / 360)**2;
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+
+        // ------------------------------------------------------------------
+        // Data laden per tegel
+        // ------------------------------------------------------------------
+        function normalizeRecord(item) {
+            const size = String(item.size || 'birds');
+            const rarity = String(item.rarity || 'Algemeen');
+            const seenAt = String(item.seenAt || '');
+            return {
+                id: String(item.id),
+                name: String(item.name || 'Onbekend dier'),
+                scientificName: String(item.sci || ''),
+                emoji: String(item.emoji || '🐾'),
+                size,
+                sizeLabel: String(item.label || getDefaultSizeLabel(size)),
+                lat: Number(item.lat),
+                lng: Number(item.lng),
+                place: String(item.place || 'Nederland'),
+                seenAt,
+                daysAgo: calculateDaysAgo(seenAt),
+                rarity,
+                badge: size === 'wolf' ? WOLF_BADGE : (RARITY_BADGES[rarity.toLowerCase()] || DEFAULT_BADGE),
+                protected: Boolean(item.protected),
+                source: String(item.src || 'GBIF'),
+                url: /^https:\/\//.test(String(item.url || '')) ? String(item.url) : '',
+                desc: String(item.desc || '')
+            };
+        }
+
+        async function loadPhotos() {
+            try {
+                const res = await fetch(`${DATA_BASE_URL}photos.json?t=${Date.now()}`);
+                if (res.ok) speciesPhotos = (await res.json()) || {};
+            } catch (e) { /* geen foto's: geen probleem */ }
+        }
+
+        function photoBlock(item) {
+            const p = speciesPhotos[item.scientificName];
+            if (!p || !/^https:\/\//.test(String(p.url || ''))) return '';
+            const credit = p.credit ? esc(p.credit) : 'Onbekende fotograaf';
+            const link = p.taxon ? `https://www.inaturalist.org/taxa/${encodeURIComponent(p.taxon)}` : 'https://www.inaturalist.org';
+            return `
+                <figure class="sm:w-56 shrink-0">
+                    <img src="${esc(p.url)}" alt="Foto van een ${esc(item.name.toLowerCase())}" loading="lazy"
+                        class="w-full h-44 sm:h-40 object-cover rounded-lg border border-slate-800 bg-slate-950"
+                        onerror="this.closest('figure').remove()" />
+                    <figcaption class="text-[10px] text-slate-500 mt-1 leading-snug">
+                        📷 ${credit} · <a href="${link}" target="_blank" rel="noopener" class="underline hover:text-emerald-400">via iNaturalist</a>
+                        <span class="block text-slate-600">Voorbeeldfoto van de soort, niet van deze waarneming.</span>
+                    </figcaption>
+                </figure>`;
+        }
+
+        async function loadIndex() {
+            const res = await fetch(`${DATA_BASE_URL}index.json?t=${Date.now()}`);
+            if (!res.ok) throw new Error('Index niet gevonden');
+            const data = await res.json();
+            tileIndex = Array.isArray(data.tiles) ? data.tiles : [];
+            const upd = document.getElementById('data-updated');
+            if (upd && data.generated) {
+                const d = new Date(data.generated);
+                if (!isNaN(d)) upd.textContent = `Data bijgewerkt: ${d.toLocaleDateString('nl-NL')} ${d.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit' })}.`;
+            }
+        }
+
+        // Afstand (km) van een punt tot de rand van een tegel (0 als het punt erin ligt)
+        function distanceToTile(lat, lng, t) {
+            const cLat = Math.min(Math.max(lat, t.latMin), t.latMax);
+            const cLng = Math.min(Math.max(lng, t.lngMin), t.lngMax);
+            return getDistance(lat, lng, cLat, cLng);
+        }
+
+        function tilesNear(lat, lng, km) {
+            return tileIndex.filter(t => distanceToTile(lat, lng, t) <= km);
+        }
+
+        function tilesInBounds(bounds) {
+            return tileIndex.filter(t =>
+                t.latMax >= bounds.getSouth() && t.latMin <= bounds.getNorth() &&
+                t.lngMax >= bounds.getWest() && t.lngMin <= bounds.getEast());
+        }
+
+        async function loadTile(tile) {
+            if (loadedTiles.has(tile.id)) return;
+            if (loadingTiles.has(tile.id)) return loadingTiles.get(tile.id);
+            const p = (async () => {
+                const res = await fetch(`${DATA_BASE_URL}${tile.file}?t=${Date.now()}`);
+                if (!res.ok) throw new Error(`Tegel ${tile.id} niet gevonden`);
+                const rows = await res.json();
+                if (Array.isArray(rows)) {
+                    rows.forEach(r => {
+                        const rec = normalizeRecord(r);
+                        if (isFinite(rec.lat) && isFinite(rec.lng)) animalsById.set(rec.id, rec);
+                    });
+                }
+                loadedTiles.add(tile.id);
+            })();
+            loadingTiles.set(tile.id, p);
+            try { await p; } finally { loadingTiles.delete(tile.id); }
+        }
+
+        async function ensureTiles(tiles) {
+            const missing = tiles.filter(t => !loadedTiles.has(t.id));
+            if (missing.length === 0) return;
+            setStatus('LADEN…');
+            await Promise.allSettled(missing.map(loadTile));
+            animals = Array.from(animalsById.values());
+            setStatus(`LIVE · ${animals.length}`);
+            if (!autoFallbackChecked) {
+                autoFallbackChecked = true;
+                applyAutoTimeFallback();
+            }
+            renderData();
+        }
+
+        function loadAroundHome() {
+            return ensureTiles(tilesNear(HOME.lat, HOME.lng, LOAD_RADIUS_KM));
+        }
+
+        function loadInView() {
+            if (!map || map.getZoom() < MIN_ZOOM_FOR_VIEW_LOAD) return;
+            ensureTiles(tilesInBounds(map.getBounds()));
+        }
+
+        function setStatus(text) {
+            const el = document.getElementById('live-status');
+            if (el) el.textContent = text;
+        }
+
+        // ------------------------------------------------------------------
+        // Filters & weergave
+        // ------------------------------------------------------------------
+        function toggleRarity() {
+            showOnlyRare = !showOnlyRare;
+            const btn = document.getElementById('filter-rarity');
+            if (btn) {
+                btn.className = showOnlyRare
+                    ? "px-3 py-1.5 rounded-lg text-xs font-semibold bg-amber-500 text-slate-950 cursor-pointer shadow transition flex items-center gap-1"
+                    : "px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition flex items-center gap-1 border border-slate-700";
+            }
+            renderData();
+        }
+
+        function isRare(a) {
+            const r = String(a.rarity || '').toLowerCase();
+            return r === 'zeldzaam' || r === 'zeer zeldzaam';
+        }
+
+        function makeClusterIcon(cluster) {
+            const count = cluster.getChildCount();
+            const hasWolf = cluster.getAllChildMarkers().some(m => m.options.isWolf);
+            const size = count < 10 ? 34 : count < 100 ? 40 : 46;
+            return L.divIcon({
+                html: `<div class="ar-cluster${hasWolf ? ' has-wolf' : ''}" style="width:${size}px;height:${size}px;">${count}</div>`,
+                className: '',
+                iconSize: [size, size]
+            });
+        }
+
+        function renderData() {
+            const items = animals
+                .map(a => ({ ...a, dist: getDistance(HOME.lat, HOME.lng, a.lat, a.lng) }))
+                .filter(a => a.dist <= currentRadius && a.daysAgo <= currentMaxDays)
+                .filter(a => currentSize === 'all' || a.size === currentSize)
+                .filter(a => showOnlyRare ? isRare(a) : true)
+                .filter(a => {
+                    if (!textSearchQuery) return true;
+                    const q = textSearchQuery.toLowerCase();
+                    return a.name.toLowerCase().includes(q)
+                        || a.scientificName.toLowerCase().includes(q)
+                        || a.place.toLowerCase().includes(q);
+                })
+                .sort((a, b) => a.dist - b.dist);
+
+            const countEl = document.getElementById('count-label');
+            if (countEl) countEl.textContent = items.length;
+
+            // Lijst (alleen de dichtstbijzijnde LIST_LIMIT)
+            const listEl = document.getElementById('sightings-list');
+            if (listEl) {
+                if (items.length === 0) {
+                    listEl.innerHTML = animals.length === 0
+                        ? `<div class="p-6 text-center text-slate-400 text-xs">Waarnemingen worden geladen…</div>`
+                        : `<div class="p-6 text-center text-slate-400 text-xs">Geen waarnemingen binnen dit filter. Klik op 'Alle tijden' of 'Alles'.</div>`;
+                } else {
+                    const shown = items.slice(0, LIST_LIMIT);
+                    listEl.innerHTML = shown.map((item, i) => `
+                        <div data-idx="${i}" class="ar-card p-3 rounded-xl bg-slate-950/90 hover:bg-slate-800 border border-slate-800/90 cursor-pointer transition flex items-center justify-between gap-2">
+                            <div class="flex items-start gap-3">
+                                <span class="text-2xl mt-0.5">${esc(item.emoji)}</span>
+                                <div>
+                                    <div class="flex items-center flex-wrap gap-1.5">
+                                        <span class="text-sm font-bold text-white">${esc(item.name)}</span>
+                                        <span class="text-[10px] font-mono px-2 py-0.5 rounded border ${esc(item.badge)}">${esc(item.rarity)}</span>
+                                    </div>
+                                    <div class="text-xs text-slate-300 font-medium mt-0.5">${esc(item.place)}</div>
+                                    <div class="text-[11px] text-emerald-400/90 mt-0.5">🕒 ${esc(formatTimeAgo(item.seenAt))}</div>
+                                </div>
+                            </div>
+                            <div class="text-right shrink-0">
+                                <span class="text-xs font-mono font-bold text-emerald-400 bg-slate-900 border border-slate-700 px-2.5 py-1 rounded-lg block">${item.dist.toFixed(1)} km</span>
+                            </div>
+                        </div>`).join('')
+                        + (items.length > LIST_LIMIT
+                            ? `<div class="p-3 text-center text-[11px] text-slate-500">De ${LIST_LIMIT} dichtstbijzijnde van ${items.length} waarnemingen. Alle waarnemingen staan op de kaart.</div>`
+                            : '');
+                    listEl.querySelectorAll('.ar-card').forEach(card => {
+                        card.onclick = () => showDetail(shown[Number(card.dataset.idx)]);
+                    });
+                }
+            }
+
+            // Kaart
+            if (map && markersLayer && circlesLayer) {
+                markersLayer.clearLayers();
+                circlesLayer.clearLayers();
+                if (homeMarker) map.removeLayer(homeMarker);
+                homeMarker = L.marker([HOME.lat, HOME.lng], {
+                    zIndexOffset: 1000,
+                    icon: L.divIcon({
+                        className: '',
+                        html: `<div style="width:30px;height:30px;border-radius:50%;background:#10b981;border:2px solid #fff;display:flex;align-items:center;justify-content:center;box-shadow:0 0 12px #10b981;">📍</div>`,
+                        iconSize: [30, 30], iconAnchor: [15, 15]
+                    })
+                }).addTo(map);
+                homeMarker.bindPopup(`<b>Jouw gekozen nulpunt:</b><br>${esc(HOME.name)}`);
+
+                [10000, 25000, 50000].forEach(r => L.circle([HOME.lat, HOME.lng], { radius: r, color: '#10b981', weight: 1, fillOpacity: 0.02, dashArray: '4 4', interactive: false }).addTo(circlesLayer));
+
+                const markers = items.map(item => {
+                    const icon = L.divIcon({
+                        className: '',
+                        html: `<div style="width:34px;height:34px;border-radius:50%;background:#0f172a;border:2px solid ${getMarkerColor(item)};display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 2px 8px rgba(0,0,0,0.8);">${esc(item.emoji)}</div>`,
+                        iconSize: [34, 34], iconAnchor: [17, 17]
+                    });
+                    const m = L.marker([item.lat, item.lng], { icon, isWolf: item.size === 'wolf' });
+                    m.on('click', () => showDetail(item));
+                    return m;
+                });
+                if (typeof markersLayer.addLayers === 'function') markersLayer.addLayers(markers);
+                else markers.forEach(m => markersLayer.addLayer(m));
+            }
+        }
+
+        function showDetail(item) {
+            if (map) map.flyTo([item.lat, item.lng], item.protected ? 12 : 14);
+
+            const isProtected = item.protected || String(item.rarity || '').toLowerCase() === 'zeer zeldzaam' || item.size === 'wolf';
+            const locationWarning = isProtected
+                ? `<div class="text-[11px] text-amber-300 bg-amber-500/10 px-2.5 py-1 rounded border border-amber-500/30 mt-2 inline-flex items-center gap-1.5">⚠️ Locatie afgevlakt tot ca. 1 km ter bescherming van het dier</div>`
+                : `<div class="text-[11px] text-slate-400 mt-1.5 font-mono">🎯 GPS: ${item.lat.toFixed(4)}° N, ${item.lng.toFixed(4)}° E • Categorie: ${esc(item.sizeLabel)}</div>`;
+
+            const detailedNote = item.desc && item.desc.trim() !== ''
+                ? item.desc
+                : `Geverifieerde veldwaarneming van een ${item.name.toLowerCase()} in ${item.place} (op ${item.dist.toFixed(1)} km van jouw ingestelde locatie). De spotter heeft bij deze ${item.source}-registratie geen aanvullende gedragsnotities achtergelaten.`;
+            const sourceLine = item.url
+                ? `<a href="${esc(item.url)}" target="_blank" rel="noopener" class="text-[11px] text-slate-400 hover:text-emerald-400 underline underline-offset-2 mt-2 inline-block">🔗 Bekijk originele waarneming op ${esc(item.source)}</a>`
+                : `<div class="text-[11px] text-slate-500 mt-2">Bron: ${esc(item.source)}</div>`;
+            const sciLine = item.scientificName ? `<span class="text-xs italic text-slate-400">${esc(item.scientificName)}</span>` : '';
+
+            const detailEl = document.getElementById('detail-card');
+            if (detailEl) {
+                detailEl.innerHTML = `
+                    <div class="flex flex-col sm:flex-row justify-between gap-4">
+                        ${photoBlock(item)}
+                        <div class="flex-1">
+                            <div class="flex items-center flex-wrap gap-2">
+                                <span class="text-2xl">${esc(item.emoji)}</span>
+                                <span class="text-base font-bold text-white">${esc(item.name)}</span>
+                                ${sciLine}
+                                <span class="text-xs font-mono px-2 py-0.5 rounded border ${esc(item.badge)}">${esc(item.rarity)}</span>
+                                <span class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">${esc(item.sizeLabel)}</span>
+                            </div>
+                            <p class="text-xs text-emerald-400 mt-2 font-medium">📍 Locatie: ${esc(item.place)} • 🕒 ${esc(formatTimeAgo(item.seenAt))}</p>
+                            ${locationWarning}
+                            <div class="bg-slate-950/70 p-3 rounded-lg border border-slate-800 mt-3 text-slate-200 text-xs border-l-2 border-l-emerald-500 leading-relaxed">
+                                <strong class="text-emerald-400 block mb-0.5 not-italic text-[11px] uppercase tracking-wider">Waarnemersnotitie & Context:</strong>
+                                "${esc(detailedNote)}"
+                            </div>
+                            ${sourceLine}
+                        </div>
+                        <div class="bg-slate-950 border border-slate-800 px-4 py-3 rounded-xl text-right shrink-0 flex flex-col justify-center">
+                            <div class="text-[10px] text-slate-400 font-mono">AFSTAND TOT JOU</div>
+                            <div class="text-xl font-bold font-mono text-emerald-400">${item.dist.toFixed(1)} km</div>
+                        </div>
+                    </div>`;
+            }
+        }
+
+        // Bij openen: zijn er te weinig recente waarnemingen, toon dan automatisch alle tijden
+        function applyAutoTimeFallback() {
+            if (userChoseTime || currentMaxDays !== 30) return;
+            const recent = animals.filter(a => a.daysAgo <= 30).length;
+            if (recent < MIN_RECENT_SIGHTINGS) {
+                setTimeFilter(9999, true);
+                const note = document.getElementById('time-notice');
+                if (note) note.classList.remove('hidden');
+            }
+        }
+
+        function setTimeFilter(days, isAuto = false) {
+            if (!isAuto) {
+                userChoseTime = true;
+                const note = document.getElementById('time-notice');
+                if (note) note.classList.add('hidden');
+            }
+            currentMaxDays = days;
+            [1, 3, 7, 30, 9999].forEach(val => {
+                const btn = document.getElementById('time-' + val);
+                if (btn) btn.className = val === days ? "px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950 cursor-pointer transition" : "px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition";
+            });
+            renderData();
+        }
+
+        function setRadiusFilter(km) {
+            currentRadius = km;
+            [999, 10, 25, 50].forEach(val => {
+                const btn = document.getElementById('btn-' + val);
+                if (btn) btn.className = val === km ? "px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950 cursor-pointer transition" : "px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition";
+            });
+            renderData();
+        }
+
+        function setSizeFilter(size) {
+            currentSize = size;
+            ['all', 'wolf', 'large', 'medium', 'birds', 'herps'].forEach(val => {
+                const btn = document.getElementById('size-' + val);
+                if (btn) {
+                    btn.className = val === size
+                        ? (val === 'wolf' ? "px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-600 text-white cursor-pointer transition shadow" : "px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950 cursor-pointer transition")
+                        : (val === 'wolf' ? "px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-500/30 text-red-300 border border-red-500/50 hover:bg-red-500/40 cursor-pointer transition" : "px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition");
+                }
+            });
+            renderData();
+        }
+
+        // ------------------------------------------------------------------
+        // Locatie kiezen
+        // ------------------------------------------------------------------
+        function setHome(lat, lng, name, label) {
+            HOME = { lat, lng, name };
+            document.getElementById('header-location').textContent = label || name;
+            if (map) map.flyTo([lat, lng], 11);
+            renderData();
+            loadAroundHome();
+        }
+
+        function requestUserLocation() {
+            if (!navigator.geolocation) return alert("GPS niet ondersteund.");
+            navigator.geolocation.getCurrentPosition(
+                pos => setHome(pos.coords.latitude, pos.coords.longitude, "Mijn GPS Locatie", "Mijn GPS"),
+                () => alert("Locatietoegang geweigerd.")
+            );
+        }
+
+        function initAddressSearch() {
+            const input = document.getElementById('address-input'), suggBox = document.getElementById('address-suggestions');
+            if (!input || !suggBox) return;
+            let timeout = null;
+            input.addEventListener('input', () => {
+                clearTimeout(timeout);
+                textSearchQuery = input.value.trim();
+                renderData();
+                if (textSearchQuery.length < 2) return suggBox.classList.add('hidden');
+                timeout = setTimeout(async () => {
+                    try {
+                        const res = await fetch(`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=${encodeURIComponent(textSearchQuery)}&rows=6`);
+                        const data = await res.json();
+                        suggBox.innerHTML = '';
+                        if (data.response?.docs?.length > 0) {
+                            suggBox.classList.remove('hidden');
+                            data.response.docs.forEach(doc => {
+                                const match = doc.centroide_ll?.match(/POINT\s*\(\s*([-\d.]+)\s+([-\d.]+)\s*\)/);
+                                if (!match) return;
+                                const row = document.createElement('div');
+                                row.className = "px-3.5 py-2.5 text-xs text-slate-200 hover:bg-emerald-500 hover:text-slate-950 cursor-pointer border-b border-slate-800";
+                                row.textContent = doc.weergavenaam;
+                                row.onclick = () => {
+                                    input.value = ''; textSearchQuery = ''; suggBox.classList.add('hidden');
+                                    setHome(parseFloat(match[2]), parseFloat(match[1]), doc.weergavenaam);
+                                };
+                                suggBox.appendChild(row);
+                            });
+                        } else suggBox.classList.add('hidden');
+                    } catch (e) {}
+                }, 250);
+            });
+            document.addEventListener('click', e => { if (!input.contains(e.target) && !suggBox.contains(e.target)) suggBox.classList.add('hidden'); });
+        }
+
+        // ------------------------------------------------------------------
+        // Opstarten
+        // ------------------------------------------------------------------
+        window.addEventListener('DOMContentLoaded', async function() {
+            try {
+                if (typeof L !== 'undefined') {
+                    map = L.map('map').setView([HOME.lat, HOME.lng], 9);
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap' }).addTo(map);
+                    markersLayer = (typeof L.markerClusterGroup === 'function')
+                        ? L.markerClusterGroup({ maxClusterRadius: 45, showCoverageOnHover: false, spiderfyOnMaxZoom: true, chunkedLoading: true, iconCreateFunction: makeClusterIcon })
+                        : L.layerGroup();
+                    markersLayer.addTo(map);
+                    circlesLayer = L.layerGroup().addTo(map);
+                    map.on('moveend', loadInView);
+                }
+            } catch (e) {
+                console.error('Kaart fout:', e);
+            }
+
+            renderData();
+            initAddressSearch();
+
+            setTimeout(() => { if (map) map.invalidateSize(); }, 300);
+
+            try {
+                await Promise.all([loadIndex(), loadPhotos()]);
+                await loadAroundHome();
+                loadInView();
+            } catch (e) {
+                console.warn('Data niet beschikbaar:', e);
+                setStatus('OFFLINE');
+                const listEl = document.getElementById('sightings-list');
+                if (listEl) listEl.innerHTML = `<div class="p-6 text-center text-slate-400 text-xs">De waarnemingen konden niet worden geladen. Probeer het later opnieuw.</div>`;
+            }
+        });
+    </script>
+</body>
+</html>
