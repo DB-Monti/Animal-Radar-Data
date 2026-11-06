@@ -95,6 +95,8 @@ KWETSBAAR = {
 UITSLUITEN = {
     "Homo sapiens", "Canis familiaris", "Felis catus", "Bos taurus", "Ovis aries", "Capra hircus",
     "Equus caballus", "Sus domesticus", "Oryctolagus cuniculus domesticus", "Cavia porcellus",
+    # Pluimvee en siervogels die vaak ontsnappen
+    "Gallus gallus", "Numida meleagris", "Pavo cristatus", "Meleagris gallopavo", "Cairina moschata",
 }
 UITSLUITEN_WOORDEN = ("familiaris", "domesticus", "domestica", "catus")
 
@@ -186,7 +188,11 @@ def match_key(name, rank=None):
     if rank:
         params["rank"] = rank
     d = gbif_get("species/match", params)
-    if d.get("matchType") == "NONE":
+    # Alleen een exacte match gebruiken; anders geeft GBIF een bredere groep terug
+    # (bijv. alle gewervelden), en dan komen er vissen en zeediertjes mee.
+    if d.get("matchType") not in ("EXACT", "VARIANT"):
+        return None
+    if rank and str(d.get("rank", "")).upper() != rank.upper():
         return None
     return d.get("acceptedUsageKey") or d.get("usageKey")
 
@@ -309,6 +315,8 @@ def is_excluded(name):
     n = (name or "").strip()
     if not n:
         return False
+    if " x " in f" {n.lower()} " or "×" in n:  # kruisingen
+        return True
     if any(n.startswith(x) for x in UITSLUITEN):
         return True
     return any(w in n.lower().split() for w in UITSLUITEN_WOORDEN)
@@ -496,6 +504,8 @@ def process_tile(tile, class_keys, vaste_soorten, stats):
             sci = info.get("canonicalName") or info.get("scientificName") or ""
             if is_excluded(sci) or info.get("rank") not in (None, "SPECIES"):
                 continue
+            if info.get("class") not in DIERGROEPEN:  # alleen vogels, zoogdieren, reptielen, amfibieën
+                continue
             rarity = "Zeer Zeldzaam" if count <= ZEER_ZELDZAAM_MAX else "Zeldzaam"
             meta = classify(info)
             meta.update({"name": dutch_name(key, sci), "scientificName": sci, "rarity": rarity})
@@ -541,6 +551,8 @@ def process_tile(tile, class_keys, vaste_soorten, stats):
                     if key in counts:
                         continue  # gewone soort in deze omgeving
                     info = species_info(key)
+                    if info.get("class") not in DIERGROEPEN:
+                        continue
                     common = str(taxon.get("preferred_common_name") or "").strip()
                     meta = classify(info)
                     meta.update({
