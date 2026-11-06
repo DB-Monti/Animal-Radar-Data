@@ -1,43 +1,59 @@
 """
-AnimalRadar – data-ophaler (GBIF + iNaturalist)
+AnimalRadar – data-ophaler voor heel Nederland (GBIF + iNaturalist)
 
-Toont ALLE zeldzame en zeer zeldzame gewervelde dieren (vogels, zoogdieren,
-reptielen, amfibieën) binnen de actieve regio.
+Toont alle zeldzame en zeer zeldzame gewervelde dieren (vogels, zoogdieren,
+reptielen, amfibieën) in Nederland.
 
-Werkwijze:
-  1. Tel per soort hoeveel waarnemingen er in de regio zijn (dit en vorig jaar).
-  2. Soorten met weinig waarnemingen zijn in deze regio bijzonder:
+Nederland is verdeeld in tegels van ca. 55 x 55 km. Per tegel:
+  1. Tel per soort hoeveel waarnemingen er zijn (dit en vorig jaar).
+  2. Soorten met weinig waarnemingen zijn in die omgeving bijzonder:
        <= ZEER_ZELDZAAM_MAX  -> "Zeer Zeldzaam"
        <= ZELDZAAM_MAX       -> "Zeldzaam"
+     (zeldzaamheid is dus lokaal: een otter bij Zwolle telt, ook al is hij in
+      Friesland algemener)
   3. Haal van die soorten de waarnemingen op, met Nederlandse naam.
-  4. Soorten uit ALTIJD_TONEN komen er altijd bij (ook als ze vaker gezien worden).
-  5. Aanvulling via iNaturalist (direct beschikbaar, zonder GBIF-vertraging);
-     dubbelingen met GBIF worden overgeslagen.
+  4. Soorten uit ALTIJD_TONEN komen er altijd bij.
+  5. Aanvulling via iNaturalist (laatste INAT_DAGEN dagen; direct beschikbaar).
   6. Kwetsbare soorten krijgen afgevlakte coördinaten (~1 km).
+
+Uitvoer (map data/):
+  data/index.json         -> overzicht van alle tegels (grenzen, bestand, aantal)
+  data/tile_rXcY.json     -> waarnemingen per tegel
+  data/photos.json        -> één foto per soort (iNaturalist, alleen open licenties)
+                             Wordt bewaard tussen runs; alleen nieuwe soorten worden opgezocht.
+                             Verwijder dit bestand om alle foto's opnieuw op te halen.
+De website laadt alleen de tegels rond de gekozen locatie / het kaartbeeld.
 """
 import json
+import os
 import time
 import urllib.request
 import urllib.parse
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 # ---------------------------------------------------------------------------
 # Instellingen
 # ---------------------------------------------------------------------------
 
-# Actieve regio: box rondom Zwolle (ca. 50 km straal)
-LAT_MIN, LAT_MAX = 52.10, 52.95
-LNG_MIN, LNG_MAX = 5.45, 6.75
+# Nederland in tegels (rijen x kolommen). Tegels zonder data worden overgeslagen.
+LAT_START, LAT_END, LAT_STEP = 50.70, 53.70, 0.50   # ~55 km per rij
+LNG_START, LNG_END, LNG_STEP = 3.30, 7.30, 0.80     # ~55 km per kolom
+
+OUTPUT_DIR = "data"
 
 # Periode: vorig jaar + dit jaar
 THIS_YEAR = datetime.now().year
 YEARS = f"{THIS_YEAR - 1},{THIS_YEAR}"
 
-# Drempels (aantal waarnemingen in de regio in de periode)
+# iNaturalist alleen voor recente waarnemingen (oudere staan al in GBIF)
+INAT_DAGEN = 90
+INAT_PLACE_NL = 7506  # iNaturalist place_id van Nederland
+
+# Drempels (aantal waarnemingen per tegel in de periode)
 ZEER_ZELDZAAM_MAX = 5
 ZELDZAAM_MAX = 25
 
-# Maximaal aantal waarnemingen per soort in de JSON
+# Maximaal aantal waarnemingen per soort per tegel
 MAX_PER_SOORT = 25
 
 # Diergroepen die meedoen (wetenschappelijke naam -> GBIF-key als terugval)
@@ -45,7 +61,7 @@ DIERGROEPEN = {"Aves": 212, "Mammalia": 359, "Reptilia": 358, "Amphibia": 131}
 
 # Soorten die altijd getoond worden, met vaste naam/zeldzaamheid
 ALTIJD_TONEN = [
-    {"scientificName": "Canis lupus", "name": "Wolf", "emoji": "🐺", "size": "wolf", "sizeLabel": "Groot roofdier (Topfauna)", "rarity": "Zeer Zeldzaam", "badge": "bg-red-500/20 text-red-300 border-red-500/40"},
+    {"scientificName": "Canis lupus", "name": "Wolf", "emoji": "🐺", "size": "wolf", "sizeLabel": "Groot roofdier (Topfauna)", "rarity": "Zeer Zeldzaam"},
     {"scientificName": "Lutra lutra", "name": "Otter", "emoji": "🦦", "size": "medium", "rarity": "Zeer Zeldzaam"},
     {"scientificName": "Castor fiber", "name": "Bever", "emoji": "🦫", "size": "medium", "rarity": "Vrij Zeldzaam"},
     {"scientificName": "Haliaeetus albicilla", "name": "Zeearend", "emoji": "🦅", "size": "birds", "rarity": "Zeer Zeldzaam"},
@@ -72,16 +88,8 @@ UITSLUITEN = {
 }
 UITSLUITEN_WOORDEN = ("familiaris", "domesticus", "domestica", "catus")
 
-RARITY_BADGES = {
-    "Zeer Zeldzaam": "bg-amber-500/20 text-amber-300 border-amber-500/40",
-    "Zeldzaam": "bg-violet-500/20 text-violet-300 border-violet-500/40",
-    "Vrij Zeldzaam": "bg-sky-500/20 text-sky-300 border-sky-500/40",
-    "Regelmatig": "bg-emerald-500/20 text-emerald-300 border-emerald-500/40",
-}
-
 BASIS_FILTERS = {
-    "decimalLatitude": f"{LAT_MIN},{LAT_MAX}",
-    "decimalLongitude": f"{LNG_MIN},{LNG_MAX}",
+    "country": "NL",
     "hasCoordinate": "true",
     "hasGeospatialIssue": "false",
     "occurrenceStatus": "PRESENT",
@@ -90,15 +98,45 @@ BASIS_FILTERS = {
 }
 
 # ---------------------------------------------------------------------------
-# GBIF-hulpfuncties
+# Tegels
+# ---------------------------------------------------------------------------
+
+
+def make_tiles():
+    tiles, r, lat = [], 0, LAT_START
+    while lat < LAT_END - 1e-9:
+        c, lng = 0, LNG_START
+        while lng < LNG_END - 1e-9:
+            tiles.append({
+                "id": f"r{r}c{c}",
+                "latMin": round(lat, 4), "latMax": round(lat + LAT_STEP, 4),
+                "lngMin": round(lng, 4), "lngMax": round(lng + LNG_STEP, 4),
+            })
+            c, lng = c + 1, lng + LNG_STEP
+        r, lat = r + 1, lat + LAT_STEP
+    return tiles
+
+
+def tile_filters(tile):
+    f = dict(BASIS_FILTERS)
+    f["decimalLatitude"] = f"{tile['latMin']},{tile['latMax']}"
+    f["decimalLongitude"] = f"{tile['lngMin']},{tile['lngMax']}"
+    return f
+
+
+def tile_for_point(tiles, lat, lng):
+    for t in tiles:
+        if t["latMin"] <= lat < t["latMax"] and t["lngMin"] <= lng < t["lngMax"]:
+            return t
+    return None
+
+# ---------------------------------------------------------------------------
+# API-hulpfuncties
 # ---------------------------------------------------------------------------
 
 API = "https://api.gbif.org/v1/"
 INAT_API = "https://api.inaturalist.org/v1/"
 _cache = {}
-
-# iNaturalist-ID's die al via GBIF binnenkomen (om dubbelingen te voorkomen)
-INAT_IDS_IN_GBIF = set()
 
 
 def http_get(url, pause=0.05, retries=3):
@@ -107,7 +145,7 @@ def http_get(url, pause=0.05, retries=3):
     last_err = None
     for attempt in range(retries):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "AnimalRadar/2.1 (animalradar.nl)"})
+            req = urllib.request.Request(url, headers={"User-Agent": "AnimalRadar/3.0 (animalradar.nl)"})
             with urllib.request.urlopen(req, timeout=30) as resp:
                 data = json.loads(resp.read().decode("utf-8"))
             _cache[url] = data
@@ -160,11 +198,11 @@ def dutch_name(key, fallback):
     return fallback
 
 
-def species_counts(class_keys):
-    """Aantal waarnemingen per soort in de regio (via GBIF facets)."""
+def species_counts(tile, class_keys):
+    """Aantal waarnemingen per soort in een tegel (via GBIF facets)."""
     counts, offset, page = {}, 0, 500
     while True:
-        params = dict(BASIS_FILTERS)
+        params = tile_filters(tile)
         params.update({"classKey": class_keys, "limit": 0, "facet": "speciesKey",
                        "facetLimit": page, "facetOffset": offset})
         d = gbif_get("occurrence/search", params)
@@ -178,8 +216,8 @@ def species_counts(class_keys):
     return counts
 
 
-def fetch_occurrences(taxon_key, limit):
-    params = dict(BASIS_FILTERS)
+def fetch_occurrences(tile, taxon_key, limit):
+    params = tile_filters(tile)
     params.update({"taxonKey": taxon_key, "limit": limit})
     return gbif_get("occurrence/search", params).get("results", [])
 
@@ -217,6 +255,8 @@ def classify(info):
             return {"emoji": "🐈", "size": "medium", "sizeLabel": "Middelgroot zoogdier"}
         if family == "Mustelidae":
             return {"emoji": "🦡", "size": "medium", "sizeLabel": "Middelgroot zoogdier"}
+        if family in ("Phocidae", "Delphinidae", "Phocoenidae"):
+            return {"emoji": "🦭" if family == "Phocidae" else "🐬", "size": "medium", "sizeLabel": "Zeezoogdier"}
         return {"emoji": "🐾", "size": "medium", "sizeLabel": "Zoogdier"}
     if cls == "Reptilia":
         if family in SLANG_FAMILIES:
@@ -240,74 +280,79 @@ def is_excluded(name):
         return True
     return any(w in n.lower().split() for w in UITSLUITEN_WOORDEN)
 
+
+def is_protected(meta):
+    return meta["rarity"] == "Zeer Zeldzaam" or meta["scientificName"] in KWETSBAAR
+
 # ---------------------------------------------------------------------------
-# Records bouwen
+# Records bouwen (compact: de website vult badge/kleur zelf in)
 # ---------------------------------------------------------------------------
 
 
-def build_records(occurrences, meta):
+def make_record(rid, meta, lat, lng, place, date, protected, source, url, desc):
+    rec = {
+        "id": rid,
+        "name": meta["name"],
+        "sci": meta["scientificName"],
+        "emoji": meta["emoji"],
+        "size": meta["size"],
+        "label": meta["sizeLabel"],
+        "lat": lat,
+        "lng": lng,
+        "place": place,
+        "seenAt": date,
+        "rarity": meta["rarity"],
+        "src": source,
+    }
+    if protected:
+        rec["protected"] = True
+    if url:
+        rec["url"] = url
+    if desc:
+        rec["desc"] = desc[:500]
+    return rec
+
+
+def build_records(occurrences, meta, inat_ids_in_gbif):
     out = []
     protected = is_protected(meta)
     for occ in occurrences:
         if is_excluded(occ.get("scientificName")):
             continue
         if str(occ.get("institutionCode", "")).lower() == "inaturalist" and occ.get("catalogNumber"):
-            INAT_IDS_IN_GBIF.add(str(occ.get("catalogNumber")))
+            inat_ids_in_gbif.add(str(occ.get("catalogNumber")))
         lat, lng = occ.get("decimalLatitude"), occ.get("decimalLongitude")
-        event_date = (occ.get("eventDate") or "")[:10]
-        if lat is None or lng is None or not event_date:
+        date = (occ.get("eventDate") or "")[:10]
+        if lat is None or lng is None or not date:
             continue
-
         if protected:
-            # ~1 km nauwkeurig en geen exacte veldnaam
             lat, lng = round(float(lat), 2), round(float(lng), 2)
-            place = occ.get("municipality") or occ.get("county") or occ.get("stateProvince") or "Regio Zwolle (50km)"
+            place = occ.get("municipality") or occ.get("county") or occ.get("stateProvince") or "Nederland"
         else:
             lat, lng = round(float(lat), 4), round(float(lng), 4)
-            place = occ.get("locality") or occ.get("municipality") or occ.get("stateProvince") or "Regio Zwolle (50km)"
-
-        out.append({
-            "id": occ.get("key"),
-            "name": meta["name"],
-            "scientificName": meta["scientificName"],
-            "emoji": meta["emoji"],
-            "size": meta["size"],
-            "isLarge": meta["size"] in ("large", "wolf"),
-            "sizeLabel": meta["sizeLabel"],
-            "lat": lat,
-            "lng": lng,
-            "place": place,
-            "seenAt": event_date,
-            "rarity": meta["rarity"],
-            "badge": meta["badge"],
-            "protected": protected,
-            "source": "GBIF",
-            "url": f"https://www.gbif.org/occurrence/{occ.get('key')}" if occ.get("key") else "",
-            "desc": occ.get("occurrenceRemarks") or occ.get("eventRemarks") or "",
-        })
+            place = occ.get("locality") or occ.get("municipality") or occ.get("stateProvince") or "Nederland"
+        key = occ.get("key")
+        out.append(make_record(
+            key, meta, lat, lng, place, date, protected, "GBIF",
+            f"https://www.gbif.org/occurrence/{key}" if key else "",
+            occ.get("occurrenceRemarks") or occ.get("eventRemarks") or "",
+        ))
     return out
 
 
-def is_protected(meta):
-    return meta["rarity"] == "Zeer Zeldzaam" or meta["scientificName"] in KWETSBAAR
-
-# ---------------------------------------------------------------------------
-# iNaturalist (aanvulling: verschijnt direct, zonder GBIF-vertraging)
-# ---------------------------------------------------------------------------
-
-INAT_MAX_PAGES = 15  # 200 waarnemingen per pagina
-
-
-def fetch_inat_observations():
-    """Alle onderzoekswaardige (research grade) wilde waarnemingen in de regio."""
+def fetch_inat_observations(tile):
+    """Recente, door de community bevestigde, wilde waarnemingen in een tegel."""
+    d1 = (datetime.now(timezone.utc) - timedelta(days=INAT_DAGEN)).strftime("%Y-%m-%d")
     results, page = [], 1
-    while page <= INAT_MAX_PAGES:
+    while page <= 10:
         d = inat_get("observations", {
-            "swlat": LAT_MIN, "swlng": LNG_MIN, "nelat": LAT_MAX, "nelng": LNG_MAX,
+            "place_id": INAT_PLACE_NL,
+            "swlat": tile["latMin"], "swlng": tile["lngMin"],
+            "nelat": tile["latMax"], "nelng": tile["lngMax"],
             "iconic_taxa": "Aves,Mammalia,Reptilia,Amphibia",
             "quality_grade": "research",
             "captive": "false",
-            "d1": f"{THIS_YEAR - 1}-01-01",
+            "d1": d1,
             "order_by": "observed_on", "order": "desc",
             "locale": "nl",
             "per_page": 200, "page": page,
@@ -331,119 +376,74 @@ def build_inat_record(obs, meta):
     date = (obs.get("observed_on") or "")[:10]
     if not date:
         return None
-
     protected = is_protected(meta) or bool(obs.get("obscured"))
-    place_parts = [p.strip() for p in str(obs.get("place_guess") or "").split(",") if p.strip()]
+    parts = [p.strip() for p in str(obs.get("place_guess") or "").split(",") if p.strip()]
     if protected:
         lat, lng = round(float(lat), 2), round(float(lng), 2)
-        place = place_parts[-2] if len(place_parts) >= 2 else "Regio Zwolle (50km)"
+        place = parts[-2] if len(parts) >= 2 else "Nederland"
     else:
         lat, lng = round(float(lat), 4), round(float(lng), 4)
-        place = ", ".join(place_parts[:2]) if place_parts else "Regio Zwolle (50km)"
-
-    return {
-        "id": f"inat-{obs.get('id')}",
-        "name": meta["name"],
-        "scientificName": meta["scientificName"],
-        "emoji": meta["emoji"],
-        "size": meta["size"],
-        "isLarge": meta["size"] in ("large", "wolf"),
-        "sizeLabel": meta["sizeLabel"],
-        "lat": lat,
-        "lng": lng,
-        "place": place,
-        "seenAt": date,
-        "rarity": meta["rarity"],
-        "badge": meta["badge"],
-        "protected": protected,
-        "source": "iNaturalist",
-        "url": f"https://www.inaturalist.org/observations/{obs.get('id')}",
-        "desc": (obs.get("description") or "").strip()[:500],
-    }
+        place = ", ".join(parts[:2]) if parts else "Nederland"
+    return make_record(
+        f"inat-{obs.get('id')}", meta, lat, lng, place, date, protected, "iNaturalist",
+        f"https://www.inaturalist.org/observations/{obs.get('id')}",
+        (obs.get("description") or "").strip(),
+    )
 
 
 def handmatige_meldingen():
     """Handmatig ingevoerde, geverifieerde meldingen (bijv. uit BIJ12-rapportages of nieuws)."""
-    return [{
-        "id": "hasselt-wolf-2026-10",
-        "name": "Wolf",
-        "scientificName": "Canis lupus",
-        "emoji": "🐺",
-        "size": "wolf",
-        "isLarge": True,
-        "sizeLabel": "Groot roofdier (Topfauna)",
-        "lat": 52.59,
-        "lng": 6.10,
-        "place": "Hasselt (Overijssel)",
-        "seenAt": "2026-10-22",
-        "rarity": "Zeer Zeldzaam",
-        "badge": "bg-red-500/20 text-red-300 border-red-500/40",
-        "protected": True,
-        "source": "Handmatig (geverifieerd)",
-        "url": "",
-        "desc": "Geverifieerde melding van een wolf in de regio Hasselt / Zwarte Waterland.",
-    }]
+    wolf = {"name": "Wolf", "scientificName": "Canis lupus", "emoji": "🐺", "size": "wolf",
+            "sizeLabel": "Groot roofdier (Topfauna)", "rarity": "Zeer Zeldzaam"}
+    return [
+        make_record("hasselt-wolf-2026-10", wolf, 52.59, 6.10, "Hasselt (Overijssel)", "2026-10-22",
+                    True, "Handmatig (geverifieerd)", "",
+                    "Geverifieerde melding van een wolf in de regio Hasselt / Zwarte Waterland."),
+    ]
 
 # ---------------------------------------------------------------------------
-# Hoofdprogramma
+# Eén tegel verwerken
 # ---------------------------------------------------------------------------
 
 
-def main():
-    all_animals, seen = [], set()
-    stats = {"altijd": 0, "Zeer Zeldzaam": 0, "Zeldzaam": 0, "iNaturalist": 0}
-    meta_by_name, meta_by_key = {}, {}  # alle soorten die we tonen
+def process_tile(tile, class_keys, vaste_soorten, stats):
+    records, seen = [], set()
+    meta_by_name, meta_by_key = {}, {}
+    inat_ids_in_gbif = set()
+
+    def add(recs):
+        for item in recs:
+            sig = f"{item['name']}_{item['lat']}_{item['lng']}_{item['seenAt']}"
+            if sig not in seen:
+                seen.add(sig)
+                records.append(item)
 
     def remember(key, meta):
         meta_by_name[meta["scientificName"]] = meta
         meta_by_key[key] = meta
 
-    def add(records):
-        for item in records:
-            sig = f"{item['name']}_{item['lat']}_{item['lng']}_{item['seenAt']}"
-            if sig not in seen:
-                seen.add(sig)
-                all_animals.append(item)
-
-    # 1. Diergroepen opzoeken
-    class_keys = []
-    for cls_name, fallback in DIERGROEPEN.items():
-        try:
-            class_keys.append(match_key(cls_name, "CLASS") or fallback)
-        except Exception:
-            class_keys.append(fallback)
-
-    # 2. Vaste soorten
-    vaste_keys = set()
-    for sp in ALTIJD_TONEN:
-        try:
-            key = match_key(sp["scientificName"])
-            if not key:
-                print(f"Soort niet gevonden in GBIF: {sp['scientificName']}")
-                continue
-            vaste_keys.add(key)
-            meta = classify(species_info(key))
-            meta.update({k: v for k, v in sp.items() if k in ("name", "emoji", "size", "sizeLabel", "rarity", "badge")})
-            meta["scientificName"] = sp["scientificName"]
-            meta.setdefault("badge", RARITY_BADGES.get(meta["rarity"], RARITY_BADGES["Regelmatig"]))
-            remember(key, meta)
-            recs = build_records(fetch_occurrences(key, MAX_PER_SOORT), meta)
-            add(recs)
-            stats["altijd"] += 1
-            print(f"[vast] {meta['name']}: {len(recs)} waarnemingen")
-        except Exception as e:
-            print(f"Fout bij {sp['name']}: {e}")
-
-    # 3. Automatisch: alle soorten die in deze regio weinig gezien worden
+    # Tellen per soort; lege tegel (zee/buitenland) -> overslaan
     try:
-        counts = species_counts(class_keys)
+        counts = species_counts(tile, class_keys)
     except Exception as e:
-        print(f"Fout bij tellen van soorten: {e}")
-        counts = {}
-    print(f"{len(counts)} soorten gevonden in de regio; zeldzame soorten worden opgehaald...")
+        print(f"  Fout bij tellen: {e}")
+        return []
+    if not counts:
+        return []
 
+    # Vaste soorten
+    for key, meta in vaste_soorten.items():
+        remember(key, meta)
+        if key not in counts:
+            continue
+        try:
+            add(build_records(fetch_occurrences(tile, key, MAX_PER_SOORT), meta, inat_ids_in_gbif))
+        except Exception as e:
+            print(f"  Fout bij {meta['name']}: {e}")
+
+    # Automatisch: soorten die in deze tegel weinig gezien worden
     for key, count in sorted(counts.items(), key=lambda kv: kv[1]):
-        if count > ZELDZAAM_MAX or key in vaste_keys:
+        if count > ZELDZAAM_MAX or key in vaste_soorten:
             continue
         try:
             info = species_info(key)
@@ -452,33 +452,25 @@ def main():
                 continue
             rarity = "Zeer Zeldzaam" if count <= ZEER_ZELDZAAM_MAX else "Zeldzaam"
             meta = classify(info)
-            meta.update({
-                "name": dutch_name(key, sci),
-                "scientificName": sci,
-                "rarity": rarity,
-                "badge": RARITY_BADGES[rarity],
-            })
+            meta.update({"name": dutch_name(key, sci), "scientificName": sci, "rarity": rarity})
             remember(key, meta)
-            recs = build_records(fetch_occurrences(key, min(count, MAX_PER_SOORT)), meta)
+            recs = build_records(fetch_occurrences(tile, key, min(count, MAX_PER_SOORT)), meta, inat_ids_in_gbif)
             if recs:
                 add(recs)
                 stats[rarity] += 1
         except Exception as e:
-            print(f"Fout bij soort {key}: {e}")
+            print(f"  Fout bij soort {key}: {e}")
 
-    # 4. iNaturalist: extra (en snellere) waarnemingen van dezelfde zeldzame soorten,
-    #    plus soorten die in GBIF nog helemaal niet in de regio voorkomen.
+    # iNaturalist
     try:
-        inat_obs = fetch_inat_observations()
-        print(f"iNaturalist: {len(inat_obs)} waarnemingen in de regio opgehaald, zeldzame worden gefilterd...")
+        inat_obs = fetch_inat_observations(tile)
     except Exception as e:
-        print(f"Fout bij ophalen iNaturalist: {e}")
+        print(f"  Fout bij iNaturalist: {e}")
         inat_obs = []
-
     for obs in inat_obs:
         try:
-            if str(obs.get("id")) in INAT_IDS_IN_GBIF:
-                continue  # staat al via GBIF op de kaart
+            if str(obs.get("id")) in inat_ids_in_gbif:
+                continue
             taxon = obs.get("taxon") or {}
             if taxon.get("rank") not in ("species", "subspecies"):
                 continue
@@ -492,9 +484,8 @@ def main():
                     continue
                 meta = meta_by_key.get(key)
                 if meta is None:
-                    if key in counts or not counts:
-                        continue  # gewone soort in deze regio (of telling mislukt)
-                    # Nog geen enkele GBIF-waarneming in de regio: echt bijzonder
+                    if key in counts:
+                        continue  # gewone soort in deze omgeving
                     info = species_info(key)
                     common = str(taxon.get("preferred_common_name") or "").strip()
                     meta = classify(info)
@@ -502,29 +493,156 @@ def main():
                         "name": (common[:1].upper() + common[1:]) if common else dutch_name(key, sci),
                         "scientificName": sci,
                         "rarity": "Zeer Zeldzaam",
-                        "badge": RARITY_BADGES["Zeer Zeldzaam"],
                     })
                     remember(key, meta)
                     stats["Zeer Zeldzaam"] += 1
                 meta_by_name[sci] = meta
             rec = build_inat_record(obs, meta)
             if rec:
-                before = len(all_animals)
+                before = len(records)
                 add([rec])
-                stats["iNaturalist"] += len(all_animals) - before
+                stats["iNaturalist"] += len(records) - before
         except Exception as e:
-            print(f"Fout bij iNaturalist-waarneming {obs.get('id')}: {e}")
+            print(f"  Fout bij iNaturalist-waarneming {obs.get('id')}: {e}")
 
-    # 5. Handmatige meldingen
-    add(handmatige_meldingen())
+    return records
 
-    all_animals.sort(key=lambda x: x["seenAt"], reverse=True)
-    with open("animals.json", "w", encoding="utf-8") as f:
-        json.dump(all_animals, f, ensure_ascii=False, indent=2)
+# ---------------------------------------------------------------------------
+# Foto's per soort (iNaturalist, alleen Creative Commons)
+# ---------------------------------------------------------------------------
 
-    print(f"Klaar! {len(all_animals)} waarnemingen opgeslagen in animals.json "
-          f"({stats['altijd']} vaste soorten, {stats['Zeer Zeldzaam']} zeer zeldzame "
-          f"en {stats['Zeldzaam']} zeldzame soorten; {stats['iNaturalist']} extra waarnemingen via iNaturalist).")
+OPEN_LICENTIES = {"cc0", "cc-by", "cc-by-sa", "cc-by-nc", "cc-by-nc-sa", "cc-by-nd", "cc-by-nc-nd"}
+PHOTOS_FILE = os.path.join(OUTPUT_DIR, "photos.json")
+
+
+def _usable_photo(photo):
+    if not photo or str(photo.get("license_code") or "").lower() not in OPEN_LICENTIES:
+        return None
+    url = photo.get("medium_url") or str(photo.get("url") or "").replace("/square.", "/medium.")
+    if not url.startswith("https://"):
+        return None
+    return {
+        "url": url,
+        "credit": str(photo.get("attribution") or "").strip(),
+        "license": str(photo.get("license_code")).upper(),
+    }
+
+
+def find_species_photo(sci):
+    d = inat_get("taxa", {"q": sci, "per_page": 5, "locale": "nl"})
+    results = d.get("results", [])
+    taxon = next((t for t in results if str(t.get("name", "")).lower() == sci.lower()), None)
+    if not taxon:
+        return None
+    photo = _usable_photo(taxon.get("default_photo"))
+    if photo:
+        photo["taxon"] = taxon.get("id")
+        return photo
+    # Standaardfoto niet vrij te gebruiken: zoek een andere foto van deze soort
+    full = inat_get(f"taxa/{taxon.get('id')}").get("results", [])
+    for tp in (full[0].get("taxon_photos", []) if full else []):
+        photo = _usable_photo(tp.get("photo"))
+        if photo:
+            photo["taxon"] = taxon.get("id")
+            return photo
+    return None
+
+
+def update_photos(sci_names):
+    try:
+        with open(PHOTOS_FILE, encoding="utf-8") as f:
+            photos = json.load(f)
+    except Exception:
+        photos = {}
+    missing = sorted(n for n in sci_names if n and n not in photos)
+    print(f"Foto's: {len(photos)} bekend, {len(missing)} nieuwe soorten opzoeken...")
+    for sci in missing:
+        try:
+            photos[sci] = find_species_photo(sci)  # None = geen vrije foto gevonden
+        except Exception as e:
+            print(f"  Geen foto voor {sci}: {e}")
+    with open(PHOTOS_FILE, "w", encoding="utf-8") as f:
+        json.dump(photos, f, ensure_ascii=False, indent=0)
+    found = sum(1 for n in sci_names if photos.get(n))
+    print(f"Foto's: {found} van {len(sci_names)} soorten hebben een foto.")
+
+# ---------------------------------------------------------------------------
+# Hoofdprogramma
+# ---------------------------------------------------------------------------
+
+
+def main():
+    start = time.time()
+    stats = {"Zeer Zeldzaam": 0, "Zeldzaam": 0, "iNaturalist": 0}
+    tiles = make_tiles()
+
+    # Diergroepen
+    class_keys = []
+    for cls_name, fallback in DIERGROEPEN.items():
+        try:
+            class_keys.append(match_key(cls_name, "CLASS") or fallback)
+        except Exception:
+            class_keys.append(fallback)
+
+    # Vaste soorten (één keer opzoeken, geldt voor alle tegels)
+    vaste_soorten = {}
+    for sp in ALTIJD_TONEN:
+        try:
+            key = match_key(sp["scientificName"])
+            if not key:
+                print(f"Soort niet gevonden in GBIF: {sp['scientificName']}")
+                continue
+            meta = classify(species_info(key))
+            meta.update({k: v for k, v in sp.items() if k in ("name", "emoji", "size", "sizeLabel", "rarity")})
+            meta["scientificName"] = sp["scientificName"]
+            vaste_soorten[key] = meta
+        except Exception as e:
+            print(f"Fout bij {sp['name']}: {e}")
+
+    # Tegels verwerken
+    per_tile = {}
+    for i, tile in enumerate(tiles, 1):
+        recs = process_tile(tile, class_keys, vaste_soorten, stats)
+        per_tile[tile["id"]] = recs
+        print(f"[{i}/{len(tiles)}] tegel {tile['id']}: {len(recs)} waarnemingen")
+
+    # Handmatige meldingen in de juiste tegel
+    for rec in handmatige_meldingen():
+        t = tile_for_point(tiles, rec["lat"], rec["lng"])
+        if t:
+            per_tile[t["id"]].append(rec)
+
+    # Wegschrijven
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    update_photos({r["sci"] for recs in per_tile.values() for r in recs})
+
+    for name in os.listdir(OUTPUT_DIR):  # oude tegelbestanden opruimen
+        if name.startswith("tile_") and name.endswith(".json"):
+            os.remove(os.path.join(OUTPUT_DIR, name))
+
+    index_tiles, total = [], 0
+    for tile in tiles:
+        recs = per_tile.get(tile["id"], [])
+        if not recs:
+            continue
+        recs.sort(key=lambda x: x["seenAt"], reverse=True)
+        fname = f"tile_{tile['id']}.json"
+        with open(os.path.join(OUTPUT_DIR, fname), "w", encoding="utf-8") as f:
+            json.dump(recs, f, ensure_ascii=False, separators=(",", ":"))
+        index_tiles.append({**tile, "file": fname, "count": len(recs)})
+        total += len(recs)
+
+    with open(os.path.join(OUTPUT_DIR, "index.json"), "w", encoding="utf-8") as f:
+        json.dump({
+            "generated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            "total": total,
+            "tiles": index_tiles,
+        }, f, ensure_ascii=False, indent=1)
+
+    mins = (time.time() - start) / 60
+    print(f"Klaar in {mins:.1f} min! {total} waarnemingen in {len(index_tiles)} tegels "
+          f"({stats['Zeer Zeldzaam']} zeer zeldzame en {stats['Zeldzaam']} zeldzame soort-tegelcombinaties; "
+          f"{stats['iNaturalist']} extra via iNaturalist).")
 
 
 if __name__ == "__main__":
