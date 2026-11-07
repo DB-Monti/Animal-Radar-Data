@@ -202,6 +202,8 @@ def species_info(key):
 
 
 def dutch_name(key, fallback):
+    if fallback in NAAM_CORRECTIES:
+        return NAAM_CORRECTIES[fallback]
     try:
         d = gbif_get(f"species/{key}/vernacularNames", {"limit": 200})
         for v in d.get("results", []):
@@ -270,6 +272,23 @@ VOGEL_EMOJI = {
     "Columbiformes": "🕊️", "Galliformes": "🐓", "Psittaciformes": "🦜",
 }
 SLANG_FAMILIES = {"Colubridae", "Viperidae", "Natricidae"}
+WALVIS_FAMILIES = {"Balaenopteridae", "Balaenidae", "Physeteridae", "Kogiidae", "Monodontidae",
+                   "Ziphiidae", "Delphinidae", "Phocoenidae"}
+
+# Correcties voor Nederlandse namen die in GBIF niet (goed) staan
+NAAM_CORRECTIES = {
+    "Physeter macrocephalus": "Potvis",
+    "Balaenoptera physalus": "Gewone vinvis",
+    "Balaenoptera musculus": "Blauwe vinvis",
+    "Balaenoptera acutorostrata": "Dwergvinvis",
+    "Megaptera novaeangliae": "Bultrug",
+    "Halichoerus grypus": "Grijze zeehond",
+    "Phoca vitulina": "Gewone zeehond",
+    "Pusa hispida": "Ringelrob",
+    "Lagenorhynchus albirostris": "Witsnuitdolfijn",
+    "Delphinus delphis": "Gewone dolfijn",
+    "Phocoena phocoena": "Bruinvis",
+}
 
 
 def classify(info):
@@ -277,6 +296,11 @@ def classify(info):
     if cls == "Aves":
         return {"emoji": VOGEL_EMOJI.get(order, "🐦"), "size": "birds", "sizeLabel": "Bijzondere vogel"}
     if cls == "Mammalia":
+        if family in WALVIS_FAMILIES or order == "Cetacea":
+            emoji = "🐬" if family in ("Delphinidae", "Phocoenidae") else "🐋"
+            return {"emoji": emoji, "size": "medium", "sizeLabel": "Zeezoogdier"}
+        if family in ("Phocidae", "Otariidae", "Odobenidae"):
+            return {"emoji": "🦭", "size": "medium", "sizeLabel": "Zeezoogdier"}
         if family in ("Cervidae", "Suidae", "Bovidae") or order in ("Artiodactyla", "Cetartiodactyla"):
             emoji = "🐗" if family == "Suidae" else "🦌"
             return {"emoji": emoji, "size": "large", "sizeLabel": "Groot wild"}
@@ -294,8 +318,6 @@ def classify(info):
             return {"emoji": "🐈", "size": "medium", "sizeLabel": "Middelgroot zoogdier"}
         if family == "Mustelidae":
             return {"emoji": "🦡", "size": "medium", "sizeLabel": "Middelgroot zoogdier"}
-        if family in ("Phocidae", "Delphinidae", "Phocoenidae"):
-            return {"emoji": "🦭" if family == "Phocidae" else "🐬", "size": "medium", "sizeLabel": "Zeezoogdier"}
         return {"emoji": "🐾", "size": "medium", "sizeLabel": "Zoogdier"}
     if cls == "Reptilia":
         if family in SLANG_FAMILIES:
