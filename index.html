@@ -108,8 +108,11 @@
                     </button>
                 </div>
 
+                <div class="flex items-center gap-2">
+                <button id="species-chip" onclick="clearSpecies()" class="hidden text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 px-3 py-1.5 rounded-lg hover:bg-emerald-500/25 cursor-pointer transition"></button>
                 <div class="text-xs text-slate-300 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800">
                     <span id="count-label" class="font-bold text-emerald-400 font-mono text-sm">0</span> waarnemingen actief
+                </div>
                 </div>
             </div>
 
@@ -224,6 +227,13 @@
                         Per soort tonen we één voorbeeldfoto met een Creative Commons-licentie. De fotograaf en licentie staan bij elke foto.
                     </div>
                 </li>
+                <li class="flex items-start gap-2">
+                    <span class="mt-0.5">📈</span>
+                    <div>
+                        <strong class="text-emerald-400 block">Bezoekersstatistieken via GoatCounter</strong>
+                        We tellen anoniem het aantal bezoeken, zonder cookies en zonder persoonsgegevens op te slaan.
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -244,7 +254,8 @@
         let userChoseTime = false;
         let autoFallbackChecked = false;
         let currentSize = 'all';
-        let textSearchQuery = '';
+        let speciesFilter = null;   // { key, name, emoji } als er op een soort gezocht is
+        let speciesIndex = {};      // uit species.json: soort -> { name, emoji, tiles: { tegel: aantal } }
         let showOnlyRare = false;
 
         let map = null, markersLayer = null, circlesLayer = null, homeMarker = null;
@@ -346,6 +357,13 @@
                 url: /^https:\/\//.test(String(item.url || '')) ? String(item.url) : '',
                 desc: String(item.desc || '')
             };
+        }
+
+        async function loadSpeciesIndex() {
+            try {
+                const res = await fetch(`${DATA_BASE_URL}species.json?t=${Date.now()}`);
+                if (res.ok) speciesIndex = (await res.json()) || {};
+            } catch (e) { /* zonder index zoeken we in de geladen waarnemingen */ }
         }
 
         async function loadPhotos() {
@@ -484,13 +502,7 @@
                 .filter(a => a.dist <= currentRadius && a.daysAgo <= currentMaxDays)
                 .filter(a => currentSize === 'all' || a.size === currentSize)
                 .filter(a => showOnlyRare ? isRare(a) : true)
-                .filter(a => {
-                    if (!textSearchQuery) return true;
-                    const q = textSearchQuery.toLowerCase();
-                    return a.name.toLowerCase().includes(q)
-                        || a.scientificName.toLowerCase().includes(q)
-                        || a.place.toLowerCase().includes(q);
-                })
+                .filter(a => !speciesFilter || (a.scientificName || a.name) === speciesFilter.key)
                 .sort((a, b) => a.dist - b.dist);
 
             const countEl = document.getElementById('count-label');
@@ -560,7 +572,57 @@
                 });
                 if (typeof markersLayer.addLayers === 'function') markersLayer.addLayers(markers);
                 else markers.forEach(m => markersLayer.addLayer(m));
+
+                if (speciesFilter && speciesFilter.fitPending && items.length > 0) {
+                    speciesFilter.fitPending = false;
+                    map.fitBounds(L.latLngBounds(items.map(i => [i.lat, i.lng])), { padding: [30, 30], maxZoom: 11 });
+                }
             }
+        }
+
+        // ------------------------------------------------------------------
+        // Zoeken op soort
+        // ------------------------------------------------------------------
+        function findSpecies(q) {
+            q = q.toLowerCase();
+            const found = new Map();
+            Object.entries(speciesIndex).forEach(([key, sp]) => {
+                const total = Object.values(sp.tiles || {}).reduce((x, y) => x + y, 0);
+                found.set(key, { key, name: sp.name || key, emoji: sp.emoji || '🐾', total });
+            });
+            animals.forEach(a => {   // aanvulling uit al geladen waarnemingen
+                const key = a.scientificName || a.name;
+                if (!found.has(key)) found.set(key, { key, name: a.name, emoji: a.emoji, total: null });
+            });
+            return [...found.values()]
+                .filter(sp => sp.name.toLowerCase().includes(q) || sp.key.toLowerCase().includes(q))
+                .sort((x, y) => {
+                    const xs = x.name.toLowerCase().startsWith(q) ? 0 : 1, ys = y.name.toLowerCase().startsWith(q) ? 0 : 1;
+                    return xs - ys || (y.total || 0) - (x.total || 0);
+                })
+                .slice(0, 6);
+        }
+
+        async function selectSpecies(sp) {
+            const prev = speciesFilter ? speciesFilter.prev : { days: currentMaxDays, radius: currentRadius };
+            speciesFilter = { key: sp.key, name: sp.name, emoji: sp.emoji, fitPending: true, prev };
+            const chip = document.getElementById('species-chip');
+            if (chip) { chip.textContent = `${sp.emoji} ${sp.name}  ✕`; chip.classList.remove('hidden'); }
+            setTimeFilter(9999, true);
+            document.getElementById('time-notice')?.classList.add('hidden');
+            setRadiusFilter(999);
+            const entry = speciesIndex[sp.key];
+            const tiles = entry ? tileIndex.filter(t => entry.tiles && entry.tiles[t.id]) : tileIndex;
+            await ensureTiles(tiles);
+            renderData();
+        }
+
+        function clearSpecies() {
+            const prev = speciesFilter?.prev;
+            speciesFilter = null;
+            document.getElementById('species-chip')?.classList.add('hidden');
+            if (prev) { setRadiusFilter(prev.radius); setTimeFilter(prev.days, true); }
+            else renderData();
         }
 
         function showDetail(item) {
@@ -677,34 +739,60 @@
         function initAddressSearch() {
             const input = document.getElementById('address-input'), suggBox = document.getElementById('address-suggestions');
             if (!input || !suggBox) return;
-            let timeout = null;
+            let timeout = null, firstAction = null, requestId = 0;
+
+            function header(text) {
+                const h = document.createElement('div');
+                h.className = "px-3.5 pt-2.5 pb-1 text-[10px] uppercase tracking-wider text-slate-500 font-semibold";
+                h.textContent = text;
+                return h;
+            }
+
+            function row(label, sub, onPick) {
+                const r = document.createElement('div');
+                r.className = "px-3.5 py-2.5 text-xs text-slate-200 hover:bg-emerald-500 hover:text-slate-950 cursor-pointer border-b border-slate-800 flex justify-between gap-2";
+                const l = document.createElement('span'); l.textContent = label; r.appendChild(l);
+                if (sub) { const s2 = document.createElement('span'); s2.className = "opacity-70 shrink-0"; s2.textContent = sub; r.appendChild(s2); }
+                r.onclick = () => { input.value = ''; suggBox.classList.add('hidden'); onPick(); };
+                if (!firstAction) firstAction = r.onclick;
+                return r;
+            }
+
+            function render(q, places) {
+                suggBox.innerHTML = ''; firstAction = null;
+                const species = findSpecies(q);
+                if (species.length) {
+                    suggBox.appendChild(header('Dieren'));
+                    species.forEach(sp => suggBox.appendChild(
+                        row(`${sp.emoji} ${sp.name}`, sp.total ? `${sp.total} in NL` : '', () => selectSpecies(sp))));
+                }
+                if (places.length) {
+                    suggBox.appendChild(header('Plaatsen'));
+                    places.forEach(doc => {
+                        const m = doc.centroide_ll?.match(/POINT\s*\(\s*([-\d.]+)\s+([-\d.]+)\s*\)/);
+                        if (m) suggBox.appendChild(row(doc.weergavenaam, '', () => setHome(parseFloat(m[2]), parseFloat(m[1]), doc.weergavenaam)));
+                    });
+                }
+                suggBox.classList.toggle('hidden', !suggBox.children.length);
+            }
+
             input.addEventListener('input', () => {
                 clearTimeout(timeout);
-                textSearchQuery = input.value.trim();
-                renderData();
-                if (textSearchQuery.length < 2) return suggBox.classList.add('hidden');
-                timeout = setTimeout(async () => {
+                const q = input.value.trim();
+                if (q.length < 2) { suggBox.classList.add('hidden'); return; }
+                render(q, []);                       // dieren direct tonen
+                const myId = ++requestId;
+                timeout = setTimeout(async () => {   // plaatsen erbij zodra PDOK antwoordt
                     try {
-                        const res = await fetch(`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=${encodeURIComponent(textSearchQuery)}&rows=6`);
+                        const res = await fetch(`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=${encodeURIComponent(q)}&rows=5`);
                         const data = await res.json();
-                        suggBox.innerHTML = '';
-                        if (data.response?.docs?.length > 0) {
-                            suggBox.classList.remove('hidden');
-                            data.response.docs.forEach(doc => {
-                                const match = doc.centroide_ll?.match(/POINT\s*\(\s*([-\d.]+)\s+([-\d.]+)\s*\)/);
-                                if (!match) return;
-                                const row = document.createElement('div');
-                                row.className = "px-3.5 py-2.5 text-xs text-slate-200 hover:bg-emerald-500 hover:text-slate-950 cursor-pointer border-b border-slate-800";
-                                row.textContent = doc.weergavenaam;
-                                row.onclick = () => {
-                                    input.value = ''; textSearchQuery = ''; suggBox.classList.add('hidden');
-                                    setHome(parseFloat(match[2]), parseFloat(match[1]), doc.weergavenaam);
-                                };
-                                suggBox.appendChild(row);
-                            });
-                        } else suggBox.classList.add('hidden');
+                        if (myId === requestId) render(q, data.response?.docs || []);
                     } catch (e) {}
                 }, 250);
+            });
+            input.addEventListener('keydown', e => {
+                if (e.key === 'Enter' && firstAction) { e.preventDefault(); firstAction(); }
+                if (e.key === 'Escape') suggBox.classList.add('hidden');
             });
             document.addEventListener('click', e => { if (!input.contains(e.target) && !suggBox.contains(e.target)) suggBox.classList.add('hidden'); });
         }
@@ -734,7 +822,7 @@
             setTimeout(() => { if (map) map.invalidateSize(); }, 300);
 
             try {
-                await Promise.all([loadIndex(), loadPhotos()]);
+                await Promise.all([loadIndex(), loadPhotos(), loadSpeciesIndex()]);
                 await loadAroundHome();
                 loadInView();
             } catch (e) {
@@ -745,5 +833,8 @@
             }
         });
     </script>
+
+    <!-- Bezoekersstatistieken: GoatCounter (geen cookies, geen persoonsgegevens) -->
+    <script data-goatcounter="https://animalradar.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
