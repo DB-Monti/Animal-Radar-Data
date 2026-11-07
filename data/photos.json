@@ -4629,5 +4629,71 @@
 "credit": "(c) 吳政翰, some rights reserved (CC BY-NC-ND), uploaded by 吳政翰",
 "license": "CC-BY-NC-ND",
 "taxon": 497042
+},
+"Asio otus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/133553640/medium.jpg",
+"credit": "(c) caroline legg, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 20307
+},
+"Botaurus stellaris": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/60579218/medium.jpg",
+"credit": "(c) Tatyana Zarubo, some rights reserved (CC BY-NC), uploaded by Tatyana Zarubo",
+"license": "CC-BY-NC",
+"taxon": 5033
+},
+"Ciconia ciconia": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/269104502/medium.jpg",
+"credit": "(c) xulescu_g, some rights reserved (CC BY-SA)",
+"license": "CC-BY-SA",
+"taxon": 4733
+},
+"Columba oenas": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/119807269/medium.jpg",
+"credit": "(c) Paul Lewis, some rights reserved (CC BY), uploaded by Paul Lewis",
+"license": "CC-BY",
+"taxon": 3033
+},
+"Linaria cannabina": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/447125732/medium.jpg",
+"credit": "(c) Samuel Beyertt, some rights reserved (CC BY-NC), uploaded by Samuel Beyertt",
+"license": "CC-BY-NC",
+"taxon": 558634
+},
+"Mergus merganser": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/251363753/medium.jpg",
+"credit": "(c) brian stahls, some rights reserved (CC BY-NC), uploaded by brian stahls",
+"license": "CC-BY-NC",
+"taxon": 7004
+},
+"Motacilla cinerea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/849468/medium.jpg",
+"credit": "(c) kellyr115, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 13688
+},
+"Rallus aquaticus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/118677610/medium.jpg",
+"credit": "(c) egorbirder, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 513926
+},
+"Spatula querquedula": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/188324274/medium.jpg",
+"credit": "(c) Ксения Соварцева, some rights reserved (CC BY-NC), uploaded by Ксения Соварцева",
+"license": "CC-BY-NC",
+"taxon": 558429
+},
+"Tadorna ferruginea": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/118676181/medium.jpg",
+"credit": "(c) egorbirder, some rights reserved (CC BY)",
+"license": "CC-BY",
+"taxon": 7068
+},
+"Tringa glareola": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/8758782/medium.jpg",
+"credit": "(c) Saurabh Agrawal, some rights reserved (CC BY-NC), uploaded by Saurabh Agrawal",
+"license": "CC-BY-NC",
+"taxon": 3888
 }
 }

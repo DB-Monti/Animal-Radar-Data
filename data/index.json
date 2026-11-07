@@ -1,7 +1,16 @@
 {
- "generated": "2026-11-06T21:10:40+00:00",
- "total": 21106,
+ "generated": "2026-11-07T03:45:58+00:00",
+ "total": 16421,
  "tiles": [
+  {
+   "id": "r0c0",
+   "latMin": 50.7,
+   "latMax": 51.2,
+   "lngMin": 3.3,
+   "lngMax": 4.1,
+   "file": "tile_r0c0.json",
+   "count": 632
+  },
   {
    "id": "r0c2",
    "latMin": 50.7,
@@ -9,7 +18,7 @@
    "lngMin": 4.9,
    "lngMax": 5.7,
    "file": "tile_r0c2.json",
-   "count": 895
+   "count": 709
   },
   {
    "id": "r0c3",
@@ -18,7 +27,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r0c3.json",
-   "count": 845
+   "count": 709
   },
   {
    "id": "r1c0",
@@ -27,7 +36,7 @@
    "lngMin": 3.3,
    "lngMax": 4.1,
    "file": "tile_r1c0.json",
-   "count": 946
+   "count": 594
   },
   {
    "id": "r1c1",
@@ -36,7 +45,7 @@
    "lngMin": 4.1,
    "lngMax": 4.9,
    "file": "tile_r1c1.json",
-   "count": 866
+   "count": 607
   },
   {
    "id": "r1c2",
@@ -45,7 +54,7 @@
    "lngMin": 4.9,
    "lngMax": 5.7,
    "file": "tile_r1c2.json",
-   "count": 813
+   "count": 662
   },
   {
    "id": "r1c3",
@@ -54,7 +63,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r1c3.json",
-   "count": 868
+   "count": 630
   },
   {
    "id": "r2c0",
@@ -63,7 +72,7 @@
    "lngMin": 3.3,
    "lngMax": 4.1,
    "file": "tile_r2c0.json",
-   "count": 981
+   "count": 516
   },
   {
    "id": "r2c1",
@@ -72,7 +81,7 @@
    "lngMin": 4.1,
    "lngMax": 4.9,
    "file": "tile_r2c1.json",
-   "count": 1120
+   "count": 709
   },
   {
    "id": "r2c2",
@@ -81,7 +90,7 @@
    "lngMin": 4.9,
    "lngMax": 5.7,
    "file": "tile_r2c2.json",
-   "count": 983
+   "count": 824
   },
   {
    "id": "r2c3",
@@ -90,7 +99,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r2c3.json",
-   "count": 784
+   "count": 606
   },
   {
    "id": "r2c4",
@@ -99,7 +108,7 @@
    "lngMin": 6.5,
    "lngMax": 7.3,
    "file": "tile_r2c4.json",
-   "count": 872
+   "count": 703
   },
   {
    "id": "r3c0",
@@ -108,7 +117,7 @@
    "lngMin": 3.3,
    "lngMax": 4.1,
    "file": "tile_r3c0.json",
-   "count": 78
+   "count": 75
   },
   {
    "id": "r3c1",
@@ -117,7 +126,7 @@
    "lngMin": 4.1,
    "lngMax": 4.9,
    "file": "tile_r3c1.json",
-   "count": 896
+   "count": 527
   },
   {
    "id": "r3c2",
@@ -126,7 +135,7 @@
    "lngMin": 4.9,
    "lngMax": 5.7,
    "file": "tile_r3c2.json",
-   "count": 874
+   "count": 687
   },
   {
    "id": "r3c3",
@@ -135,7 +144,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r3c3.json",
-   "count": 953
+   "count": 798
   },
   {
    "id": "r3c4",
@@ -144,7 +153,7 @@
    "lngMin": 6.5,
    "lngMax": 7.3,
    "file": "tile_r3c4.json",
-   "count": 831
+   "count": 640
   },
   {
    "id": "r4c0",
@@ -153,7 +162,7 @@
    "lngMin": 3.3,
    "lngMax": 4.1,
    "file": "tile_r4c0.json",
-   "count": 16
+   "count": 15
   },
   {
    "id": "r4c1",
@@ -162,7 +171,7 @@
    "lngMin": 4.1,
    "lngMax": 4.9,
    "file": "tile_r4c1.json",
-   "count": 931
+   "count": 527
   },
   {
    "id": "r4c2",
@@ -171,7 +180,7 @@
    "lngMin": 4.9,
    "lngMax": 5.7,
    "file": "tile_r4c2.json",
-   "count": 887
+   "count": 728
   },
   {
    "id": "r4c3",
@@ -180,7 +189,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r4c3.json",
-   "count": 886
+   "count": 753
   },
   {
    "id": "r4c4",
@@ -189,7 +198,7 @@
    "lngMin": 6.5,
    "lngMax": 7.3,
    "file": "tile_r4c4.json",
-   "count": 917
+   "count": 726
   },
   {
    "id": "r5c0",
@@ -207,7 +216,7 @@
    "lngMin": 4.1,
    "lngMax": 4.9,
    "file": "tile_r5c1.json",
-   "count": 784
+   "count": 756
   },
   {
    "id": "r5c2",
@@ -216,7 +225,7 @@
    "lngMin": 4.9,
    "lngMax": 5.7,
    "file": "tile_r5c2.json",
-   "count": 1047
+   "count": 749
   },
   {
    "id": "r5c3",
@@ -225,7 +234,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r5c3.json",
-   "count": 947
+   "count": 616
   },
   {
    "id": "r5c4",
@@ -234,7 +243,7 @@
    "lngMin": 6.5,
    "lngMax": 7.3,
    "file": "tile_r5c4.json",
-   "count": 1069
+   "count": 906
   }
  ]
 }
