@@ -19,6 +19,7 @@ Nederland is verdeeld in tegels van ca. 55 x 55 km. Per tegel:
 Uitvoer (map data/):
   data/index.json         -> overzicht van alle tegels (grenzen, bestand, aantal)
   data/tile_rXcY.json     -> waarnemingen per tegel
+  data/species.json       -> lijst met soorten en in welke tegels ze voorkomen (voor de zoekbalk)
   data/photos.json        -> één foto per soort (iNaturalist, alleen open licenties)
                              Wordt bewaard tussen runs; alleen nieuwe soorten worden opgezocht.
                              Verwijder dit bestand om alle foto's opnieuw op te halen.
@@ -712,6 +713,7 @@ def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     index_tiles, total = [], 0
     all_sci = set()
+    species_index = {}  # voor de zoekfunctie op de website
     for tile in tiles:
         fname = f"tile_{tile['id']}.json"
         path = os.path.join(OUTPUT_DIR, fname)
@@ -730,8 +732,15 @@ def main():
         else:
             continue
         all_sci.update(r.get("sci") for r in recs)
+        for r in recs:
+            key = r.get("sci") or r.get("name")
+            sp = species_index.setdefault(key, {"name": r.get("name"), "emoji": r.get("emoji"), "tiles": {}})
+            sp["tiles"][tile["id"]] = sp["tiles"].get(tile["id"], 0) + 1
         index_tiles.append({**tile, "file": fname, "count": len(recs)})
         total += len(recs)
+
+    with open(os.path.join(OUTPUT_DIR, "species.json"), "w", encoding="utf-8") as f:
+        json.dump(species_index, f, ensure_ascii=False, separators=(",", ":"))
 
     update_photos({n for n in all_sci if n}, start + FOTO_LOOPTIJD_MIN * 60)
 
