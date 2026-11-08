@@ -579,7 +579,7 @@
                 .filter(a => a.dist <= currentRadius && a.daysAgo <= currentMaxDays)
                 .filter(a => currentSize === 'all' || a.size === currentSize)
                 .filter(a => showOnlyRare ? isRare(a) : true)
-                .filter(a => !speciesFilter || (a.scientificName || a.name) === speciesFilter.key)
+                .filter(a => !speciesFilter || speciesFilter.keys.has(a.scientificName || a.name))
                 .sort((a, b) => a.dist - b.dist);
 
             const countEl = document.getElementById('count-label');
@@ -660,6 +660,31 @@
         // ------------------------------------------------------------------
         // Zoeken op soort
         // ------------------------------------------------------------------
+        // Groepen, zodat je ook kunt zoeken op "walvis", "zeehond", "uil" enz.
+        const SOORTGROEPEN = [
+            { words: ['walvis', 'walvissen', 'whale'], name: 'Alle walvissen', emoji: '🐋', test: sp => sp.emoji === '🐋' },
+            { words: ['dolfijn', 'dolfijnen', 'bruinvis', 'bruinvissen'], name: 'Alle dolfijnen & bruinvissen', emoji: '🐬', test: sp => sp.emoji === '🐬' },
+            { words: ['zeehond', 'zeehonden', 'rob', 'robben'], name: 'Alle zeehonden & robben', emoji: '🦭', test: sp => sp.emoji === '🦭' },
+            { words: ['zeezoogdier', 'zeezoogdieren', 'zeedier', 'zeedieren'], name: 'Alle zeezoogdieren', emoji: '🌊', test: sp => ['🐋', '🐬', '🦭'].includes(sp.emoji) },
+            { words: ['uil', 'uilen'], name: 'Alle uilen', emoji: '🦉', test: sp => sp.emoji === '🦉' },
+            { words: ['roofvogel', 'roofvogels', 'arend', 'arenden', 'valk', 'valken'], name: 'Alle roofvogels', emoji: '🦅', test: sp => sp.emoji === '🦅' },
+            { words: ['vleermuis', 'vleermuizen'], name: 'Alle vleermuizen', emoji: '🦇', test: sp => sp.emoji === '🦇' },
+            { words: ['slang', 'slangen'], name: 'Alle slangen', emoji: '🐍', test: sp => sp.emoji === '🐍' },
+            { words: ['hert', 'herten', 'wild', 'zwijn'], name: 'Alle herten & zwijnen', emoji: '🦌', test: sp => sp.emoji === '🦌' || sp.emoji === '🐗' },
+        ];
+
+        function findGroups(q, all) {
+            if (q.length < 3) return [];
+            return SOORTGROEPEN
+                .filter(g => g.words.some(w => w.startsWith(q) || q.startsWith(w)))
+                .map(g => {
+                    const members = all.filter(g.test);
+                    return { key: 'groep:' + g.name, name: `${g.name} (${members.length} soorten)`, chip: g.name, emoji: g.emoji,
+                             keys: members.map(m => m.key), total: members.reduce((x, m) => x + (m.total || 0), 0) };
+                })
+                .filter(g => g.keys.length > 0);
+        }
+
         function findSpecies(q) {
             q = q.toLowerCase();
             const found = new Map();
@@ -671,25 +696,28 @@
                 const key = a.scientificName || a.name;
                 if (!found.has(key)) found.set(key, { key, name: a.name, emoji: a.emoji, total: null });
             });
-            return [...found.values()]
+            const all = [...found.values()];
+            const groepen = findGroups(q, all);
+            return groepen.concat(all
                 .filter(sp => sp.name.toLowerCase().includes(q) || sp.key.toLowerCase().includes(q))
                 .sort((x, y) => {
                     const xs = x.name.toLowerCase().startsWith(q) ? 0 : 1, ys = y.name.toLowerCase().startsWith(q) ? 0 : 1;
                     return xs - ys || (y.total || 0) - (x.total || 0);
                 })
-                .slice(0, 6);
+                .slice(0, 6));
         }
 
         async function selectSpecies(sp) {
             const prev = speciesFilter ? speciesFilter.prev : { days: currentMaxDays, radius: currentRadius };
-            speciesFilter = { key: sp.key, name: sp.name, emoji: sp.emoji, fitPending: true, prev };
+            const keys = sp.keys || [sp.key];
+            speciesFilter = { key: sp.key, keys: new Set(keys), name: sp.chip || sp.name, emoji: sp.emoji, fitPending: true, prev };
             const chip = document.getElementById('species-chip');
-            if (chip) { chip.textContent = `${sp.emoji} ${sp.name}  ✕`; chip.classList.remove('hidden'); }
+            if (chip) { chip.textContent = `${sp.emoji} ${sp.chip || sp.name}  ✕`; chip.classList.remove('hidden'); }
             setTimeFilter(9999, true);
             document.getElementById('time-notice')?.classList.add('hidden');
             setRadiusFilter(999);
-            const entry = speciesIndex[sp.key];
-            const tiles = entry ? tileIndex.filter(t => entry.tiles && entry.tiles[t.id]) : tileIndex;
+            const entries = keys.map(k => speciesIndex[k]).filter(Boolean);
+            const tiles = entries.length ? tileIndex.filter(t => entries.some(e => e.tiles && e.tiles[t.id])) : tileIndex;
             await ensureTiles(tiles);
             renderData();
         }
@@ -799,10 +827,21 @@
         // ------------------------------------------------------------------
         // Locatie kiezen
         // ------------------------------------------------------------------
-        function setHome(lat, lng, name, label) {
+        // ------------------------------------------------------------------
+        // Nulpunt: link-parameters > GPS > laatst gekozen plek > Zwolle
+        // ------------------------------------------------------------------
+        const NL_BOUNDS = { latMin: 50.6, latMax: 53.8, lngMin: 3.2, lngMax: 7.4 };
+        const inNL = (lat, lng) => lat >= NL_BOUNDS.latMin && lat <= NL_BOUNDS.latMax && lng >= NL_BOUNDS.lngMin && lng <= NL_BOUNDS.lngMax;
+        const store = {
+            get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+            set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+        };
+
+        function setHome(lat, lng, name, label, opts = {}) {
             HOME = { lat, lng, name };
             document.getElementById('header-location').textContent = label || name;
-            if (map) map.flyTo([lat, lng], 11);
+            if (map) opts.instant ? map.setView([lat, lng], 11) : map.flyTo([lat, lng], 11);
+            if (!opts.noSave) store.set('ar-home', { lat, lng, name, label: label || name });
             renderData();
             loadAroundHome();
         }
@@ -810,9 +849,46 @@
         function requestUserLocation() {
             if (!navigator.geolocation) return alert("GPS niet ondersteund.");
             navigator.geolocation.getCurrentPosition(
-                pos => setHome(pos.coords.latitude, pos.coords.longitude, "Mijn GPS Locatie", "Mijn GPS"),
-                () => alert("Locatietoegang geweigerd.")
+                pos => { store.set('ar-gps', 'ok'); setHome(pos.coords.latitude, pos.coords.longitude, "Mijn GPS Locatie", "Mijn locatie"); },
+                () => alert("Locatietoegang geweigerd. Je kunt dit aanzetten in de instellingen van je browser.")
             );
+        }
+
+        // Startlocatie bepalen vóór de kaart opent
+        function startHomeFromLinkOrMemory() {
+            const p = new URLSearchParams(location.search);
+            const lat = parseFloat(p.get('lat')), lng = parseFloat(p.get('lng'));
+            if (!isNaN(lat) && !isNaN(lng) && inNL(lat, lng)) {
+                const name = (p.get('plaats') || 'Gedeelde locatie').slice(0, 40);
+                HOME = { lat, lng, name };
+                document.getElementById('header-location').textContent = name;
+                return 'link';
+            }
+            const saved = store.get('ar-home');
+            if (saved && inNL(saved.lat, saved.lng)) {
+                HOME = { lat: saved.lat, lng: saved.lng, name: saved.name };
+                document.getElementById('header-location').textContent = saved.label || saved.name;
+            }
+            return 'memory';
+        }
+
+        // Automatisch de GPS gebruiken als de bezoeker dat toestaat
+        async function autoLocate() {
+            if (!navigator.geolocation || store.get('ar-gps') === 'denied') return;
+            try {
+                if (navigator.permissions?.query) {
+                    const st = await navigator.permissions.query({ name: 'geolocation' });
+                    if (st.state === 'denied') return;
+                }
+            } catch (e) {}
+            navigator.geolocation.getCurrentPosition(pos => {
+                const { latitude: lat, longitude: lng } = pos.coords;
+                store.set('ar-gps', 'ok');
+                if (!inNL(lat, lng)) return;      // buiten Nederland: houd het huidige nulpunt
+                setHome(lat, lng, "Mijn GPS Locatie", "Mijn locatie");
+            }, err => {
+                if (err && err.code === 1) store.set('ar-gps', 'denied');   // niet steeds opnieuw vragen
+            }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 5 * 60 * 1000 });
         }
 
         function initAddressSearch() {
@@ -911,6 +987,7 @@
         if (location.hash === '#melden') window.addEventListener('DOMContentLoaded', () => openReport());
 
         window.addEventListener('DOMContentLoaded', async function() {
+            const startSource = startHomeFromLinkOrMemory();
             try {
                 if (typeof L !== 'undefined') {
                     map = L.map('map').setView([HOME.lat, HOME.lng], 9);
@@ -928,6 +1005,7 @@
 
             renderData();
             initAddressSearch();
+            if (startSource !== 'link') autoLocate();
 
             setTimeout(() => { if (map) map.invalidateSize(); }, 300);
 
