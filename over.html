@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Over Animal Radar | De dieren van Nederland, dichtbij</title>
+    <meta name="description" content="Animal Radar laat zien welke bijzondere dieren er in Nederland leven. Ontdekken, leren en zorgen voor de natuur: wat je kent, daar zorg je voor.">
+    <meta property="og:title" content="Animal Radar: de dieren van Nederland, dichtbij">
+    <meta property="og:description" content="Ontdek welke bijzondere dieren er om je heen leven. Wat je kent, daar zorg je voor.">
+    <style>
+        :root { color-scheme: dark; --groen: #34d399; --amber: #fbbf24; --sky: #38bdf8; }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: #020617; color: #cbd5e1; font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+        a { color: var(--groen); }
+        .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+        header { border-bottom: 1px solid #1e293b; }
+        header .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; padding-bottom: 14px; gap: 12px; }
+        .logo { color: #fff; font-weight: 800; text-decoration: none; letter-spacing: -.01em; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--groen); }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--groen); box-shadow: 0 0 0 0 rgba(52,211,153,.6); animation: puls 2s infinite; }
+        @keyframes puls { 70% { box-shadow: 0 0 0 10px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
+        .knop { display: inline-block; background: var(--groen); color: #020617; font-weight: 800; text-decoration: none; padding: 11px 20px; border-radius: 10px; font-size: 15px; }
+        .knop.licht { background: transparent; color: #e2e8f0; border: 1px solid #334155; }
+        .knop.klein { padding: 7px 14px; font-size: 13px; }
+
+        .hero { padding: 64px 0 48px; background:
+            radial-gradient(ellipse at 20% 0%, rgba(52,211,153,.18), transparent 55%),
+            radial-gradient(ellipse at 90% 30%, rgba(56,189,248,.12), transparent 50%); }
+        .hero h1 { color: #fff; font-size: clamp(32px, 6vw, 54px); line-height: 1.08; margin: 0 0 16px; letter-spacing: -.02em; }
+        .hero h1 em { color: var(--groen); font-style: normal; }
+        .hero p.lead { font-size: clamp(17px, 2.2vw, 20px); color: #cbd5e1; max-width: 640px; margin: 0 0 26px; }
+        .slogan { display: inline-block; color: var(--groen); font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 14px; }
+        .knoppen { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        .cijfers { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 32px 0 0; }
+        .cijfer { background: #0f172a; border: 1px solid #1e293b; border-radius: 14px; padding: 16px; }
+        .cijfer b { display: block; color: #fff; font-size: 30px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+        .cijfer span { font-size: 13px; color: #94a3b8; }
+
+        section { padding: 48px 0; border-top: 1px solid #0f172a; }
+        h2 { color: #fff; font-size: clamp(24px, 3.5vw, 32px); margin: 0 0 10px; letter-spacing: -.01em; }
+        .intro { max-width: 680px; margin: 0 0 26px; }
+
+        .pijlers { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; }
+        .pijler { background: #0f172a; border: 1px solid #1e293b; border-radius: 16px; padding: 20px; }
+        .pijler .ico { font-size: 30px; }
+        .pijler h3 { color: #fff; margin: 8px 0 6px; font-size: 18px; }
+        .pijler p { margin: 0; font-size: 15px; }
+
+        .voorwie { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+        .kaart { border-radius: 16px; padding: 20px; border: 1px solid #1e293b; }
+        .kaart h3 { margin: 0 0 6px; font-size: 18px; }
+        .kaart.g { background: rgba(52,211,153,.07); } .kaart.g h3 { color: var(--groen); }
+        .kaart.a { background: rgba(251,191,36,.07); } .kaart.a h3 { color: var(--amber); }
+        .kaart.s { background: rgba(56,189,248,.07); } .kaart.s h3 { color: var(--sky); }
+        .kaart p { margin: 0 0 12px; font-size: 15px; }
+
+        .citaat { font-size: clamp(22px, 3.5vw, 30px); color: #fff; font-weight: 700; line-height: 1.3; max-width: 760px; margin: 0; }
+        .citaat em { color: var(--groen); font-style: normal; }
+
+        ol.toekomst { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+        ol.toekomst li { counter-increment: s; background: #0f172a; border: 1px solid #1e293b; border-radius: 14px; padding: 16px 16px 16px 58px; position: relative; }
+        ol.toekomst li::before { content: counter(s); position: absolute; left: 16px; top: 15px; width: 28px; height: 28px; border-radius: 50%; background: rgba(52,211,153,.15); color: var(--groen); font-weight: 800; display: grid; place-items: center; font-size: 14px; }
+        ol.toekomst b { color: #fff; }
+
+        footer { border-top: 1px solid #1e293b; padding: 22px 0; font-size: 13px; color: #64748b; }
+        footer .wrap { display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <a class="logo" href="index.html"><i class="dot"></i><b>ANIMAL<span>RADAR</span></b></a>
+            <a class="knop klein" href="index.html">🗺️ Naar de kaart</a>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="wrap">
+            <div class="slogan">Wat je kent, daar zorg je voor</div>
+            <h1>De dieren van Nederland,<br><em>dichtbij.</em></h1>
+            <p class="lead">
+                Nederland zit vol bijzondere dieren. De otter die terug is in onze rivieren, de zeearend boven de polder,
+                walvissen voor de kust en de wolf in onze bossen. Animal Radar laat zien wat er écht om je heen leeft.
+            </p>
+            <div class="knoppen">
+                <a class="knop" href="index.html">🗺️ Ontdek wat er om je heen leeft</a>
+                <a class="knop licht" href="kids.html">🧒 Voor kids</a>
+            </div>
+
+            <div class="cijfers" id="cijfers" aria-live="polite">
+                <div class="cijfer"><b id="c-waarnemingen">…</b><span>bijzondere waarnemingen</span></div>
+                <div class="cijfer"><b id="c-soorten">…</b><span>verschillende diersoorten</span></div>
+                <div class="cijfer"><b id="c-zee">…</b><span>soorten walvissen, dolfijnen en zeehonden</span></div>
+                <div class="cijfer"><b>🇳🇱</b><span>heel Nederland, elke nacht bijgewerkt</span></div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="wrap">
+            <h2>Waarom Animal Radar?</h2>
+            <p class="intro">
+                Veel mensen weten niet welke bijzondere dieren er vlak bij hun huis leven. Toch worden er elke dag
+                waarnemingen gedaan door duizenden natuurliefhebbers. Animal Radar brengt die waarnemingen samen op één
+                overzichtelijke kaart, voor iedereen. Zo wordt de natuur van Nederland zichtbaar, en dichterbij dan je denkt.
+            </p>
+            <div class="pijlers">
+                <div class="pijler"><div class="ico">🔭</div><h3>Ontdekken</h3><p>Zie welke zeldzame en bijzondere dieren er in jouw buurt zijn gespot, van vogels tot zeezoogdieren.</p></div>
+                <div class="pijler"><div class="ico">📚</div><h3>Leren</h3><p>Leer de dieren kennen: hoe ze heten, hoe ze eruitzien en waar ze leven. Met een speciale versie voor kinderen.</p></div>
+                <div class="pijler"><div class="ico">📣</div><h3>Meedoen</h3><p>Zelf iets gezien? We helpen je het te melden bij het juiste landelijke meldpunt, zodat je waarneming meetelt.</p></div>
+                <div class="pijler"><div class="ico">💚</div><h3>Beschermen</h3><p>Van kwetsbare dieren tonen we de plek nooit precies. We willen nieuwsgierig maken, niet verstoren.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <p class="citaat">“Een kind dat een otter heeft gezien, vergeet dat nooit meer. <em>Wat je kent, daar zorg je voor.</em>”</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <h2>Voor wie?</h2>
+            <p class="intro">Animal Radar is voor iedereen die nieuwsgierig is naar de natuur.</p>
+            <div class="voorwie">
+                <div class="kaart g">
+                    <h3>🔭 Natuurliefhebbers en spotters</h3>
+                    <p>Zie in één oogopslag waar de bijzondere soorten zitten. Zoek op soort, filter op tijd en afstand.</p>
+                    <a href="index.html">Open de kaart →</a>
+                </div>
+                <div class="kaart a">
+                    <h3>🧒 Kinderen en gezinnen</h3>
+                    <p>Een vrolijke kaart met grote knoppen, foto's en leuke weetjes over elk dier. Perfect voor een speurtocht.</p>
+                    <a href="kids.html" style="color:var(--amber)">Naar de kidsversie →</a>
+                </div>
+                <div class="kaart s">
+                    <h3>🏫 Scholen en natuureducatie</h3>
+                    <p>Laat leerlingen ontdekken welke dieren er rond de school leven. Een mooie start voor een les over natuur.</p>
+                    <a href="mailto:info@animalradar.nl?subject=Animal%20Radar%20op%20school" style="color:var(--sky)">Neem contact op →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <h2>Waar we naartoe willen</h2>
+            <p class="intro">Animal Radar groeit. Dit is onze ambitie:</p>
+            <ol class="toekomst">
+                <li><b>Dé plek voor de fauna van Nederland.</b> Eén plek waar iedereen ziet welke dieren er leven, dichtbij en actueel.</li>
+                <li><b>Melden in een paar tikken.</b> Samen met de landelijke meldpunten willen we het melden zo makkelijk maken als een foto maken.</li>
+                <li><b>Kinderen laten zorgen voor de natuur.</b> Met speurtochten, weetjes en materiaal voor scholen.</li>
+                <li><b>Samenwerken.</b> Met natuurorganisaties, onderzoekers en meldpunten, zodat elke waarneming bijdraagt aan de bescherming van onze natuur.</li>
+            </ol>
+        </div>
+    </section>
+
+    <section>
+        <div class="wrap">
+            <h2>Waar komen de gegevens vandaan?</h2>
+            <p class="intro">
+                De waarnemingen komen uit openbare natuurdatabanken: <strong>GBIF</strong> (waar onder meer de meldingen van
+                Waarneming.nl terechtkomen) en <strong>iNaturalist</strong>.
+                Elke nacht halen we de nieuwste waarnemingen op. De foto's komen van iNaturalist, met de naam van de fotograaf.
+            </p>
+            <p>Wil je samenwerken, heb je een idee of een vraag? Mail naar <a href="mailto:info@animalradar.nl">info@animalradar.nl</a>.</p>
+            <div class="knoppen" style="margin-top:20px">
+                <a class="knop" href="index.html">🗺️ Naar de kaart</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <span>© 2026 AnimalRadar.nl · Wat je kent, daar zorg je voor.</span>
+            <span><a href="index.html">Kaart</a> · <a href="kids.html">Voor kids</a> · <a href="privacy.html">Privacy</a></span>
+        </div>
+    </footer>
+
+    <script>
+        // Live cijfers uit de dagelijkse data
+        const DATA = 'https://raw.githubusercontent.com/DB-Monti/Animal-Radar-Data/main/data/';
+        const fmt = n => new Intl.NumberFormat('nl-NL').format(n);
+        const zet = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+        Promise.all([
+            fetch(DATA + 'index.json').then(r => r.json()),
+            fetch(DATA + 'species.json').then(r => r.json()),
+        ]).then(([index, species]) => {
+            const lijst = Object.values(species || {});
+            zet('c-waarnemingen', fmt(index.total || 0));
+            zet('c-soorten', fmt(lijst.length));
+            zet('c-zee', fmt(lijst.filter(s => ['🐋', '🐬', '🦭'].includes(s.emoji)).length));
+        }).catch(() => {
+            document.getElementById('cijfers').querySelectorAll('b[id]').forEach(b => b.textContent = '—');
+        });
+    </script>
+    <script data-goatcounter="https://animalradar.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
