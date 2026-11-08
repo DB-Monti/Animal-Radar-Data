@@ -73,8 +73,8 @@
                 </span>
             </div>
 
-            <div class="flex items-center gap-2 w-full md:w-auto">
-                <div class="relative flex-1 md:w-80">
+            <div class="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full md:w-auto">
+                <div class="relative w-full sm:w-auto sm:flex-1 md:w-80">
                     <input id="address-input" type="text" placeholder="Zoek een dier, plaats, adres of postcode…" autocomplete="off"
                         class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500" />
                     <div id="address-suggestions" class="hidden absolute left-0 right-0 mt-1 bg-slate-900 border border-slate-700 rounded-lg shadow-2xl max-h-60 overflow-y-auto z-50"></div>
@@ -82,6 +82,12 @@
                 <button onclick="requestUserLocation()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold px-3.5 py-2 rounded-lg transition shadow cursor-pointer shrink-0 flex items-center gap-1">
                     <span>📍</span> <span>Mijn GPS</span>
                 </button>
+                <button onclick="openReport(null)" class="bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs font-bold px-3.5 py-2 rounded-lg transition shadow cursor-pointer shrink-0 flex items-center gap-1">
+                    <span>📣</span> <span>Melden</span>
+                </button>
+                <a href="kids.html" class="bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-bold px-3.5 py-2 rounded-lg transition shadow shrink-0 flex items-center gap-1">
+                    <span>🧒</span> <span>Voor kids</span>
+                </a>
             </div>
         </div>
     </header>
@@ -177,6 +183,10 @@
                 <span>📊</span> Bronvermeldingen & Data
             </button>
 
+            <button onclick="openReport(null)" class="bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 border border-sky-500/30 px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2 cursor-pointer">
+                <span>📣</span> Bijzonder dier gezien? Meld het landelijk
+            </button>
+
             <a href="mailto:info@animalradar.nl" class="bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2">
                 <span>✉️</span> Vragen of Contact? (info@animalradar.nl)
             </a>
@@ -228,6 +238,13 @@
                     </div>
                 </li>
                 <li class="flex items-start gap-2">
+                    <span class="mt-0.5">📣</span>
+                    <div>
+                        <strong class="text-emerald-400 block">Meldportaal</strong>
+                        Animal Radar is geen eigen meldpunt. Via de knop Melden ga je naar Waarneming.nl of het Wolvenmeldpunt, zodat elke waarneming in de landelijke databank (NDFF) komt.
+                    </div>
+                </li>
+                <li class="flex items-start gap-2">
                     <span class="mt-0.5">📈</span>
                     <div>
                         <strong class="text-emerald-400 block">Bezoekersstatistieken via GoatCounter</strong>
@@ -235,6 +252,66 @@
                     </div>
                 </li>
             </ul>
+        </div>
+    </div>
+
+    <!-- Meldportaal -->
+    <div id="report-modal" class="hidden fixed inset-0 z-[100] bg-slate-950/80 backdrop-blur-sm flex justify-center items-start sm:items-center p-4 overflow-y-auto">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5 max-w-lg w-full shadow-2xl relative my-4">
+            <button onclick="closeReport()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg cursor-pointer" aria-label="Sluiten">✖</button>
+            <h3 class="text-lg font-bold text-white mb-1 flex items-center gap-2">📣 Waarneming melden</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                In Nederland komen alle natuurwaarnemingen samen in één landelijke databank: de
+                <strong>Nationale Databank Flora en Fauna (NDFF)</strong>. Animal Radar stuurt je naar het juiste meldpunt,
+                zodat je waarneming één keer goed wordt vastgelegd en voor iedereen telt.
+            </p>
+            <p id="report-species" class="hidden text-xs text-sky-300 bg-sky-500/10 border border-sky-500/30 rounded-lg px-3 py-2 mb-3"></p>
+
+            <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Wat heb je gezien?</div>
+            <div class="flex flex-col gap-2.5">
+                <a id="route-wolf" href="https://www.wolveninnederland.nl/" target="_blank" rel="noopener" onclick="countRoute('wolvenmeldpunt')"
+                   class="block bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/40 rounded-xl p-4 transition">
+                    <div class="text-sm font-bold text-amber-300">🐺 Een wolf, of sporen van een wolf</div>
+                    <div class="text-xs text-slate-300 mt-1 leading-relaxed">Meld bij het <strong>Wolvenmeldpunt</strong> (Wolven in Nederland). Experts controleren je melding en zetten zekere waarnemingen in de NDFF.</div>
+                    <div class="text-xs font-bold text-amber-300 mt-2">Naar het Wolvenmeldpunt →</div>
+                </a>
+                <div id="route-other" class="bg-emerald-500/10 border border-emerald-500/40 rounded-xl p-4">
+                    <div class="text-sm font-bold text-emerald-300">🐾 Een ander dier</div>
+                    <div class="text-xs text-slate-300 mt-1 leading-relaxed">
+                        <strong>Snelste manier: de gratis app ObsIdentify.</strong> Maak een foto, de app herkent het dier en jij bevestigt.
+                        Locatie en tijd gaan automatisch mee. Je melding komt op Waarneming.nl, het landelijke meldpunt.
+                    </div>
+                    <ol class="flex justify-between text-center text-[11px] text-slate-300 gap-1 mt-3">
+                        <li class="flex-1">📷<br>Foto</li><li class="text-slate-600">→</li>
+                        <li class="flex-1">🔍<br>Soort bevestigen</li><li class="text-slate-600">→</li>
+                        <li class="flex-1">✅<br>Opslaan</li>
+                    </ol>
+                    <div class="flex flex-col sm:flex-row gap-2 mt-3">
+                        <a id="app-ios" href="https://apps.apple.com/nl/app/obsidentify/id1464543488" target="_blank" rel="noopener" onclick="countRoute('obsidentify-ios')"
+                           class="flex-1 text-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm font-bold px-4 py-2.5 rounded-lg transition">📱 Download voor iPhone</a>
+                        <a id="app-android" href="https://play.google.com/store/apps/details?id=org.observation.obsidentify" target="_blank" rel="noopener" onclick="countRoute('obsidentify-android')"
+                           class="flex-1 text-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm font-bold px-4 py-2.5 rounded-lg transition">📱 Download voor Android</a>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-2">
+                        Eén keer inloggen met een gratis Waarneming.nl-account, daarna meld je in een paar tikken.
+                        Liever via de computer? <a href="https://waarneming.nl/" target="_blank" rel="noopener" onclick="countRoute('waarneming')" class="underline text-emerald-300">Meld op Waarneming.nl</a>.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-4 bg-slate-950/60 border border-slate-800 rounded-xl p-3.5">
+                <div class="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Zo komt jouw melding terug op Animal Radar</div>
+                <div class="flex items-center justify-between text-center text-[11px] text-slate-300 gap-1">
+                    <div class="flex-1">📱<br>Jij meldt</div><div class="text-slate-600">→</div>
+                    <div class="flex-1">✅<br>Experts controleren</div><div class="text-slate-600">→</div>
+                    <div class="flex-1">🗄️<br>NDFF &amp; GBIF</div><div class="text-slate-600">→</div>
+                    <div class="flex-1">🗺️<br>Animal Radar</div>
+                </div>
+            </div>
+
+            <p class="text-[11px] text-slate-500 mt-3 leading-relaxed">
+                🔭 Houd afstand, verstoor het dier niet en volg het niet. Bij een gewond dier: bel de Dierenambulance (144).
+            </p>
         </div>
     </div>
 
@@ -661,12 +738,14 @@
                                 "${esc(detailedNote)}"
                             </div>
                             ${sourceLine}
+                            <button id="detail-report" class="mt-3 block bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 border border-sky-500/30 px-3 py-1.5 rounded-lg text-xs font-bold transition cursor-pointer">📣 Ook een ${esc(item.name.toLowerCase())} gezien? Meld het</button>
                         </div>
                         <div class="bg-slate-950 border border-slate-800 px-4 py-3 rounded-xl text-right shrink-0 flex flex-col justify-center">
                             <div class="text-[10px] text-slate-400 font-mono">AFSTAND TOT JOU</div>
                             <div class="text-xl font-bold font-mono text-emerald-400">${item.dist.toFixed(1)} km</div>
                         </div>
                     </div>`;
+                document.getElementById('detail-report')?.addEventListener('click', () => openReport(item));
             }
         }
 
@@ -800,6 +879,37 @@
         // ------------------------------------------------------------------
         // Opstarten
         // ------------------------------------------------------------------
+        // ------------------------------------------------------------------
+        // Meldportaal: één knop, het juiste landelijke meldpunt
+        // ------------------------------------------------------------------
+        function openReport(item) {
+            const info = document.getElementById('report-species');
+            const wolf = document.getElementById('route-wolf'), other = document.getElementById('route-other');
+            wolf.classList.remove('hidden'); other.classList.remove('hidden'); info.classList.add('hidden');
+            if (item && item.name) {
+                const isWolf = item.size === 'wolf' || item.scientificName === 'Canis lupus';
+                info.textContent = `Ook een ${item.name.toLowerCase()} gezien? Meld het hier:`;
+                info.classList.remove('hidden');
+                (isWolf ? other : wolf).classList.add('hidden');
+            }
+            const ua = navigator.userAgent || '';
+            const isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+            const isAndroid = /Android/.test(ua);
+            document.getElementById('app-ios').classList.toggle('hidden', isAndroid);
+            document.getElementById('app-android').classList.toggle('hidden', isIOS);
+            document.getElementById('report-modal').classList.remove('hidden');
+        }
+        function closeReport() {
+            document.getElementById('report-modal').classList.add('hidden');
+            if (location.hash === '#melden') history.replaceState(null, '', location.pathname + location.search);
+        }
+        function countRoute(name) {
+            if (window.goatcounter?.count) window.goatcounter.count({ path: 'meldportaal-' + name, title: 'Meldportaal: ' + name, event: true });
+        }
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReport(); });
+        if (location.hash === '#melden') window.addEventListener('DOMContentLoaded', () => openReport());
+
         window.addEventListener('DOMContentLoaded', async function() {
             try {
                 if (typeof L !== 'undefined') {
