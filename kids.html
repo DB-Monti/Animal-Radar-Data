@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimalRadar Kids | Welke dieren wonen bij jou?</title>
+    <meta name="description" content="Ontdek welke bijzondere dieren er bij jou in de buurt gezien zijn. Met foto's en leuke weetjes, speciaal voor kinderen.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
+
+    <style>
+        body {
+            font-family: 'Nunito', system-ui, sans-serif;
+            background: linear-gradient(180deg, #e0f2fe 0%, #f0fdf4 45%, #fefce8 100%);
+            color: #1e293b;
+            min-height: 100vh;
+        }
+        #map { height: 380px; width: 100%; border-radius: 1.5rem; z-index: 1; }
+        .kid-cluster {
+            border-radius: 9999px; background: #fff; border: 4px solid #22c55e;
+            font-weight: 900; font-size: 15px; color: #166534;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .pop { animation: pop .25s ease-out; }
+        @keyframes pop { from { transform: scale(.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
+        .card-hover:hover { transform: translateY(-3px) rotate(-0.5deg); box-shadow: 0 10px 24px rgba(0,0,0,0.12); }
+        .card-hover:active { transform: scale(.97); }
+    </style>
+</head>
+<body>
+
+    <!-- Bovenkant -->
+    <header class="max-w-5xl mx-auto px-4 pt-5 pb-3 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+            <div class="text-5xl">🦊</div>
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-black text-emerald-700 leading-tight">Dierenradar <span class="text-sky-600">Kids</span></h1>
+                <p class="text-sm font-bold text-slate-500">Welke bijzondere dieren wonen bij jou?</p>
+            </div>
+        </div>
+        <a href="index.html" class="text-sm font-extrabold text-slate-600 bg-white/80 border-2 border-slate-200 rounded-full px-4 py-2 hover:bg-white">👨‍👩‍👧 Grote-mensen-versie</a>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 pb-10 flex flex-col gap-5">
+
+        <!-- Waar ben jij? -->
+        <section class="bg-white rounded-3xl shadow-sm border-4 border-sky-200 p-4 sm:p-5">
+            <h2 class="text-xl font-black text-sky-700 mb-1">📍 Waar ben jij?</h2>
+            <p class="text-sm font-bold text-slate-500 mb-3">We kijken nu rond <span id="place-name" class="text-emerald-700">Zwolle</span>.</p>
+            <div class="flex flex-col sm:flex-row gap-2">
+                <button onclick="useGps()" class="bg-emerald-500 hover:bg-emerald-400 text-white font-black text-lg rounded-2xl px-5 py-3 shadow">📍 Hier ben ik!</button>
+                <div class="relative flex-1">
+                    <input id="place-input" type="text" autocomplete="off" placeholder="Of typ je woonplaats…"
+                        class="w-full border-4 border-slate-200 rounded-2xl px-4 py-3 text-lg font-bold focus:outline-none focus:border-sky-400" />
+                    <div id="place-suggestions" class="hidden absolute left-0 right-0 mt-1 bg-white border-4 border-slate-200 rounded-2xl shadow-xl z-50 overflow-hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Soort kiezen -->
+        <section class="flex flex-wrap gap-2 justify-center" id="group-buttons"></section>
+
+        <!-- Kaart -->
+        <section class="bg-white rounded-3xl shadow-sm border-4 border-emerald-200 p-2">
+            <div id="map"></div>
+        </section>
+
+        <!-- Dieren -->
+        <section>
+            <h2 class="text-2xl font-black text-emerald-700 mb-1">🐾 Dieren bij jou in de buurt</h2>
+            <p id="summary" class="text-sm font-bold text-slate-500 mb-3">Even zoeken…</p>
+            <div id="animal-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"></div>
+        </section>
+
+        <!-- Veilig op pad -->
+        <section class="bg-amber-50 border-4 border-amber-200 rounded-3xl p-5">
+            <h2 class="text-xl font-black text-amber-700 mb-2">🥾 Zo ga je veilig op dierenspeurtocht</h2>
+            <ul class="space-y-1.5 text-base font-bold text-slate-700">
+                <li>👨‍👧 Ga altijd samen met een volwassene.</li>
+                <li>🤫 Wees stil, dan zie je meer dieren.</li>
+                <li>🔭 Kijk van een afstandje. Gebruik een verrekijker als je die hebt.</li>
+                <li>🖐️ Raak wilde dieren nooit aan en geef ze geen eten.</li>
+                <li>🛤️ Blijf op de paden, dan stoor je de dieren niet.</li>
+            </ul>
+        </section>
+
+        <!-- Zelf iets gezien -->
+        <section class="bg-sky-50 border-4 border-sky-200 rounded-3xl p-5 text-center">
+            <h2 class="text-xl font-black text-sky-700 mb-1">📣 Zelf een bijzonder dier gezien?</h2>
+            <p class="text-base font-bold text-slate-700 mb-3">Super! Vraag papa, mama of de juf om het samen met jou te melden. Dan telt jouw dier mee voor heel Nederland, en komt het misschien ook op de kaart!</p>
+            <a href="index.html#melden" class="inline-block bg-sky-500 hover:bg-sky-400 text-white text-base font-black px-5 py-2.5 rounded-full shadow">Samen melden</a>
+        </section>
+
+        <p class="text-center text-xs font-bold text-slate-400">
+            De waarnemingen komen van echte natuurliefhebbers (via GBIF en iNaturalist). Foto's: iNaturalist, met naam van de fotograaf.
+        </p>
+    </main>
+
+    <!-- Dierkaart (pop-up) -->
+    <div id="modal" class="hidden fixed inset-0 z-[100] bg-slate-900/50 flex items-end sm:items-center justify-center p-3" onclick="if (event.target === this) closeModal()">
+        <div id="modal-body" class="pop bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl"></div>
+    </div>
+
+    <script>
+        // ------------------------------------------------------------------
+        // Instellingen
+        // ------------------------------------------------------------------
+        const DATA_BASE_URL = 'https://raw.githubusercontent.com/DB-Monti/Animal-Radar-Data/main/data/';
+        const RADIUS_KM = 30;   // dieren binnen deze afstand tonen
+
+        let HOME = { lat: 52.5168, lng: 6.0830, name: 'Zwolle' };
+        let group = 'all';
+        let map = null, markers = null, homeMarker = null;
+        let tileIndex = [], photos = {};
+        const loaded = new Set();
+        const byId = new Map();
+
+        const GROUPS = [
+            { id: 'all',    label: '🌍 Alles' },
+            { id: 'birds',  label: '🐦 Vogels' },
+            { id: 'mammal', label: '🦊 Zoogdieren' },
+            { id: 'sea',    label: '🐬 Zeedieren' },
+            { id: 'herps',  label: '🐸 Kikkers & slangen' },
+        ];
+
+        // ------------------------------------------------------------------
+        // Weetjes (kort en kloppend, voor 6-9 jaar)
+        // ------------------------------------------------------------------
+        const WEETJES = {
+            'Canis lupus': ['Wolven leven samen in een familie. Dat heet een roedel.', 'Een wolf kan in één nacht heel ver lopen, soms wel tientallen kilometers.', 'Wolven zijn heel verlegen. Ze gaan mensen meestal uit de weg.'],
+            'Lutra lutra': ['Een otter kan zijn oren en neus dichtdoen als hij onder water zwemt.', 'Otters eten vooral vis.', 'In 1988 was de otter helemaal verdwenen uit Nederland. Nu woont hij er gelukkig weer!'],
+            'Castor fiber': ['Een bever knaagt met zijn oranje tanden zelfs dikke bomen om.', 'Bevers bouwen een huis van takken en modder. Dat heet een burcht.', 'Zijn platte staart gebruikt hij om te sturen tijdens het zwemmen.'],
+            'Haliaeetus albicilla': ['De zeearend is de grootste roofvogel van Nederland.', 'Zijn vleugels zijn samen meer dan 2 meter breed. Groter dan een volwassen mens!', 'Hij vangt vooral vis.'],
+            'Pandion haliaetus': ['De visarend duikt met zijn poten vooruit in het water om een vis te pakken.', 'In de winter vliegt hij helemaal naar Afrika.', 'Je ziet hem in Nederland vooral in de lente en de herfst.'],
+            'Bubo bubo': ['De oehoe is een van de grootste uilen van de wereld.', 'Hij heeft grote oranje ogen en lange veren op zijn kop die op oortjes lijken.', 'Hij jaagt in het donker. Zijn roep klinkt als "oe-hoe".'],
+            'Ciconia nigra': ['De zwarte ooievaar is verlegener dan de gewone ooievaar.', 'Hij woont graag rustig in het bos, bij beekjes.', 'In de winter vliegt hij naar Afrika.'],
+            'Ciconia ciconia': ['Ooievaars bouwen een groot nest, vaak op een hoge paal.', 'Ze maken geluid door met hun snavel te klepperen.', 'Veel ooievaars vliegen in de winter naar Afrika.'],
+            'Grus grus': ['Kraanvogels zijn heel grote vogels met lange poten.', 'In de lente dansen ze: ze springen en fladderen met hun vleugels.', 'Hun roep klinkt als een trompet en je hoort hem van ver.'],
+            'Falco peregrinus': ['De slechtvalk is het snelste dier van de wereld als hij naar beneden duikt.', 'Hij gaat dan meer dan 300 kilometer per uur!', 'Soms woont hij hoog op een kerktoren of flatgebouw.'],
+            'Corvus corax': ['De raaf is de grootste kraaiachtige vogel.', 'Raven zijn heel slim en kunnen puzzels oplossen.', 'Ze kunnen allerlei geluiden nadoen.'],
+            'Cervus elaphus': ['Het mannetje heeft een groot gewei.', 'Elk jaar valt het gewei eraf en groeit er een nieuw.', 'In de herfst maken de mannetjes een hard geluid. Dat heet burlen.'],
+            'Sus scrofa': ['Babyzwijntjes hebben strepen op hun vacht.', 'Wilde zwijnen woelen met hun snuit in de grond naar eten.', 'Ze leven samen in een groep.'],
+            'Capreolus capreolus': ['Een ree is veel kleiner dan een edelhert.', 'Op zijn billen zit een witte vlek.', 'Als een ree schrikt, kan hij een soort blaffend geluid maken.'],
+            'Vulpes vulpes': ['Een vos kan een muisje onder het gras horen.', 'Dan springt hij hoog en duikt er bovenop!', 'Vossen zijn slim en wonen zelfs in steden.'],
+            'Meles meles': ['De das heeft een zwart-witte streep op zijn kop.', 'Hij graaft een groot huis onder de grond met veel gangen.', 'Zijn lievelingseten is regenwormen.'],
+            'Martes martes': ['De boommarter klimt heel goed in bomen.', 'Hij springt van tak naar tak.', 'Hij is vooral \'s nachts wakker.'],
+            'Erinaceus europaeus': ['Een egel heeft duizenden stekels.', 'Als hij bang is, rolt hij zich op tot een stekelbal.', 'In de winter houdt hij een lange winterslaap.'],
+            'Sciurus vulgaris': ['Een eekhoorn verstopt in de herfst nootjes voor de winter.', 'Hij vergeet er veel. Daar groeien dan nieuwe bomen uit!', 'Met zijn grote staart houdt hij zijn evenwicht.'],
+            'Phocoena phocoena': ['De bruinvis is een kleine walvis die in de Noordzee woont.', 'Als hij boven komt om adem te halen, hoor je "puh".', 'Hij lijkt op een dolfijn, maar is kleiner.'],
+            'Phoca vitulina': ['Zeehonden liggen graag op zandplaten in de Waddenzee.', 'Een baby zeehond heet een pup.', 'Onder water kunnen ze lang hun adem inhouden.'],
+            'Halichoerus grypus': ['De grijze zeehond is het grootste roofdier van Nederland.', 'Hij heeft een lange neus, een beetje zoals een paard.', 'Zijn jongen worden in de winter geboren.'],
+            'Physeter macrocephalus': ['De potvis is de grootste walvis met tanden.', 'Hij heeft een enorm groot hoofd.', 'Hij kan heel diep duiken en wel een uur onder water blijven.'],
+            'Megaptera novaeangliae': ['De bultrug zingt lange liedjes onder water.', 'Hij heeft hele lange vinnen aan zijn zij.', 'Soms springt hij helemaal uit het water!'],
+            'Balaenoptera acutorostrata': ['De dwergvinvis is een van de kleinste walvissen met baleinen.', 'Hij heeft geen tanden, maar baleinen. Daarmee zeeft hij eten uit het water.', 'Toch is hij nog groter dan een busje!'],
+            'Delphinus delphis': ['Dolfijnen praten met elkaar met fluitjes en klikjes.', 'Ze zwemmen vaak in groepen.', 'Ze springen graag uit het water.'],
+            'Tursiops truncatus': ['De tuimelaar is een dolfijn die heel slim is.', 'Hij praat met fluitjes en klikjes.', 'Hij springt en speelt graag.'],
+            'Alcedo atthis': ['De ijsvogel is felblauw en oranje.', 'Hij duikt pijlsnel in het water om een visje te vangen.', 'Zijn nest maakt hij in een tunnel in de oever.'],
+            'Platalea leucorodia': ['De lepelaar heeft een snavel die op een lepel lijkt.', 'Hij zwaait met zijn snavel door het water om eten te vangen.', 'Heel veel lepelaars uit Europa maken hun nest in Nederland.'],
+            'Upupa epops': ['De hop heeft een kuif die hij open kan zetten als een waaier.', 'Hij roept "oep-oep-oep".', 'Hij is zeldzaam in Nederland. Als je hem ziet, heb je geluk!'],
+            'Oriolus oriolus': ['Het mannetje van de wielewaal is felgeel met zwart.', 'Hij zit hoog in de bomen en is moeilijk te zien.', 'Je hoort hem fluiten: "dudeljo".'],
+            'Tyto alba': ['De kerkuil heeft een gezicht in de vorm van een hartje.', 'Hij kan een muis in het pikkedonker horen.', 'Vroeger woonde hij vaak in kerktorens.'],
+            'Vipera berus': ['De adder is de enige giftige slang in Nederland.', 'Hij heeft een zigzagstreep op zijn rug.', 'Hij is bang voor mensen en gaat weg. Raak hem nooit aan!'],
+            'Natrix helvetica': ['De ringslang is niet giftig.', 'Hij zwemt heel goed.', 'Achter zijn kop zitten vaak gele vlekjes.'],
+            'Natrix natrix': ['De ringslang is niet giftig.', 'Hij zwemt heel goed.', 'Achter zijn kop zitten vaak gele vlekjes.'],
+            'Coronella austriaca': ['De gladde slang is niet giftig.', 'Hij woont op de heide.', 'Hij is heel zeldzaam en verlegen.'],
+            'Hyla arborea': ['De boomkikker is klein en groen.', 'Met plakkerige pootjes kan hij in bomen klimmen.', 'Hij kan heel hard kwaken voor zo\'n klein kikkertje.'],
+            'Triturus cristatus': ['In de lente heeft het mannetje een kam op zijn rug.', 'De buik is oranje met zwarte vlekken.', 'Hij leeft in het water en op het land.'],
+            'Lacerta agilis': ['In de lente wordt het mannetje van de zandhagedis groen.', 'Hij ligt graag in de zon om op te warmen.', 'Hij woont op de heide en in de duinen.'],
+        };
+
+        const GROEP_WEETJE = {
+            birds: ['Dit is een bijzondere vogel. Je ziet hem niet zomaar!', 'Pak een verrekijker en kijk goed in de bomen of in de lucht.'],
+            mammal: ['Dit dier is hier niet vaak gezien. Bijzonder!', 'Veel zoogdieren zijn vooral \'s avonds en \'s nachts wakker.'],
+            sea: ['Dit dier woont in de zee.', 'Soms zie je het vanaf het strand of de dijk.'],
+            herps: ['Dit dier heeft het graag warm en zit vaak in de zon.', 'Wees stil en kijk goed, ze zijn snel weg!'],
+        };
+
+        // ------------------------------------------------------------------
+        // Hulpfuncties
+        // ------------------------------------------------------------------
+        function esc(v) {
+            return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
+        function dist(lat1, lon1, lat2, lon2) {
+            const R = 6371, p = Math.PI / 180;
+            const a = Math.sin((lat2 - lat1) * p / 2) ** 2 + Math.cos(lat1 * p) * Math.cos(lat2 * p) * Math.sin((lon2 - lon1) * p / 2) ** 2;
+            return 2 * R * Math.asin(Math.sqrt(a));
+        }
+
+        function groupOf(r) {
+            if (r.label === 'Zeezoogdier') return 'sea';
+            if (r.size === 'birds') return 'birds';
+            if (r.size === 'herps') return 'herps';
+            return 'mammal';
+        }
+
+        function kidsTime(dateString) {
+            const d = new Date(dateString);
+            if (isNaN(d)) return 'een tijdje geleden';
+            const days = Math.floor((Date.now() - d.getTime()) / 86400000);
+            if (days <= 0) return 'vandaag';
+            if (days === 1) return 'gisteren';
+            if (days < 7) return `${days} dagen geleden`;
+            if (days < 14) return 'vorige week';
+            if (days < 60) return `${Math.floor(days / 7)} weken geleden`;
+            if (days < 365) return `${Math.floor(days / 30)} maanden geleden`;
+            return 'meer dan een jaar geleden';
+        }
+
+        function rarityStars(rarity) {
+            const r = String(rarity || '').toLowerCase();
+            if (r === 'zeer zeldzaam') return '⭐⭐⭐ Superzeldzaam';
+            if (r === 'zeldzaam') return '⭐⭐ Heel zeldzaam';
+            if (r === 'vrij zeldzaam') return '⭐ Zeldzaam';
+            return '🙂 Bijzonder';
+        }
+
+        function kmText(km) {
+            if (km < 1) return 'heel dichtbij';
+            return `${Math.round(km)} km hiervandaan`;
+        }
+
+        // ------------------------------------------------------------------
+        // Data laden
+        // ------------------------------------------------------------------
+        async function loadIndexAndPhotos() {
+            const [idx, ph] = await Promise.all([
+                fetch(`${DATA_BASE_URL}index.json?t=${Date.now()}`).then(r => r.json()),
+                fetch(`${DATA_BASE_URL}photos.json?t=${Date.now()}`).then(r => r.ok ? r.json() : {}).catch(() => ({})),
+            ]);
+            tileIndex = Array.isArray(idx.tiles) ? idx.tiles : [];
+            photos = ph || {};
+        }
+
+        function tilesNear(lat, lng, km) {
+            return tileIndex.filter(t => {
+                const cLat = Math.min(Math.max(lat, t.latMin), t.latMax);
+                const cLng = Math.min(Math.max(lng, t.lngMin), t.lngMax);
+                return dist(lat, lng, cLat, cLng) <= km;
+            });
+        }
+
+        async function loadAround() {
+            const todo = tilesNear(HOME.lat, HOME.lng, RADIUS_KM).filter(t => !loaded.has(t.id));
+            await Promise.allSettled(todo.map(async t => {
+                const rows = await fetch(`${DATA_BASE_URL}${t.file}?t=${Date.now()}`).then(r => r.json());
+                rows.forEach(r => { if (isFinite(r.lat) && isFinite(r.lng)) byId.set(String(r.id), r); });
+                loaded.add(t.id);
+            }));
+            render();
+        }
+
+        // ------------------------------------------------------------------
+        // Weergave
+        // ------------------------------------------------------------------
+        function speciesNearby() {
+            const per = new Map();
+            byId.forEach(r => {
+                const d = dist(HOME.lat, HOME.lng, r.lat, r.lng);
+                if (d > RADIUS_KM) return;
+                const g = groupOf(r);
+                if (group !== 'all' && g !== group) return;
+                const key = r.sci || r.name;
+                const sp = per.get(key) || { key, name: r.name, emoji: r.emoji, rarity: r.rarity, group: g, sightings: [] };
+                sp.sightings.push({ ...r, d });
+                per.set(key, sp);
+            });
+            const list = [...per.values()];
+            list.forEach(sp => sp.sightings.sort((a, b) => a.d - b.d));
+            // Dieren met weetjes en een foto eerst, daarna de dichtstbijzijnde
+            return list.sort((a, b) =>
+                (WEETJES[b.key] ? 1 : 0) - (WEETJES[a.key] ? 1 : 0) ||
+                (photos[b.key] ? 1 : 0) - (photos[a.key] ? 1 : 0) ||
+                a.sightings[0].d - b.sightings[0].d);
+        }
+
+        function render() {
+            const list = speciesNearby();
+            document.getElementById('summary').textContent = list.length
+                ? `We vonden ${list.length} bijzondere ${list.length === 1 ? 'diersoort' : 'diersoorten'} binnen ${RADIUS_KM} km. Tik op een dier!`
+                : 'Hier hebben we (nog) geen bijzondere dieren gevonden. Probeer een andere plek of soort!';
+
+            const grid = document.getElementById('animal-grid');
+            grid.innerHTML = list.slice(0, 60).map((sp, i) => {
+                const p = photos[sp.key];
+                const img = p && /^https:\/\//.test(p.url || '')
+                    ? `<img src="${esc(p.url)}" alt="" loading="lazy" class="w-full h-28 sm:h-32 object-cover" onerror="this.outerHTML='<div class=&quot;h-28 sm:h-32 flex items-center justify-center text-6xl bg-emerald-50&quot;>${esc(sp.emoji)}</div>'">`
+                    : `<div class="h-28 sm:h-32 flex items-center justify-center text-6xl bg-emerald-50">${esc(sp.emoji)}</div>`;
+                return `
+                    <button data-i="${i}" class="kid-card card-hover text-left bg-white rounded-3xl overflow-hidden border-4 border-white shadow-sm">
+                        ${img}
+                        <div class="p-3">
+                            <div class="text-lg font-black leading-tight">${esc(sp.emoji)} ${esc(sp.name)}</div>
+                            <div class="text-xs font-extrabold text-amber-600 mt-1">${esc(rarityStars(sp.rarity))}</div>
+                            <div class="text-xs font-bold text-slate-500 mt-0.5">📍 ${esc(kmText(sp.sightings[0].d))}</div>
+                        </div>
+                    </button>`;
+            }).join('');
+            grid.querySelectorAll('.kid-card').forEach(b => b.onclick = () => openAnimal(list[Number(b.dataset.i)]));
+
+            // Kaart: één groot dierplaatje per waarneming, gegroepeerd
+            if (map && markers) {
+                markers.clearLayers();
+                const ms = [];
+                list.forEach(sp => sp.sightings.forEach(s => {
+                    const m = L.marker([s.lat, s.lng], {
+                        icon: L.divIcon({
+                            className: '',
+                            html: `<div style="width:44px;height:44px;border-radius:9999px;background:#fff;border:4px solid #22c55e;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 3px 8px rgba(0,0,0,.2)">${esc(sp.emoji)}</div>`,
+                            iconSize: [44, 44], iconAnchor: [22, 22]
+                        })
+                    });
+                    m.on('click', () => openAnimal(sp));
+                    ms.push(m);
+                }));
+                if (markers.addLayers) markers.addLayers(ms); else ms.forEach(m => markers.addLayer(m));
+            }
+        }
+
+        let currentAnimal = null;
+
+        function openAnimal(sp) {
+            currentAnimal = sp;
+            const p = photos[sp.key];
+            const weetjes = WEETJES[sp.key] || GROEP_WEETJE[sp.group] || GROEP_WEETJE.mammal;
+            const near = sp.sightings.slice(0, 3);
+            const photo = p && /^https:\/\//.test(p.url || '')
+                ? `<img src="${esc(p.url)}" alt="Foto van een ${esc(sp.name.toLowerCase())}" class="w-full h-56 object-cover rounded-t-3xl">
+                   <div class="px-5 pt-1 text-[11px] font-bold text-slate-400">📷 ${esc(p.credit || 'iNaturalist')} · voorbeeldfoto</div>`
+                : `<div class="h-40 flex items-center justify-center text-8xl bg-emerald-50 rounded-t-3xl">${esc(sp.emoji)}</div>`;
+
+            document.getElementById('modal-body').innerHTML = `
+                ${photo}
+                <div class="p-5">
+                    <div class="flex items-start justify-between gap-2">
+                        <h3 class="text-3xl font-black text-emerald-700 leading-tight">${esc(sp.emoji)} ${esc(sp.name)}</h3>
+                        <button onclick="closeModal()" class="text-2xl font-black text-slate-400 hover:text-slate-700 px-2" aria-label="Sluiten">✖</button>
+                    </div>
+                    <div class="text-sm font-extrabold text-amber-600 mt-1">${esc(rarityStars(sp.rarity))}</div>
+
+                    <h4 class="text-lg font-black text-sky-700 mt-4 mb-2">💡 Wist je dat…</h4>
+                    <ul class="space-y-2">
+                        ${weetjes.map((w, i) => `<li class="bg-sky-50 rounded-2xl px-4 py-2.5 text-base font-bold text-slate-700">${['🌟', '🎈', '🍀'][i % 3]} ${esc(w)}</li>`).join('')}
+                    </ul>
+
+                    <h4 class="text-lg font-black text-emerald-700 mt-4 mb-2">🔎 Waar is hij gezien?</h4>
+                    <ul class="space-y-1.5">
+                        ${near.map(s => `<li class="text-sm font-bold text-slate-600">📍 ${esc(s.place)} · ${esc(kmText(s.d))} · ${esc(kidsTime(s.seenAt))}</li>`).join('')}
+                    </ul>
+                    ${sp.sightings.length > 3 ? `<p class="text-xs font-bold text-slate-400 mt-1">En nog ${sp.sightings.length - 3} keer in de buurt!</p>` : ''}
+
+                    <button onclick="showOnMap()" class="mt-4 w-full bg-emerald-500 hover:bg-emerald-400 text-white font-black text-lg rounded-2xl py-3">🗺️ Laat zien op de kaart</button>
+                </div>`;
+            document.getElementById('modal').classList.remove('hidden');
+        }
+
+        function closeModal() { document.getElementById('modal').classList.add('hidden'); }
+
+        function showOnMap() {
+            closeModal();
+            const sp = currentAnimal;
+            if (!sp || !map) return;
+            map.fitBounds(L.latLngBounds(sp.sightings.map(s => [s.lat, s.lng])), { padding: [40, 40], maxZoom: 12 });
+            document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function renderGroups() {
+            document.getElementById('group-buttons').innerHTML = GROUPS.map(g => `
+                <button onclick="setGroup('${g.id}')" class="font-black text-base sm:text-lg rounded-full px-4 py-2 border-4 transition
+                    ${g.id === group ? 'bg-emerald-500 border-emerald-500 text-white shadow' : 'bg-white border-slate-200 text-slate-600 hover:border-emerald-300'}">
+                    ${g.label}</button>`).join('');
+        }
+
+        function setGroup(id) { group = id; renderGroups(); render(); }
+
+        // ------------------------------------------------------------------
+        // Plek kiezen
+        // ------------------------------------------------------------------
+        function setHome(lat, lng, name) {
+            HOME = { lat, lng, name };
+            document.getElementById('place-name').textContent = name;
+            if (map) {
+                map.setView([lat, lng], 10);
+                if (homeMarker) map.removeLayer(homeMarker);
+                homeMarker = L.marker([lat, lng], { zIndexOffset: 1000, icon: L.divIcon({ className: '', html: '<div style="font-size:34px">🏠</div>', iconSize: [34, 34], iconAnchor: [17, 30] }) }).addTo(map);
+            }
+            render();
+            loadAround();
+        }
+
+        function useGps() {
+            if (!navigator.geolocation) return;
+            navigator.geolocation.getCurrentPosition(
+                pos => setHome(pos.coords.latitude, pos.coords.longitude, 'jouw plek'),
+                () => { document.getElementById('summary').textContent = 'Je locatie mag niet gebruikt worden. Typ je woonplaats in!'; }
+            );
+        }
+
+        function initPlaceSearch() {
+            const input = document.getElementById('place-input'), box = document.getElementById('place-suggestions');
+            let t = null;
+            input.addEventListener('input', () => {
+                clearTimeout(t);
+                const q = input.value.trim();
+                if (q.length < 2) return box.classList.add('hidden');
+                t = setTimeout(async () => {
+                    try {
+                        const d = await fetch(`https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=${encodeURIComponent(q)}&fq=type:woonplaats&rows=5`).then(r => r.json());
+                        box.innerHTML = '';
+                        (d.response?.docs || []).forEach(doc => {
+                            const m = doc.centroide_ll?.match(/POINT\s*\(\s*([-\d.]+)\s+([-\d.]+)\s*\)/);
+                            if (!m) return;
+                            const row = document.createElement('div');
+                            row.className = 'px-4 py-3 text-lg font-bold hover:bg-emerald-100 cursor-pointer border-b-2 border-slate-100';
+                            row.textContent = doc.weergavenaam;
+                            row.onclick = () => { input.value = ''; box.classList.add('hidden'); setHome(parseFloat(m[2]), parseFloat(m[1]), doc.weergavenaam.split(',')[0]); };
+                            box.appendChild(row);
+                        });
+                        box.classList.toggle('hidden', !box.children.length);
+                    } catch (e) {}
+                }, 250);
+            });
+            document.addEventListener('click', e => { if (!input.contains(e.target) && !box.contains(e.target)) box.classList.add('hidden'); });
+        }
+
+        // ------------------------------------------------------------------
+        // Opstarten
+        // ------------------------------------------------------------------
+        window.addEventListener('DOMContentLoaded', async () => {
+            renderGroups();
+            initPlaceSearch();
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+            try {
+                if (typeof L !== 'undefined') {
+                    map = L.map('map', { scrollWheelZoom: false }).setView([HOME.lat, HOME.lng], 10);
+                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 16, attribution: '&copy; OpenStreetMap' }).addTo(map);
+                    markers = L.markerClusterGroup ? L.markerClusterGroup({
+                        maxClusterRadius: 50, showCoverageOnHover: false,
+                        iconCreateFunction: c => L.divIcon({ className: '', html: `<div class="kid-cluster" style="width:48px;height:48px">🐾${c.getChildCount()}</div>`, iconSize: [48, 48] })
+                    }) : L.layerGroup();
+                    markers.addTo(map);
+                }
+            } catch (e) { console.error(e); }
+            try {
+                await loadIndexAndPhotos();
+                setHome(HOME.lat, HOME.lng, HOME.name);
+            } catch (e) {
+                document.getElementById('summary').textContent = 'Oeps, de dieren konden niet geladen worden. Probeer het later nog eens!';
+            }
+        });
+    </script>
+
+    <!-- Bezoekersstatistieken: GoatCounter (geen cookies, geen persoonsgegevens) -->
+    <script data-goatcounter="https://animalradar.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
