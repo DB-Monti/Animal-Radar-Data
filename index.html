@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnimalRadar.nl | Live Dieren & Wolvenradar</title>
     <meta name="description" content="Zeldzame en bijzondere dierwaarnemingen in heel Nederland op de kaart: wolven, zeearenden, otters, bevers en meer.">
+    <!-- Web-app (PWA) -->
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#020617">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Animal Radar">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,6 +65,17 @@
             box-shadow: 0 0 10px rgba(16, 185, 129, 0.45);
         }
         .ar-cluster.has-wolf { border-color: #ef4444; color: #fecaca; box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
+            /* Kaart op telefoons: scrollen met één vinger, kaart met twee */
+        .map-hint { position: absolute; inset: 0; z-index: 800; display: flex; align-items: center; justify-content: center;
+            background: rgba(2, 6, 23, .55); color: #fff; font-weight: 700; font-size: 15px; text-align: center; padding: 20px;
+            opacity: 0; transition: opacity .2s; pointer-events: none; }
+        .map-hint.show { opacity: 1; }
+        @media (pointer: coarse) { #map:not(.map-full) { touch-action: pan-x pan-y !important; } }
+        .map-full-btn { background: #fff; color: #0f172a; border: 2px solid rgba(0,0,0,.2); border-radius: 8px;
+            font: 700 13px system-ui, -apple-system, sans-serif; padding: 7px 10px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+        .map-full { position: fixed !important; inset: 0 !important; width: 100vw !important; height: 100dvh !important;
+            max-height: none !important; z-index: 1000 !important; border-radius: 0 !important; margin: 0 !important; }
+        html.map-full-open, html.map-full-open body { overflow: hidden; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col relative">
@@ -178,7 +199,7 @@
     <!-- Footer met Contact & Bronnen -->
     <footer class="max-w-7xl w-full mx-auto px-4 py-8 border-t border-slate-800/80 flex flex-col md:flex-row justify-between items-center gap-6 mt-4">
         <div class="text-xs text-slate-500 font-medium text-center md:text-left">
-            &copy; 2026 AnimalRadar.nl — Alle rechten voorbehouden. <a href="over.html" class="underline decoration-slate-700 underline-offset-4 hover:text-emerald-400">Over Animal Radar</a> · <a href="privacy.html" class="underline decoration-slate-700 underline-offset-4 hover:text-emerald-400">Privacy</a> <span id="data-updated"></span>
+            &copy; 2026 AnimalRadar.nl — Alle rechten voorbehouden. <button onclick="installApp()" class="install-link underline decoration-slate-700 underline-offset-4 hover:text-emerald-400 cursor-pointer">📲 App installeren</button> · <a href="over.html" class="underline decoration-slate-700 underline-offset-4 hover:text-emerald-400">Over Animal Radar</a> · <a href="privacy.html" class="underline decoration-slate-700 underline-offset-4 hover:text-emerald-400">Privacy</a> <span id="data-updated"></span>
         </div>
 
         <div class="flex flex-col sm:flex-row items-center gap-5">
@@ -256,6 +277,41 @@
                 </li>
             </ul>
         </div>
+    </div>
+
+    <!-- App installeren -->
+    <div id="install-modal" class="hidden fixed inset-0 z-[110] bg-slate-950/80 backdrop-blur-sm flex justify-center items-end sm:items-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5 max-w-sm w-full shadow-2xl relative">
+            <button onclick="closeInstall()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg cursor-pointer" aria-label="Sluiten">✖</button>
+            <div class="flex items-center gap-3 mb-3">
+                <img src="icon-192.png" alt="" class="w-12 h-12 rounded-xl">
+                <div>
+                    <h3 class="text-base font-bold text-white">Animal Radar als app</h3>
+                    <p class="text-xs text-slate-400">Gratis, direct op je beginscherm</p>
+                </div>
+            </div>
+            <div id="install-ios" class="hidden text-sm text-slate-200">
+                <ol class="space-y-2.5">
+                    <li class="flex gap-2.5"><span class="shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold flex items-center justify-center">1</span><span>Tik onderin Safari op <strong>Deel</strong> <span class="inline-block border border-slate-600 rounded px-1 text-xs">⬆︎</span>. Zie je dat niet, tik dan eerst op <strong>•••</strong>.</span></li>
+                    <li class="flex gap-2.5"><span class="shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold flex items-center justify-center">2</span><span>Scrol omlaag en kies <strong>Zet op beginscherm</strong> <span class="inline-block border border-slate-600 rounded px-1 text-xs">＋</span>.</span></li>
+                    <li class="flex gap-2.5"><span class="shrink-0 w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold flex items-center justify-center">3</span><span>Tik op <strong>Voeg toe</strong>. Klaar!</span></li>
+                </ol>
+            </div>
+            <div id="install-other" class="hidden text-sm text-slate-200">
+                Open het menu van je browser (<strong>⋮</strong> of <strong>•••</strong>) en kies <strong>App installeren</strong> of <strong>Toevoegen aan startscherm</strong>.
+            </div>
+        </div>
+    </div>
+
+    <!-- Installatiebalkje (alleen op telefoons, één keer per maand) -->
+    <div id="install-bar" class="hidden fixed bottom-3 left-3 right-3 z-[90] bg-slate-900/95 border border-emerald-500/40 rounded-2xl shadow-2xl p-3 flex items-center gap-3 backdrop-blur">
+        <img src="icon-192.png" alt="" class="w-10 h-10 rounded-xl">
+        <div class="flex-1 min-w-0">
+            <div class="text-sm font-bold text-white leading-tight">Animal Radar als app</div>
+            <div class="text-[11px] text-slate-400 leading-tight">Sneller openen, vanaf je beginscherm</div>
+        </div>
+        <button onclick="installApp()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold px-3 py-2 rounded-lg cursor-pointer">Installeer</button>
+        <button onclick="dismissInstallBar()" class="text-slate-500 hover:text-white px-1 cursor-pointer" aria-label="Sluiten">✕</button>
     </div>
 
     <!-- Meldportaal -->
@@ -647,7 +703,7 @@
                         iconSize: [34, 34], iconAnchor: [17, 17]
                     });
                     const m = L.marker([item.lat, item.lng], { icon, isWolf: item.size === 'wolf' });
-                    m.on('click', () => showDetail(item));
+                    m.on('click', () => { const was = window.closeFullMap?.(); showDetail(item); if (was) setTimeout(() => document.getElementById('detail-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150); });
                     return m;
                 });
                 if (typeof markersLayer.addLayers === 'function') markersLayer.addLayers(markers);
@@ -986,8 +1042,104 @@
             if (window.goatcounter?.count) window.goatcounter.count({ path: 'meldportaal-' + name, title: 'Meldportaal: ' + name, event: true });
         }
 
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReport(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeReport(); closeInstall(); } });
         if (location.hash === '#melden') window.addEventListener('DOMContentLoaded', () => openReport());
+
+        // ------------------------------------------------------------------
+        // Web-app installeren
+        // ------------------------------------------------------------------
+        let deferredInstall = null;
+        const isStandalone = () => window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+        const isIOSDevice = () => /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        const isPhone = () => /iPhone|iPod|Android.*Mobile/.test(navigator.userAgent);
+
+        window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredInstall = e; maybeShowInstallBar(); });
+        window.addEventListener('appinstalled', () => {
+            document.getElementById('install-bar')?.classList.add('hidden');
+            document.querySelectorAll('.install-link').forEach(el => el.classList.add('hidden'));
+            if (window.goatcounter?.count) window.goatcounter.count({ path: 'app-geinstalleerd', title: 'App geïnstalleerd', event: true });
+        });
+
+        async function installApp() {
+            document.getElementById('install-bar')?.classList.add('hidden');
+            if (deferredInstall) {
+                deferredInstall.prompt();
+                await deferredInstall.userChoice.catch(() => {});
+                deferredInstall = null;
+                return;
+            }
+            const ios = isIOSDevice();
+            document.getElementById('install-ios').classList.toggle('hidden', !ios);
+            document.getElementById('install-other').classList.toggle('hidden', ios);
+            document.getElementById('install-modal').classList.remove('hidden');
+        }
+        function closeInstall() { document.getElementById('install-modal').classList.add('hidden'); }
+        function dismissInstallBar() {
+            document.getElementById('install-bar').classList.add('hidden');
+            store.set('ar-install-later', Date.now());
+        }
+        function maybeShowInstallBar() {
+            if (isStandalone() || !isPhone()) return;
+            const later = store.get('ar-install-later');
+            if (later && Date.now() - later < 30 * 24 * 3600 * 1000) return;
+            setTimeout(() => {
+                if (!document.querySelector('#report-modal:not(.hidden), #install-modal:not(.hidden)'))
+                    document.getElementById('install-bar').classList.remove('hidden');
+            }, 8000);
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            if (isStandalone()) document.querySelectorAll('.install-link').forEach(el => el.classList.add('hidden'));
+            else if (location.hash === '#app') setTimeout(installApp, 600);
+            else if (isIOSDevice()) maybeShowInstallBar();
+        });
+
+        // ------------------------------------------------------------------
+        // Mobiel: één vinger scrolt de pagina, twee vingers bewegen de kaart.
+        // Met de knop "Grote kaart" werkt de kaart schermvullend met één vinger.
+        // ------------------------------------------------------------------
+        function setupTouchMap(map, el) {
+            const coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+            if (!coarse || !el) return;
+            map.dragging.disable();
+            if (map.tap) map.tap.disable();
+
+            const hint = document.createElement('div');
+            hint.className = 'map-hint';
+            hint.textContent = 'Gebruik twee vingers om de kaart te bewegen';
+            el.appendChild(hint);
+            let hintTimer = null;
+            el.addEventListener('touchmove', e => {
+                if (el.classList.contains('map-full') || e.touches.length !== 1) { hint.classList.remove('show'); return; }
+                hint.classList.add('show');
+                clearTimeout(hintTimer);
+                hintTimer = setTimeout(() => hint.classList.remove('show'), 1300);
+            }, { passive: true });
+            el.addEventListener('touchstart', e => { if (e.touches.length > 1) hint.classList.remove('show'); }, { passive: true });
+
+            const Btn = L.Control.extend({
+                options: { position: 'topright' },
+                onAdd() {
+                    const b = L.DomUtil.create('button', 'map-full-btn');
+                    b.type = 'button';
+                    b.innerHTML = '⛶ Grote kaart';
+                    L.DomEvent.disableClickPropagation(b);
+                    b.addEventListener('click', () => toggleFull());
+                    return b;
+                }
+            });
+            const btn = new Btn().addTo(map).getContainer();
+
+            function toggleFull(force) {
+                const full = typeof force === 'boolean' ? force : !el.classList.contains('map-full');
+                el.classList.toggle('map-full', full);
+                document.documentElement.classList.toggle('map-full-open', full);
+                full ? map.dragging.enable() : map.dragging.disable();
+                btn.innerHTML = full ? '✕ Sluiten' : '⛶ Grote kaart';
+                setTimeout(() => map.invalidateSize(), 50);
+            }
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleFull(false); });
+            window.closeFullMap = () => { const was = el.classList.contains('map-full'); if (was) toggleFull(false); return was; };
+        }
 
         window.addEventListener('DOMContentLoaded', async function() {
             const startSource = startHomeFromLinkOrMemory();
@@ -1001,6 +1153,7 @@
                     markersLayer.addTo(map);
                     circlesLayer = L.layerGroup().addTo(map);
                     map.on('moveend', loadInView);
+                    setupTouchMap(map, document.getElementById('map'));
                 }
             } catch (e) {
                 console.error('Kaart fout:', e);
@@ -1027,5 +1180,10 @@
 
     <!-- Bezoekersstatistieken: GoatCounter (geen cookies, geen persoonsgegevens) -->
     <script data-goatcounter="https://animalradar.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <script>
+        if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+            window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+        }
+    </script>
 </body>
 </html>
