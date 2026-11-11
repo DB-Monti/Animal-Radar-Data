@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnimalRadar Kids | Welke dieren wonen bij jou?</title>
     <meta name="description" content="Ontdek welke bijzondere dieren er bij jou in de buurt gezien zijn. Met foto's en leuke weetjes, speciaal voor kinderen.">
+    <!-- Web-app (PWA) -->
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#020617">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Animal Radar">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
@@ -31,6 +41,17 @@
         .card-hover { transition: transform .15s ease, box-shadow .15s ease; }
         .card-hover:hover { transform: translateY(-3px) rotate(-0.5deg); box-shadow: 0 10px 24px rgba(0,0,0,0.12); }
         .card-hover:active { transform: scale(.97); }
+            /* Kaart op telefoons: scrollen met één vinger, kaart met twee */
+        .map-hint { position: absolute; inset: 0; z-index: 800; display: flex; align-items: center; justify-content: center;
+            background: rgba(2, 6, 23, .55); color: #fff; font-weight: 700; font-size: 15px; text-align: center; padding: 20px;
+            opacity: 0; transition: opacity .2s; pointer-events: none; }
+        .map-hint.show { opacity: 1; }
+        @media (pointer: coarse) { #map:not(.map-full) { touch-action: pan-x pan-y !important; } }
+        .map-full-btn { background: #fff; color: #0f172a; border: 2px solid rgba(0,0,0,.2); border-radius: 8px;
+            font: 700 13px system-ui, -apple-system, sans-serif; padding: 7px 10px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+        .map-full { position: fixed !important; inset: 0 !important; width: 100vw !important; height: 100dvh !important;
+            max-height: none !important; z-index: 1000 !important; border-radius: 0 !important; margin: 0 !important; }
+        html.map-full-open, html.map-full-open body { overflow: hidden; }
     </style>
 </head>
 <body>
@@ -108,6 +129,54 @@
     </div>
 
     <script>
+        // ------------------------------------------------------------------
+        // Mobiel: één vinger scrolt de pagina, twee vingers bewegen de kaart.
+        // Met de knop "Grote kaart" werkt de kaart schermvullend met één vinger.
+        // ------------------------------------------------------------------
+        function setupTouchMap(map, el) {
+            const coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+            if (!coarse || !el) return;
+            map.dragging.disable();
+            if (map.tap) map.tap.disable();
+
+            const hint = document.createElement('div');
+            hint.className = 'map-hint';
+            hint.textContent = 'Gebruik twee vingers om de kaart te bewegen';
+            el.appendChild(hint);
+            let hintTimer = null;
+            el.addEventListener('touchmove', e => {
+                if (el.classList.contains('map-full') || e.touches.length !== 1) { hint.classList.remove('show'); return; }
+                hint.classList.add('show');
+                clearTimeout(hintTimer);
+                hintTimer = setTimeout(() => hint.classList.remove('show'), 1300);
+            }, { passive: true });
+            el.addEventListener('touchstart', e => { if (e.touches.length > 1) hint.classList.remove('show'); }, { passive: true });
+
+            const Btn = L.Control.extend({
+                options: { position: 'topright' },
+                onAdd() {
+                    const b = L.DomUtil.create('button', 'map-full-btn');
+                    b.type = 'button';
+                    b.innerHTML = '⛶ Grote kaart';
+                    L.DomEvent.disableClickPropagation(b);
+                    b.addEventListener('click', () => toggleFull());
+                    return b;
+                }
+            });
+            const btn = new Btn().addTo(map).getContainer();
+
+            function toggleFull(force) {
+                const full = typeof force === 'boolean' ? force : !el.classList.contains('map-full');
+                el.classList.toggle('map-full', full);
+                document.documentElement.classList.toggle('map-full-open', full);
+                full ? map.dragging.enable() : map.dragging.disable();
+                btn.innerHTML = full ? '✕ Sluiten' : '⛶ Grote kaart';
+                setTimeout(() => map.invalidateSize(), 50);
+            }
+            document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleFull(false); });
+            window.closeFullMap = () => { const was = el.classList.contains('map-full'); if (was) toggleFull(false); return was; };
+        }
+
         // ------------------------------------------------------------------
         // Instellingen
         // ------------------------------------------------------------------
@@ -317,7 +386,7 @@
                             iconSize: [44, 44], iconAnchor: [22, 22]
                         })
                     });
-                    m.on('click', () => openAnimal(sp));
+                    m.on('click', () => { window.closeFullMap?.(); openAnimal(sp); });
                     ms.push(m);
                 }));
                 if (markers.addLayers) markers.addLayers(ms); else ms.forEach(m => markers.addLayer(m));
@@ -446,6 +515,7 @@
                         iconCreateFunction: c => L.divIcon({ className: '', html: `<div class="kid-cluster" style="width:48px;height:48px">🐾${c.getChildCount()}</div>`, iconSize: [48, 48] })
                     }) : L.layerGroup();
                     markers.addTo(map);
+                    setupTouchMap(map, document.getElementById('map'));
                 }
             } catch (e) { console.error(e); }
             try {
@@ -459,5 +529,10 @@
 
     <!-- Bezoekersstatistieken: GoatCounter (geen cookies, geen persoonsgegevens) -->
     <script data-goatcounter="https://animalradar.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+    <script>
+        if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+            window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+        }
+    </script>
 </body>
 </html>
