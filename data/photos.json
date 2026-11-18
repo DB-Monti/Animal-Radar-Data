@@ -4709,5 +4709,11 @@
 "license": "CC-BY-NC",
 "taxon": 979813
 },
-"Sorex spec": null
+"Sorex spec": null,
+"Salamandra atra": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/347912921/medium.jpg",
+"credit": "(c) Lennart Schmid, some rights reserved (CC BY-NC), uploaded by Lennart Schmid",
+"license": "CC-BY-NC",
+"taxon": 27735
+}
 }
