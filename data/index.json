@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-18T03:55:42+00:00",
- "total": 16565,
+ "generated": "2026-11-19T03:53:22+00:00",
+ "total": 16562,
  "tiles": [
   {
    "id": "r0c0",
@@ -99,7 +99,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r2c3.json",
-   "count": 617
+   "count": 616
   },
   {
    "id": "r2c4",
@@ -144,7 +144,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r3c3.json",
-   "count": 787
+   "count": 785
   },
   {
    "id": "r3c4",
