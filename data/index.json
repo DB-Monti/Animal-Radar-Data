@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-20T03:55:16+00:00",
- "total": 16582,
+ "generated": "2026-11-21T03:54:47+00:00",
+ "total": 16576,
  "tiles": [
   {
    "id": "r0c0",
@@ -54,7 +54,7 @@
    "lngMin": 4.9,
    "lngMax": 5.7,
    "file": "tile_r1c2.json",
-   "count": 653
+   "count": 652
   },
   {
    "id": "r1c3",
@@ -63,7 +63,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r1c3.json",
-   "count": 643
+   "count": 642
   },
   {
    "id": "r2c0",
@@ -81,7 +81,7 @@
    "lngMin": 4.1,
    "lngMax": 4.9,
    "file": "tile_r2c1.json",
-   "count": 725
+   "count": 726
   },
   {
    "id": "r2c2",
@@ -90,7 +90,7 @@
    "lngMin": 4.9,
    "lngMax": 5.7,
    "file": "tile_r2c2.json",
-   "count": 842
+   "count": 843
   },
   {
    "id": "r2c3",
@@ -135,7 +135,7 @@
    "lngMin": 4.9,
    "lngMax": 5.7,
    "file": "tile_r3c2.json",
-   "count": 705
+   "count": 704
   },
   {
    "id": "r3c3",
@@ -180,7 +180,7 @@
    "lngMin": 4.9,
    "lngMax": 5.7,
    "file": "tile_r4c2.json",
-   "count": 720
+   "count": 719
   },
   {
    "id": "r4c3",
@@ -189,7 +189,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r4c3.json",
-   "count": 778
+   "count": 776
   },
   {
    "id": "r4c4",
@@ -234,7 +234,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r5c3.json",
-   "count": 633
+   "count": 631
   },
   {
    "id": "r5c4",
