@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-21T03:54:47+00:00",
- "total": 16576,
+ "generated": "2026-11-22T03:54:48+00:00",
+ "total": 16574,
  "tiles": [
   {
    "id": "r0c0",
@@ -72,7 +72,7 @@
    "lngMin": 3.3,
    "lngMax": 4.1,
    "file": "tile_r2c0.json",
-   "count": 527
+   "count": 528
   },
   {
    "id": "r2c1",
@@ -81,7 +81,7 @@
    "lngMin": 4.1,
    "lngMax": 4.9,
    "file": "tile_r2c1.json",
-   "count": 726
+   "count": 724
   },
   {
    "id": "r2c2",
@@ -189,7 +189,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r4c3.json",
-   "count": 776
+   "count": 775
   },
   {
    "id": "r4c4",
