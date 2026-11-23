@@ -207,6 +207,10 @@
                 <span>📊</span> Bronvermeldingen & Data
             </button>
 
+            <button onclick="openFeedback()" class="bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2 cursor-pointer">
+                <span>💬</span> Geef ons feedback
+            </button>
+
             <button onclick="openReport(null)" class="bg-sky-500/10 hover:bg-sky-500/20 text-sky-300 border border-sky-500/30 px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-2 cursor-pointer">
                 <span>📣</span> Bijzonder dier gezien? Meld het landelijk
             </button>
@@ -278,6 +282,30 @@
             </ul>
         </div>
     </div>
+
+    <!-- Feedback -->
+    <div id="feedback-modal" class="hidden fixed inset-0 z-[110] bg-slate-950/80 backdrop-blur-sm flex justify-center items-end sm:items-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5 max-w-sm w-full shadow-2xl relative">
+            <button onclick="closeFeedback()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg cursor-pointer" aria-label="Sluiten">✖</button>
+            <h3 class="text-base font-bold text-white mb-1">💬 Wat vind je van Animal Radar?</h3>
+            <p class="text-xs text-slate-400 mb-4">Eén tik is genoeg. Anoniem, we slaan niets van je op.</p>
+            <div id="fb-scores" class="grid grid-cols-4 gap-2">
+                <button onclick="giveScore(4)" class="fb-score bg-slate-800 hover:bg-slate-700 rounded-xl py-2.5 cursor-pointer"><div class="text-2xl">😍</div><div class="text-[10px] text-slate-400 mt-0.5">Top</div></button>
+                <button onclick="giveScore(3)" class="fb-score bg-slate-800 hover:bg-slate-700 rounded-xl py-2.5 cursor-pointer"><div class="text-2xl">🙂</div><div class="text-[10px] text-slate-400 mt-0.5">Goed</div></button>
+                <button onclick="giveScore(2)" class="fb-score bg-slate-800 hover:bg-slate-700 rounded-xl py-2.5 cursor-pointer"><div class="text-2xl">😐</div><div class="text-[10px] text-slate-400 mt-0.5">Matig</div></button>
+                <button onclick="giveScore(1)" class="fb-score bg-slate-800 hover:bg-slate-700 rounded-xl py-2.5 cursor-pointer"><div class="text-2xl">🙁</div><div class="text-[10px] text-slate-400 mt-0.5">Slecht</div></button>
+            </div>
+            <div id="fb-more" class="hidden mt-4">
+                <p id="fb-thanks" class="text-sm text-emerald-300 font-semibold mb-2">Bedankt! 💚</p>
+                <label class="text-xs text-slate-300 font-semibold">Wil je ons nog iets vertellen? Een tip, een fout of een wens?</label>
+                <textarea id="fb-text" rows="3" placeholder="Bijvoorbeeld: ik mis…, dit werkt niet…, handig zou zijn…" class="w-full mt-1.5 bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500"></textarea>
+                <button onclick="sendFeedback()" class="w-full mt-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm font-bold px-4 py-2.5 rounded-lg cursor-pointer">✉️ Verstuur via mijn mail</button>
+                <p class="text-[11px] text-slate-500 mt-2">Je mailprogramma opent met je bericht. We gebruiken je e-mailadres alleen om eventueel te antwoorden.</p>
+            </div>
+        </div>
+    </div>
+
+    <button id="fb-fab" onclick="openFeedback()" class="fixed bottom-4 right-4 z-[80] bg-slate-900/95 border border-slate-700 hover:border-amber-400 text-amber-300 text-xs font-bold px-3.5 py-2 rounded-full shadow-xl cursor-pointer flex items-center gap-1.5">💬 <span>Feedback</span></button>
 
     <!-- App installeren -->
     <div id="install-modal" class="hidden fixed inset-0 z-[110] bg-slate-950/80 backdrop-blur-sm flex justify-center items-end sm:items-center p-4">
@@ -863,6 +891,9 @@
 
         function setRadiusFilter(km) {
             currentRadius = km;
+            if (map && km < 999 && L.latLng) {
+                try { map.fitBounds(L.latLng(HOME.lat, HOME.lng).toBounds(km * 2000), { padding: [20, 20] }); } catch (e) {}
+            }
             [999, 10, 25, 50].forEach(val => {
                 const btn = document.getElementById('btn-' + val);
                 if (btn) btn.className = val === km ? "px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500 text-slate-950 cursor-pointer transition" : "px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 cursor-pointer transition";
@@ -896,9 +927,14 @@
             set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
         };
 
+        let homeChosenByUser = false;   // zodra iemand zelf een plek kiest, overschrijft de automatische GPS die niet meer
+
         function setHome(lat, lng, name, label, opts = {}) {
+            if (!opts.auto) homeChosenByUser = true;
             HOME = { lat, lng, name };
             document.getElementById('header-location').textContent = label || name;
+            const inp = document.getElementById('address-input');
+            if (inp) inp.placeholder = `📍 ${label || name} · zoek een andere plek of een dier…`;
             if (map) opts.instant ? map.setView([lat, lng], 11) : map.flyTo([lat, lng], 11);
             if (!opts.noSave) store.set('ar-home', { lat, lng, name, label: label || name });
             renderData();
@@ -944,7 +980,8 @@
                 const { latitude: lat, longitude: lng } = pos.coords;
                 store.set('ar-gps', 'ok');
                 if (!inNL(lat, lng)) return;      // buiten Nederland: houd het huidige nulpunt
-                setHome(lat, lng, "Mijn GPS Locatie", "Mijn locatie");
+                if (homeChosenByUser) return;     // bezoeker koos intussen zelf een plek: die blijft staan
+                setHome(lat, lng, "Mijn GPS Locatie", "Mijn locatie", { auto: true });
             }, err => {
                 if (err && err.code === 1) store.set('ar-gps', 'denied');   // niet steeds opnieuw vragen
             }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 5 * 60 * 1000 });
@@ -1042,8 +1079,42 @@
             if (window.goatcounter?.count) window.goatcounter.count({ path: 'meldportaal-' + name, title: 'Meldportaal: ' + name, event: true });
         }
 
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeReport(); closeInstall(); } });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeReport(); closeInstall(); closeFeedback(); } });
         if (location.hash === '#melden') window.addEventListener('DOMContentLoaded', () => openReport());
+
+        // ------------------------------------------------------------------
+        // Feedback: anoniem cijfer (GoatCounter) + optioneel bericht via mail
+        // ------------------------------------------------------------------
+        let fbScore = null;
+        const FB_LABEL = { 4: 'top', 3: 'goed', 2: 'matig', 1: 'slecht' };
+        function openFeedback() {
+            fbScore = null;
+            document.getElementById('fb-more').classList.add('hidden');
+            document.querySelectorAll('.fb-score').forEach(b => b.classList.remove('ring-2', 'ring-emerald-400'));
+            document.getElementById('feedback-modal').classList.remove('hidden');
+        }
+        function closeFeedback() { document.getElementById('feedback-modal').classList.add('hidden'); }
+        function giveScore(n) {
+            const first = fbScore === null;
+            fbScore = n;
+            document.querySelectorAll('.fb-score').forEach((b, i) => b.classList.toggle('ring-2', 4 - i === n));
+            document.querySelectorAll('.fb-score').forEach((b, i) => b.classList.toggle('ring-emerald-400', 4 - i === n));
+            if (first && window.goatcounter?.count) window.goatcounter.count({ path: 'feedback-' + FB_LABEL[n], title: 'Feedback: ' + FB_LABEL[n], event: true });
+            document.getElementById('fb-thanks').textContent = n >= 3 ? 'Bedankt, wat fijn! 💚' : 'Bedankt voor je eerlijkheid. Wat kan er beter?';
+            document.getElementById('fb-more').classList.remove('hidden');
+        }
+        function sendFeedback() {
+            const text = (document.getElementById('fb-text').value || '').trim();
+            const body = [
+                'Hallo Animal Radar,', '',
+                text || '(schrijf hier je tip, fout of wens)', '',
+                `Mijn oordeel: ${fbScore ? FB_LABEL[fbScore] : '-'}`,
+                `Pagina: ${location.pathname}`,
+                `Apparaat: ${/iPhone|iPad/.test(navigator.userAgent) ? 'iPhone/iPad' : /Android/.test(navigator.userAgent) ? 'Android' : 'computer'}${(window.matchMedia('(display-mode: standalone)').matches || navigator.standalone) ? ' (app)' : ''}`,
+            ].join('\n');
+            location.href = `mailto:info@animalradar.nl?subject=${encodeURIComponent('Feedback op Animal Radar')}&body=${encodeURIComponent(body)}`;
+            if (window.goatcounter?.count) window.goatcounter.count({ path: 'feedback-mail', title: 'Feedback gemaild', event: true });
+        }
 
         // ------------------------------------------------------------------
         // Web-app installeren
@@ -1062,6 +1133,7 @@
 
         async function installApp() {
             document.getElementById('install-bar')?.classList.add('hidden');
+            document.getElementById('fb-fab')?.classList.remove('hidden');
             if (deferredInstall) {
                 deferredInstall.prompt();
                 await deferredInstall.userChoice.catch(() => {});
@@ -1076,6 +1148,7 @@
         function closeInstall() { document.getElementById('install-modal').classList.add('hidden'); }
         function dismissInstallBar() {
             document.getElementById('install-bar').classList.add('hidden');
+            document.getElementById('fb-fab')?.classList.remove('hidden');
             store.set('ar-install-later', Date.now());
         }
         function maybeShowInstallBar() {
@@ -1084,7 +1157,7 @@
             if (later && Date.now() - later < 30 * 24 * 3600 * 1000) return;
             setTimeout(() => {
                 if (!document.querySelector('#report-modal:not(.hidden), #install-modal:not(.hidden)'))
-                    document.getElementById('install-bar').classList.remove('hidden');
+                    { document.getElementById('install-bar').classList.remove('hidden'); document.getElementById('fb-fab')?.classList.add('hidden'); }
             }, 8000);
         }
         window.addEventListener('DOMContentLoaded', () => {
