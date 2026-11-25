@@ -4715,5 +4715,77 @@
 "credit": "(c) Lennart Schmid, some rights reserved (CC BY-NC), uploaded by Lennart Schmid",
 "license": "CC-BY-NC",
 "taxon": 27735
+},
+"Buteo buteo": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/457121231/medium.jpg",
+"credit": "(c) Manuel Raab, some rights reserved (CC BY-NC), uploaded by Manuel Raab",
+"license": "CC-BY-NC",
+"taxon": 204472
+},
+"Circus aeruginosus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113786815/medium.jpg",
+"credit": "(c) Radovan Václav, some rights reserved (CC BY-NC)",
+"license": "CC-BY-NC",
+"taxon": 5173
+},
+"Corvus corone": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/451700759/medium.jpg",
+"credit": "(c) Eidiu, some rights reserved (CC BY-NC), uploaded by Eidiu",
+"license": "CC-BY-NC",
+"taxon": 204496
+},
+"Falco tinnunculus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/598044895/medium.jpg",
+"credit": "(c) Manuel Raab, some rights reserved (CC BY-NC), uploaded by Manuel Raab",
+"license": "CC-BY-NC",
+"taxon": 472766
+},
+"Lepus europaeus": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1843520/medium.jpg",
+"credit": "(c) Paul Cools, some rights reserved (CC BY-NC), uploaded by Paul Cools",
+"license": "CC-BY-NC",
+"taxon": 43128
+},
+"Limosa limosa": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/387543070/medium.jpg",
+"credit": "(c) thegreatdodo, some rights reserved (CC BY-NC), uploaded by thegreatdodo",
+"license": "CC-BY-NC",
+"taxon": 3947
+},
+"Oenanthe deserti": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/591870994/medium.jpg",
+"credit": "(c) Bastien Louboutin, some rights reserved (CC BY-NC), uploaded by Bastien Louboutin",
+"license": "CC-BY-NC",
+"taxon": 12842
+},
+"Oenanthe oenanthe": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/67410847/medium.jpeg",
+"credit": "(c) nfeddu, some rights reserved (CC BY-NC), uploaded by nfeddu",
+"license": "CC-BY-NC",
+"taxon": 12822
+},
+"Phalacrocorax carbo": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/141367445/medium.jpg",
+"credit": "(c) Дмитрий Осипов, some rights reserved (CC BY-NC), uploaded by Дмитрий Осипов",
+"license": "CC-BY-NC",
+"taxon": 4270
+},
+"Phylloscopus collybita": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/232289336/medium.jpg",
+"credit": "(c) Mikhail Ezdakov, some rights reserved (CC BY-NC), uploaded by Mikhail Ezdakov",
+"license": "CC-BY-NC",
+"taxon": 117016
+},
+"Recurvirostra avosetta": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/323031909/medium.jpg",
+"credit": "(c) Erik Eckstein, some rights reserved (CC BY-NC), uploaded by Erik Eckstein",
+"license": "CC-BY-NC",
+"taxon": 4883
+},
+"Urocissa erythroryncha": {
+"url": "https://inaturalist-open-data.s3.amazonaws.com/photos/64874232/medium.jpg",
+"credit": "(c) 57Andrew, some rights reserved (CC BY-NC-ND)",
+"license": "CC-BY-NC-ND",
+"taxon": 495200
 }
 }
