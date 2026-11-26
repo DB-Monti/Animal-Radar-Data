@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-25T04:01:28+00:00",
- "total": 18796,
+ "generated": "2026-11-26T04:03:42+00:00",
+ "total": 18792,
  "tiles": [
   {
    "id": "r0c0",
@@ -36,7 +36,7 @@
    "lngMin": 3.3,
    "lngMax": 4.1,
    "file": "tile_r1c0.json",
-   "count": 739
+   "count": 738
   },
   {
    "id": "r1c1",
@@ -81,7 +81,7 @@
    "lngMin": 4.1,
    "lngMax": 4.9,
    "file": "tile_r2c1.json",
-   "count": 866
+   "count": 865
   },
   {
    "id": "r2c2",
@@ -90,7 +90,7 @@
    "lngMin": 4.9,
    "lngMax": 5.7,
    "file": "tile_r2c2.json",
-   "count": 939
+   "count": 938
   },
   {
    "id": "r2c3",
@@ -234,7 +234,7 @@
    "lngMin": 5.7,
    "lngMax": 6.5,
    "file": "tile_r5c3.json",
-   "count": 776
+   "count": 775
   },
   {
    "id": "r5c4",
